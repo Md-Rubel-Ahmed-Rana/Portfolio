@@ -1,5 +1,5 @@
 import React from "react";
-import BannerImage from "../public/images/BannerImage.png";
+import BannerImage from "../../public/images/BannerImage.png";
 import Image from "next/image";
 import {
   FaFacebook,
