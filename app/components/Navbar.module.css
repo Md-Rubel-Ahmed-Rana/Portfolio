@@ -1,0 +1,25 @@
+.navList {
+    position: relative;
+    text-align: center;
+}
+
+.navList::before {
+    content: "";
+    width: 0;
+    height: 2px;
+    background: #807474;
+    position: absolute;
+    left: 5px;
+    bottom: 0;
+    transition: width 0.4s ease;
+    box-shadow: -3px 0 0 #383838, -5px 0 0 #383838;
+}
+
+.navList:hover::before {
+    width: 95%;
+}
+
+.navList::before {
+    top: 25px;
+    transition-delay: 0.1s;
+}

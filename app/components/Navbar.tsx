@@ -4,11 +4,19 @@ import React from "react";
 import Logo from "../favicon.ico";
 import Image from "next/image";
 import Link from "next/link";
+import style from "./Navbar.module.css";
+
+const navList = [
+  "Home",
+  "Services",
+  "Works",
+  "Skills",
+  "Projects",
+  "Blogs",
+  "Contact",
+];
 
 const Navbar = () => {
-  const path = window?.location?.pathname;
-  console.log(path);
-
   return (
     <nav className="flex flex-col justify-center shadow-md ">
       <div className="text-center pt-2 pb-0 mb-0">
@@ -50,61 +58,13 @@ const Navbar = () => {
         </div>
         <div>
           <ul className="flex items-center gap-4 font-semibold text-gray-500 text-lg">
-            <li
-              className={`${
-                path === "/" && "underline text-blue-600"
-              } transition duration-300 ease-in-out hover:underline hover:text-gray-800`}
-            >
-              <Link href={"/"}>Home</Link>
-            </li>
-            <span>|</span>
-            <li
-              className={`${
-                path === "/services" && "underline text-blue-600"
-              } transition duration-300 ease-in-out hover:underline hover:text-gray-800`}
-            >
-              <Link href={"/services"}>Services</Link>
-            </li>
-            <span>|</span>
-            <li
-              className={`${
-                path === "/works" && "underline text-blue-600"
-              } transition duration-300 ease-in-out hover:underline hover:text-gray-800`}
-            >
-              <Link href={"/works"}>Works</Link>
-            </li>
-            <span>|</span>
-            <li
-              className={`${
-                path === "/skills" && "underline text-blue-600"
-              } transition duration-300 ease-in-out hover:underline hover:text-gray-800`}
-            >
-              <Link href={"/skills"}>Skills</Link>
-            </li>
-            <span>|</span>
-            <li
-              className={`${
-                path === "/projects" && "underline text-blue-600"
-              } transition duration-300 ease-in-out hover:underline hover:text-gray-800`}
-            >
-              <Link href={"/projects"}>Projects</Link>
-            </li>
-            <span>|</span>
-            <li
-              className={`${
-                path === "/blogs" && "underline text-blue-600"
-              } transition duration-300 ease-in-out hover:underline hover:text-gray-800`}
-            >
-              <Link href={"/blogs"}>Blogs</Link>
-            </li>
-            <span>|</span>
-            <li
-              className={`${
-                path === "/contact" && "underline text-blue-600"
-              } transition duration-300 ease-in-out hover:underline hover:text-gray-800`}
-            >
-              <Link href={"/contact"}>Contact</Link>
-            </li>
+            {navList.map((nav) => (
+              <li key={Math.random()} className={style.navList}>
+                <Link href={nav === "Home" ? "/" : nav.toLowerCase()}>
+                  {nav}
+                </Link>
+              </li>
+            ))}
             <li>
               <button className="bg-gradient-to-l ml-3 from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white px-10 py-3 rounded-full">
                 Hire Me!

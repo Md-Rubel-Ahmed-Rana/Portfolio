@@ -58,13 +58,13 @@ export default function Services() {
         </h3>
         <p className="text-center text-slate-500 text-xl font-sans mt-5">
           Transforming your ideas into captivating web projects that <br />
-          inspire both you and your customers
+          inspire both you and your customers/clients
         </p>
       </div>
       <ul className="flex flex-col">
         {servicesData.map((service, index) => (
           <li
-            className="transition ease-out duration-300 p-4 border-b-2 rounded-md flex items-center gap-5 cursor-pointer bg-transparent bg-gradient-to-r hover:to-purple-800 hover:from-sky-500 hover:text-white group relative overflow-hidden"
+            className="transition ease-out duration-300 p-4 border-b-2 hover:rounded-md flex items-center gap-5 cursor-pointer bg-transparent bg-gradient-to-r hover:to-purple-800 hover:from-sky-500 hover:text-white group relative overflow-hidden"
             key={index}
           >
             <h5 className="font-semibold text-3xl text-transparent bg-gradient-to-r from-purple-800 to-sky-400 bg-clip-text w-full group-hover:text-white relative z-20">
