@@ -7,16 +7,40 @@ const Navbar = () => {
   return (
     <nav className="flex flex-col justify-center shadow-md ">
       <div className="text-center pt-2 pb-0 mb-0">
-        <p className="text-lg font-light text-blue-800">
+        <p
+          title="Thinking is 50% of a work"
+          className="text-lg font-light text-blue-800"
+        >
           Thought comprises half the work.
         </p>
       </div>
       <div className="flex justify-between items-center p-5 pt-0 mt-0">
         <div className="flex gap-2 items-center">
-          <Image className="w-16 h-16 rounded-full" src={Logo} alt="Logo" />
+          <Image
+            title="Logo"
+            className="w-16 h-16 rounded-full"
+            src={Logo}
+            alt="Logo"
+          />
           <div className="font-semibold text-gray-500 text-lg">
-            <p>mdrubelahmedrana521@gmail.com</p>
-            <p>+880 1758 049882</p>
+            <p title="Click to send email">
+              <a
+                href="mailto:mdrubelahmedrana521@gmail.com?subject=Contact Mail&body=Start writing your message"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                mdrubelahmedrana521@gmail.com
+              </a>
+            </p>
+            <p title="Click to make call">
+              <a
+                href="tel:+880 1758 049882"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                +880 1758 049882
+              </a>
+            </p>
           </div>
         </div>
         <div>

@@ -30,7 +30,7 @@ const Banner = () => {
           </p>
         </div>
         <div className="flex items-center gap-5">
-          <p>
+          <p title="Google drive link will be opened">
             <a
               href="https://drive.google.com/file/d/16Da_lp3ezXAJvKEtvvNcRfIQuNcHyodH/view"
               target="_blank"
@@ -43,7 +43,10 @@ const Banner = () => {
             </a>
           </p>
           <ul className="flex items-center gap-5 text-purple-500">
-            <li className="text-xl ring-1 rounded-full p-2 hover:text-white hover:bg-purple-600 transition ease-out duration-200">
+            <li
+              title="LinkedIn"
+              className="text-xl ring-1 rounded-full p-2 hover:text-white hover:bg-purple-600 transition ease-out duration-200"
+            >
               <a
                 href="https://www.linkedin.com/in/md-rubel-ahmed-rana"
                 target="_blank"
@@ -52,7 +55,10 @@ const Banner = () => {
                 <FaLinkedin />
               </a>
             </li>
-            <li className="text-xl ring-1 rounded-full p-2 hover:text-white hover:bg-purple-600 transition ease-out duration-200">
+            <li
+              title="Github"
+              className="text-xl ring-1 rounded-full p-2 hover:text-white hover:bg-purple-600 transition ease-out duration-200"
+            >
               <a
                 href="https://github.com/Md-Rubel-Ahmed-Rana"
                 target="_blank"
@@ -61,7 +67,10 @@ const Banner = () => {
                 <FaGithub />
               </a>
             </li>
-            <li className="text-xl ring-1 rounded-full p-2 hover:text-white hover:bg-purple-600 transition ease-out duration-200">
+            <li
+              title="Facebook"
+              className="text-xl ring-1 rounded-full p-2 hover:text-white hover:bg-purple-600 transition ease-out duration-200"
+            >
               <a
                 href="https://web.facebook.com/mdrubelahmed.rana.98"
                 target="_blank"
@@ -70,7 +79,10 @@ const Banner = () => {
                 <FaFacebook />
               </a>
             </li>
-            <li className="text-xl ring-1 rounded-full p-2 hover:text-white hover:bg-purple-600 transition ease-out duration-200">
+            <li
+              title="Whatsapp"
+              className="text-xl ring-1 rounded-full p-2 hover:text-white hover:bg-purple-600 transition ease-out duration-200"
+            >
               <a
                 href="https://wa.link/63ahuf"
                 target="_blank"
