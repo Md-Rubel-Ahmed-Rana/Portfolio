@@ -1,5 +1,5 @@
-import React from "react";
 import type { Metadata } from "next";
+import { GoArrowLeft } from "react-icons/go";
 
 export const metadata: Metadata = {
   title: "Services: Md Rubel Ahmed Rana",
@@ -51,9 +51,9 @@ const servicesData = [
 
 export default function Services() {
   return (
-    <div className="py-16 flex flex-col gap-10">
+    <section className="py-16 flex flex-col gap-10">
       <div>
-        <h3 className="font-semibold text-4xl text-center text-transparent bg-gradient-to-l from-blue-400 to-purple-900 bg-clip-text">
+        <h3 className="font-semibold text-4xl text-center text-transparent bg-gradient-to-l to-[#8750f7] from-[#2a1454] bg-clip-text">
           My Quality Services
         </h3>
         <p className="text-center text-slate-500 text-xl font-sans mt-5">
@@ -64,18 +64,21 @@ export default function Services() {
       <ul className="flex flex-col">
         {servicesData.map((service, index) => (
           <li
-            className="transition ease-out duration-300 p-4 border-b-2 hover:rounded-md flex items-center gap-5 cursor-pointer bg-transparent bg-gradient-to-r hover:to-purple-800 hover:from-sky-500 hover:text-white group relative overflow-hidden"
+            className="transition ease-out duration-300 px-4 py-6 border-b-2 hover:rounded-md flex items-center gap-5 cursor-pointer bg-transparent bg-gradient-to-r hover:to-purple-800 hover:from-sky-500 hover:text-white group relative overflow-hidden"
             key={index}
           >
-            <h5 className="font-semibold text-3xl text-transparent bg-gradient-to-r from-purple-800 to-sky-400 bg-clip-text w-full group-hover:text-white relative z-20">
+            <h5 className="w-2/5 font-semibold text-2xl text-transparent bg-gradient-to-r from-purple-800 to-sky-400 bg-clip-text group-hover:text-white relative z-20">
               {service.name}
             </h5>
-            <p className="text-xl w-full text-slate-600 group-hover:text-white relative z-20">
+            <p className="text-lg w-3/5 text-slate-600 group-hover:text-white relative z-20">
               {service.description}
+            </p>
+            <p>
+              <GoArrowLeft className="text-4xl transform transition-transform ease-out duration-1000 -rotate-45 group-hover:rotate-45" />
             </p>
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 }

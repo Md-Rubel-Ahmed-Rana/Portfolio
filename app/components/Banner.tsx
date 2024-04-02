@@ -9,6 +9,29 @@ import {
   FaDownload,
 } from "react-icons/fa";
 
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    icon: FaLinkedin,
+    url: "https://www.linkedin.com/in/md-rubel-ahmed-rana",
+  },
+  {
+    name: "Github",
+    icon: FaGithub,
+    url: "https://github.com/Md-Rubel-Ahmed-Rana",
+  },
+  {
+    name: "Facebook",
+    icon: FaFacebook,
+    url: "https://web.facebook.com/mdrubelahmed.rana.98",
+  },
+  {
+    name: "Whatsapp",
+    icon: FaWhatsapp,
+    url: "https://wa.link/63ahuf",
+  },
+];
+
 const Banner = () => {
   return (
     <div className="flex justify-between items-center py-10">
@@ -36,61 +59,24 @@ const Banner = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <button className="ring-1 hover:text-white hover:bg-purple-600 transition ease-out duration-200 text-blue-400 px-10 py-3 rounded-full flex items-center justify-between gap-3 text-xl">
+              <button className="ring-1 hover:text-white shadow-2xl hover:bg-purple-600 transition ease-out duration-200 text-blue-400 px-10 py-3 rounded-full flex items-center justify-between gap-3 text-xl">
                 <small>Download CV </small>
                 <FaDownload />
               </button>
             </a>
           </p>
           <ul className="flex items-center gap-5 text-purple-500">
-            <li
-              title="LinkedIn"
-              className="text-xl ring-1 rounded-full p-2 hover:text-white hover:bg-purple-600 transition ease-out duration-200"
-            >
-              <a
-                href="https://www.linkedin.com/in/md-rubel-ahmed-rana"
-                target="_blank"
-                rel="noopener noreferrer"
+            {socialLinks.map((link) => (
+              <li
+                key={Math.random()}
+                title={link.name}
+                className="text-xl ring-1 rounded-full p-2 hover:text-white hover:bg-purple-600 transition ease-out duration-200 shadow-lg"
               >
-                <FaLinkedin />
-              </a>
-            </li>
-            <li
-              title="Github"
-              className="text-xl ring-1 rounded-full p-2 hover:text-white hover:bg-purple-600 transition ease-out duration-200"
-            >
-              <a
-                href="https://github.com/Md-Rubel-Ahmed-Rana"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaGithub />
-              </a>
-            </li>
-            <li
-              title="Facebook"
-              className="text-xl ring-1 rounded-full p-2 hover:text-white hover:bg-purple-600 transition ease-out duration-200"
-            >
-              <a
-                href="https://web.facebook.com/mdrubelahmed.rana.98"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaFacebook />
-              </a>
-            </li>
-            <li
-              title="Whatsapp"
-              className="text-xl ring-1 rounded-full p-2 hover:text-white hover:bg-purple-600 transition ease-out duration-200"
-            >
-              <a
-                href="https://wa.link/63ahuf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaWhatsapp />
-              </a>
-            </li>
+                <a href={link.url} target="_blank" rel="noopener noreferrer">
+                  <link.icon />
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
@@ -100,8 +86,6 @@ const Banner = () => {
           src={BannerImage}
           alt="Banner image"
           placeholder="blur"
-          objectFit="cover"
-          objectPosition="revert"
         />
       </div>
     </div>
