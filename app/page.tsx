@@ -6,7 +6,7 @@ import "animate.css";
 export default function Home() {
   return (
     <main>
-      <section className="max-w-[1440px] w-full mx-auto p-5">
+      <section>
         <Banner />
         <Services />
         <Projects />

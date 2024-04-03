@@ -21,12 +21,14 @@ const Navbar = () => {
       </div>
       <div className="flex justify-between items-center p-5 pt-0 mt-0">
         <div className="flex gap-2 items-center">
-          <Image
-            title="Logo"
-            className="w-16 h-16 rounded-full"
-            src={Logo}
-            alt="Logo"
-          />
+          <Link href={"/"}>
+            <Image
+              title="Logo"
+              className="w-16 h-16 rounded-full"
+              src={Logo}
+              alt="Logo"
+            />
+          </Link>
           <div className="font-semibold text-gray-500 text-lg">
             <p title="Click to send email">
               <a
