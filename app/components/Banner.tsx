@@ -34,7 +34,7 @@ const socialLinks = [
 
 const Banner = () => {
   return (
-    <div className="max-w-[1440px] w-full mx-auto flex justify-between items-center p-10">
+    <div className="max-w-[1440px] w-full mx-auto flex justify-between items-center py-16 px-10">
       <div className="flex flex-col justify-between gap-10 max-w-lg">
         <div>
           <h3 className="text-4xl font-bold mb-4">

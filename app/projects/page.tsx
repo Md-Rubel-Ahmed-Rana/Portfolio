@@ -142,7 +142,7 @@ export default function Projects() {
             const { thumbnail, name, category, subTitle } = project;
             return (
               <div
-                className="border w-full h-full rounded-lg relative group"
+                className="border shadow-lg w-full h-full rounded-lg relative group"
                 key={Math.random()}
               >
                 <img

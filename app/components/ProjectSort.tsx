@@ -6,7 +6,7 @@ const ProjectSort = () => {
   const [sortItem, setSortItem] = useState("All");
   const sortItems = ["All", "Frontend", "Backend", "Full Stack"];
   return (
-    <ul className="w-2/5 mx-auto flex items-center justify-center gap-5 text-blue-600 text-xl bg-gray-200 rounded-full">
+    <ul className="w-2/5 mx-auto flex shadow-lg items-center justify-center gap-5 text-blue-600 text-xl bg-gray-200 rounded-full">
       {sortItems.map((item) => (
         <li key={Math.random()}>
           <button
