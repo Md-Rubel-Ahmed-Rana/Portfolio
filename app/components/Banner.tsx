@@ -73,7 +73,7 @@ const Banner = () => {
                 className="text-xl ring-1 rounded-full p-2 hover:text-white hover:bg-purple-600 transition ease-out duration-200 shadow-lg"
               >
                 <a href={link.url} target="_blank" rel="noopener noreferrer">
-                  <link.icon />
+                  <link.icon className="rounded-full" />
                 </a>
               </li>
             ))}
