@@ -53,13 +53,13 @@ const Navbar = () => {
         <div>
           <ul className="flex items-center gap-4 font-semibold text-gray-500 text-lg">
             {navList.map((nav) => (
-              <li key={Math.random()} className={style.navList}>
+              <li title={nav} key={Math.random()} className={style.navList}>
                 <Link href={nav === "Home" ? "/" : nav.toLowerCase()}>
                   {nav}
                 </Link>
               </li>
             ))}
-            <li>
+            <li title="Hire me actionable button">
               <button className="bg-gradient-to-l ml-3 from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white px-10 py-3 rounded-full">
                 Hire Me!
               </button>

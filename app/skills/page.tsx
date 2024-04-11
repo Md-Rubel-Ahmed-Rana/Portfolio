@@ -83,7 +83,6 @@ const Skills = () => {
                 {IconComponent && (
                   <IconComponent className="text-6xl text-blue-600 group-hover:text-white" />
                 )}{" "}
-                {/* Ensure IconComponent is valid */}
                 <p className="text-xl font-semibold text-gray-500 mt-3 group-hover:text-blue-500">
                   {skill.percentage}%
                 </p>

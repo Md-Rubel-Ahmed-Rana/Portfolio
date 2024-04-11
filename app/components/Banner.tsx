@@ -1,64 +1,29 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
-import BannerImage from "../../public/images/BannerImage.png";
-import Image from "next/image";
-import {
-  FaFacebook,
-  FaGithub,
-  FaLinkedin,
-  FaWhatsapp,
-  FaDownload,
-} from "react-icons/fa";
+import { FaDownload } from "react-icons/fa";
+import { getHomeData } from "../apis/getHomeData";
+import { socialLinks } from "../constants/socialLinks";
 
-const socialLinks = [
-  {
-    name: "LinkedIn",
-    icon: FaLinkedin,
-    url: "https://www.linkedin.com/in/md-rubel-ahmed-rana",
-  },
-  {
-    name: "Github",
-    icon: FaGithub,
-    url: "https://github.com/Md-Rubel-Ahmed-Rana",
-  },
-  {
-    name: "Facebook",
-    icon: FaFacebook,
-    url: "https://web.facebook.com/mdrubelahmed.rana.98",
-  },
-  {
-    name: "Whatsapp",
-    icon: FaWhatsapp,
-    url: "https://wa.link/63ahuf",
-  },
-];
+const Banner = async () => {
+  const data = await getHomeData();
+  const banner = data.bannerSection;
+  const { name, image, position, description, resumeLink } = banner || {};
 
-const Banner = () => {
   return (
     <div className="max-w-[1440px] w-full mx-auto flex justify-between items-center py-16 px-10">
       <div className="flex flex-col justify-between gap-10 max-w-lg">
         <div>
-          <h3 className="text-4xl font-bold mb-4">
-            I&apos;m Md Rubel Ahmed Rana
-          </h3>
+          <h3 className="text-4xl font-bold mb-4">I&apos;m {name}</h3>
           <h4 className="text-3xl mb-4">
             <span className="font-semibold text-transparent bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text">
-              Full Stack Developer
+              {position}
             </span>
           </h4>
-          <p className="text-xl text-gray-700 leading-relaxed">
-            As a full stack developer, I thrive on breaking down complex
-            applications into micro parts, delving deep into their core points.
-            This approach allows me to craft error-free, bug-free applications
-            that stand the test of time.
-          </p>
+          <p className="text-xl text-gray-700 leading-relaxed">{description}</p>
         </div>
         <div className="flex items-center gap-5">
           <p title="Google drive link will be opened">
-            <a
-              href="https://drive.google.com/file/d/16Da_lp3ezXAJvKEtvvNcRfIQuNcHyodH/view"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={resumeLink} target="_blank" rel="noopener noreferrer">
               <button className="ring-1 hover:text-white shadow-2xl hover:bg-purple-600 transition ease-out duration-200 text-blue-400 px-10 py-3 rounded-full flex items-center justify-between gap-3 text-xl">
                 <small>Download CV </small>
                 <FaDownload />
@@ -81,11 +46,10 @@ const Banner = () => {
         </div>
       </div>
       <div className="w-1/2">
-        <Image
+        <img
           className="rounded-md cursor-pointer w-2/3 transition ease-out duration-200 rotate-3 hover:rotate-0"
-          src={BannerImage}
+          src={image}
           alt="Banner image"
-          placeholder="blur"
         />
       </div>
     </div>
