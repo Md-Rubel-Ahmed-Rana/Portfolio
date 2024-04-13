@@ -1,10 +1,11 @@
 import React from "react";
+import { FaRegEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 
 const WorkTogether = () => {
   return (
     <div className=" bg-gray-100">
       <div className="max-w-[1440px] w-full mx-auto py-16 px-10">
-        <div className="flex justify-between gap-20 ">
+        <div className="flex justify-between gap-20 items-center">
           <div className="w-full bg-white p-10 rounded-2xl">
             <h4 className="text-3xl">
               <span className="text-transparent font-semibold bg-gradient-to-l to-[#9272d3] from-[#2a1454] bg-clip-text">
@@ -75,7 +76,48 @@ const WorkTogether = () => {
               </button>
             </form>
           </div>
-          <div className="w-full">Contact info here</div>
+          <div className="w-full flex flex-col gap-10">
+            <div className="flex items-center gap-4">
+              <p
+                title="Click to make a call"
+                className="bg-transparent p-3 rounded-full text-white text-2xl bg-gradient-to-l to-[#9272d3] from-[#2a1454]"
+              >
+                <FaPhoneAlt />
+              </p>
+              <div>
+                <p className="text-md">Phone</p>
+                <p className="text-xl font-sans">+880 1758 049 882</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4">
+              <p
+                title="Click to send email"
+                className="bg-transparent p-3 rounded-full text-white text-2xl bg-gradient-to-l to-[#9272d3] from-[#2a1454]"
+              >
+                <FaRegEnvelope />
+              </p>
+              <div>
+                <p className="text-md">Email</p>
+                <p className="text-xl font-sans">
+                  mdrubelahmedrana521@gmail.com
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4">
+              <p
+                title="Click to open google map"
+                className="bg-transparent p-3 rounded-full text-white text-2xl bg-gradient-to-l to-[#9272d3] from-[#2a1454]"
+              >
+                <FaMapMarkerAlt />
+              </p>
+              <div>
+                <p className="text-md">Address</p>
+                <p className="text-xl font-sans">
+                  Companigonj, Sylhet, Bangladesh
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
