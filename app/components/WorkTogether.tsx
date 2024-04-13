@@ -82,7 +82,13 @@ const WorkTogether = () => {
                 title="Click to make a call"
                 className="bg-transparent p-3 rounded-full text-white text-2xl bg-gradient-to-l to-[#9272d3] from-[#2a1454]"
               >
-                <FaPhoneAlt />
+                <a
+                  href="tel:+880 1758 049882"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaPhoneAlt />
+                </a>
               </p>
               <div>
                 <p className="text-md">Phone</p>
@@ -94,7 +100,13 @@ const WorkTogether = () => {
                 title="Click to send email"
                 className="bg-transparent p-3 rounded-full text-white text-2xl bg-gradient-to-l to-[#9272d3] from-[#2a1454]"
               >
-                <FaRegEnvelope />
+                <a
+                  href="mailto:mdrubelahmedrana521@gmail.com?subject=Contact Mail&body=Start writing your message"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaRegEnvelope />
+                </a>
               </p>
               <div>
                 <p className="text-md">Email</p>
@@ -108,7 +120,13 @@ const WorkTogether = () => {
                 title="Click to open google map"
                 className="bg-transparent p-3 rounded-full text-white text-2xl bg-gradient-to-l to-[#9272d3] from-[#2a1454]"
               >
-                <FaMapMarkerAlt />
+                <a
+                  href="https://maps.app.goo.gl/Bk3g2A6BEpPhUEbQ6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaMapMarkerAlt />
+                </a>
               </p>
               <div>
                 <p className="text-md">Address</p>

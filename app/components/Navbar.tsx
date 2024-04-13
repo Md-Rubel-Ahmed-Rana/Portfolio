@@ -1,12 +1,10 @@
 "use client";
-
 import React from "react";
 import Logo from "../favicon.ico";
 import Image from "next/image";
 import Link from "next/link";
 import style from "./Navbar.module.css";
-
-const navList = ["Home", "Services", "Projects", "Blogs", "Contact"];
+import { navList } from "../constants/navList";
 
 const Navbar = () => {
   return (

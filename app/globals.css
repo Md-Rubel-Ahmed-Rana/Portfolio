@@ -2,12 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   padding: 0%;
   margin: 0%;
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 /* For Webkit browsers (Chrome, Safari, newer versions of Opera) */
