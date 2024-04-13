@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import style from "./Navbar.module.css";
 
-const navList = ["Home", "Services", "Projects", "Skills", "Blogs", "Contact"];
+const navList = ["Home", "Services", "Projects", "Blogs", "Contact"];
 
 const Navbar = () => {
   return (

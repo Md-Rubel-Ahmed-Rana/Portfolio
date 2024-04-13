@@ -1,9 +1,9 @@
 import Banner from "./components/Banner";
 import ExperienceAndCourse from "./components/ExperienceAndCourse";
-import Projects from "./projects/page";
-import Services from "./services/page";
+import Projects from "./components/Projects";
+import Services from "./components/Services";
 import "animate.css";
-import Skills from "./skills/page";
+import Skills from "./components/Skills";
 
 export default function Home() {
   return (

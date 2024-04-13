@@ -1,4 +1,4 @@
-import { getIcon } from "@/utils/getIcons";
+import { getIcon } from "@/app/utils/getIcons";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
