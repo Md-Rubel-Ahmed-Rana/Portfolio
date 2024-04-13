@@ -5,18 +5,18 @@ import Services from "./components/Services";
 import "animate.css";
 import Skills from "./components/Skills";
 import WorkTogether from "./components/WorkTogether";
+import Blogs from "./components/Blogs";
 
 export default function Home() {
   return (
     <main>
-      <section>
-        <Banner />
-        <Services />
-        <Projects />
-        <ExperienceAndCourse />
-        <Skills />
-        <WorkTogether />
-      </section>
+      <Banner />
+      <Services />
+      <Projects />
+      <ExperienceAndCourse />
+      <Skills />
+      <Blogs />
+      <WorkTogether />
     </main>
   );
 }

@@ -47,7 +47,7 @@ const Banner = async () => {
       </div>
       <div className="w-1/2">
         <img
-          className="rounded-md cursor-pointer w-2/3 transition ease-out duration-200 rotate-3 hover:rotate-0"
+          className="rounded-md cursor-pointer w-2/3 transition duration-1000 rotate-3 hover:rotate-0"
           src={image}
           alt="Banner image"
         />

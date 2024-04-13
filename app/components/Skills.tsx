@@ -59,7 +59,7 @@ const skillsData = [
 
 const Skills = () => {
   return (
-    <div className="max-w-[1440px] w-full mx-auto py-16 px-10 flex flex-col gap-10">
+    <div className="max-w-[1440px] w-full mx-auto py-20 px-10 flex flex-col gap-10">
       <div>
         <h3 className="font-semibold text-4xl text-center text-transparent bg-gradient-to-l to-[#9272d3] from-[#2a1454] bg-clip-text">
           My Skills
@@ -71,12 +71,12 @@ const Skills = () => {
           and ignite the imagination of your audience and stakeholders alike.
         </p>
       </div>
-      <div className="grid grid-cols-5 gap-5 ">
+      <div className="grid grid-cols-6 gap-5 ">
         {skillsData.map((skill) => {
           const IconComponent = getIcon(skill?.name);
           return (
             <div
-              className=" border flex flex-col text-center hover:bg-purple-950 hover:text-white gap-3 justify-between items-center p-3 rounded-2xl cursor-pointer shadow-md group"
+              className="transition duration-1000 border flex flex-col text-center hover:bg-purple-950 hover:text-white gap-3 justify-between items-center p-3 rounded-2xl cursor-pointer shadow-md group"
               key={Math.random()}
             >
               <div>

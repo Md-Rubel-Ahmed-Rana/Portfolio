@@ -3,10 +3,10 @@ import { FaRegEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 
 const WorkTogether = () => {
   return (
-    <div className=" bg-gray-100">
+    <div className=" bg-white">
       <div className="max-w-[1440px] w-full mx-auto py-16 px-10">
         <div className="flex justify-between gap-20 items-center">
-          <div className="w-full bg-white p-10 rounded-2xl">
+          <div className="w-full bg-gray-100 p-10 rounded-2xl">
             <h4 className="text-3xl">
               <span className="text-transparent font-semibold bg-gradient-to-l to-[#9272d3] from-[#2a1454] bg-clip-text">
                 Let’s work together!

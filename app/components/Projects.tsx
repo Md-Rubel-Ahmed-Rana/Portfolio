@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default async function Projects() {
   const projects = (await getProjectData()) as IProject[];
   return (
-    <section className="max-w-[1440px] w-full mx-auto py-16 px-5 flex flex-col gap-10">
+    <section className="max-w-[1440px] w-full mx-auto py-20 px-5 flex flex-col gap-10">
       <div>
         <h3 className="font-semibold text-4xl text-center text-transparent bg-gradient-to-l to-[#9272d3] from-[#2a1454] bg-clip-text">
           My Recent Works
@@ -31,12 +31,12 @@ export default async function Projects() {
             const { thumbnail, name, category, subTitle } = project;
             return (
               <div
-                className="border shadow-lg w-full h-full rounded-lg relative group"
+                className="border shadow-lg w-full h-full rounded-lg relative group overflow-hidden "
                 key={project.id}
               >
                 <Link href={`projects/${project.id}`}>
                   <img
-                    className="w-full h-full rounded-lg"
+                    className="w-full h-full rounded-lg hover:scale-110 transition duration-1000"
                     src={thumbnail}
                     alt="project  image"
                   />

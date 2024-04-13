@@ -14,7 +14,7 @@ const ExperienceAndCourseCard = (props: Props) => {
   const { id, name, startDate, endDate, institute, route } = props;
   return (
     <div
-      className="bg-white p-5 transition ease-out duration-75 rounded-lg flex flex-col gap-2 bg-transparent bg-gradient-to-l hover:to-[#8750f7] hover:from-[#2a1454] hover:text-white group relative"
+      className="bg-white p-5 transition duration-1000 rounded-lg flex flex-col gap-2 hover:bg-purple-800 hover:text-white group relative"
       key={Math.random()}
     >
       <p className="text-lg font-semibold text-blue-500 group-hover:text-white">
