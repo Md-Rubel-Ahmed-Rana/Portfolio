@@ -6,6 +6,7 @@ import "animate.css";
 import Skills from "./components/Skills";
 import WorkTogether from "./components/WorkTogether";
 import Blogs from "./components/Blogs";
+import Feedback from "./components/Feedback";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Projects />
       <ExperienceAndCourse />
       <Skills />
+      <Feedback />
       <Blogs />
       <WorkTogether />
     </main>

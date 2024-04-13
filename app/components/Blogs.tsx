@@ -54,7 +54,7 @@ const blogs = [
 
 const Blogs = () => {
   return (
-    <section className="bg-gray-100">
+    <section className="bg-white">
       <div className="max-w-[1440px] w-full mx-auto py-20 px-10 flex flex-col gap-10">
         <div>
           <h3 className="font-semibold text-4xl text-center text-transparent bg-gradient-to-l to-[#8750f7] from-[#2a1454] bg-clip-text">
