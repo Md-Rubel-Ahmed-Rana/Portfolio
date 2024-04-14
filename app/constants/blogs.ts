@@ -13,7 +13,7 @@ export const blogs = [
     title: "Mastering CSS Flexbox",
     type: "tutorial",
     image: "https://example.com/photo2.png",
-    body: "Flexbox is a powerful layout model that enables developers to design flexible and responsive web layouts with ease. From creating complex grid structures to aligning and distributing content, mastering CSS Flexbox opens up a world of possibilities in web design. This blog provides a comprehensive guide to understanding and implementing Flexbox techniques for creating modern and dynamic web layouts.",
+    body: "<p>Flexbox is a powerful layout model that enables developers to design flexible and responsive web layouts with ease.</p> <p> From creating complex grid structures to aligning and distributing content, mastering CSS Flexbox opens up a world of possibilities in web design.</p>  <p>This blog provides a comprehensive guide to understanding and implementing Flexbox techniques for creating modern and dynamic web layouts.</p>",
     createdAt: new Date(),
     comments: 0,
   },

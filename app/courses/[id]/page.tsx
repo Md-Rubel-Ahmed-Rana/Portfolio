@@ -1,6 +1,6 @@
 import React from "react";
 
-const Contact = () => {
+const CourseDetails = () => {
   return (
     <div className="h-screen flex justify-center items-center">
       <h3 className="text-4xl font-bold text-gray-700 text-center">
@@ -10,4 +10,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default CourseDetails;

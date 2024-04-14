@@ -48,16 +48,19 @@ const Blogs = () => {
                     # {blog.type.toUpperCase()}
                   </button>
                 </p>
-                <p className="group-hover:text-yellow-600">
-                  {blog.body.slice(0, 130)} ...
-                </p>
+                <div
+                  className="text-gray-600"
+                  dangerouslySetInnerHTML={{
+                    __html: `${blog.body.slice(0, 110)} ...`,
+                  }}
+                />
               </div>
             </Link>
           ))}
         </div>
-        <div className="text-center text-4xl font-semibold">
+        {/* <div className="text-center text-4xl font-semibold">
           Pagination here
-        </div>
+        </div> */}
       </div>
     </section>
   );
