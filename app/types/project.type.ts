@@ -4,7 +4,7 @@ export type IProject = {
   subTitle: string;
   description: string;
   features: string[];
-  techStack: string;
+  techStack: string[];
   sourceCode: string;
   liveLink: string;
   projectStatus: string;
