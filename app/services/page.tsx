@@ -31,9 +31,9 @@ const Services = async () => {
               className="border p-5 shadow-lg rounded-md  relative"
               key={service.id}
             >
-              <div className="flex flex-col gap-3 mb-10">
+              <div className="flex flex-col gap-3 mb-10 overflow-hidden">
                 <Image
-                  className="rounded-md h-40 w-full"
+                  className="rounded-md h-40 w-full transition duration-500 hover:scale-110"
                   src={blogImage}
                   alt={service.name}
                 />

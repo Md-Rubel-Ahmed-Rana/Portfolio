@@ -52,7 +52,7 @@ const Navbar = () => {
           <ul className="flex items-center gap-4 font-semibold text-gray-500 text-lg">
             {navList.map((nav) => (
               <li title={nav} key={Math.random()} className={style.navList}>
-                <Link href={nav === "Home" ? "/" : nav.toLowerCase()}>
+                <Link href={nav === "Home" ? "/" : `/${nav.toLowerCase()}`}>
                   {nav}
                 </Link>
               </li>

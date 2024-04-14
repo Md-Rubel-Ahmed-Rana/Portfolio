@@ -23,7 +23,7 @@ const Footer = () => {
             <ul className="flex items-center gap-4 font-semibold">
               {navList.map((nav) => (
                 <li className="text-white" title={nav} key={Math.random()}>
-                  <Link href={nav === "Home" ? "/" : nav.toLowerCase()}>
+                  <Link href={nav === "Home" ? "/" : `/${nav.toLowerCase()}`}>
                     {nav}
                   </Link>
                 </li>
