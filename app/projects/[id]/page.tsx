@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { getSingleProjectData } from "@/app/apis/getSingleProjectData";
+import CommentButton from "@/app/components/CommentButton";
+import Comments from "@/app/components/Comments";
 import { IProject } from "@/app/types/project.type";
 import React from "react";
 
@@ -89,7 +91,7 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
           <div className="mt-4">
             <h3 className="text-lg font-semibold">Technology used: </h3>
             <ul className="list-decimal ml-6">
-              {techStack[0].split(",").map((tech, index) => (
+              {techStack.map((tech, index) => (
                 <li key={index}>{tech}</li>
               ))}
             </ul>
@@ -102,7 +104,24 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
           </p>
         </div>
         <div className="w-2/5">
-          <h3>Comment will be shown here</h3>
+          <div className="flex justify-between items-center mb-3">
+            <h3 className="text-2xl font-bold text-gray-600 ">
+              Comments for this project
+            </h3>
+            <p>
+              <CommentButton />
+            </p>
+          </div>
+
+          <Comments />
+          {/* <p className="text-right mt-3">
+            <button
+              type="button"
+              className="bg-gradient-to-l from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white  px-5 py-1 rounded-full"
+            >
+              Leave a comment
+            </button>
+          </p> */}
         </div>
       </div>
     </section>
