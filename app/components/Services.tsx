@@ -1,12 +1,6 @@
-import type { Metadata } from "next";
 import { GoArrowLeft } from "react-icons/go";
 import { getServiceData } from "../apis/getServiceData";
 import { IService } from "../types/service.type";
-
-export const metadata: Metadata = {
-  title: "Services: Md Rubel Ahmed Rana",
-  description: "Md Rubel Ahmed Rana portfolio",
-};
 
 export default async function Services() {
   const services = (await getServiceData()) as IService[];
