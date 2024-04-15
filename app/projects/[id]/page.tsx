@@ -3,7 +3,10 @@ import { getProjectData } from "@/app/apis/getProjectData";
 import { getSingleProjectData } from "@/app/apis/getSingleProjectData";
 import CommentButton from "@/app/components/CommentButton";
 import Comments from "@/app/components/Comments";
+import ProjectImages from "@/app/components/ProjectImages";
 import { IProject } from "@/app/types/project.type";
+import { countDays } from "@/app/utils/countDays";
+import { getProjectDuration } from "@/app/utils/getProjectDuration";
 import React from "react";
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
@@ -36,23 +39,7 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
     <section className="bg-gray-100">
       <div className="max-w-[1440px] w-full mx-auto py-20 px-5 flex gap-20">
         <div className="w-3/5">
-          <div className="overflow-hidden">
-            <img
-              className="w-full h-80 rounded-md hover:scale-110 transition duration-500"
-              src={thumbnail}
-              alt={name}
-            />
-          </div>
-          <div className="flex justify-center items-center gap-3 my-4">
-            {images?.map((image, index) => (
-              <img
-                className="rounded-md hover:scale-110 transition duration-500 w-32 h-24 border cursor-pointer"
-                key={index}
-                src={image}
-                alt={name}
-              />
-            ))}
-          </div>
+          <ProjectImages images={images} thumbnail={thumbnail} />
           <div className="flex flex-col gap-2">
             <h3 className="text-2xl font-bold text-gray-700">{name}</h3>
             <h4 className="text-lg">{subTitle}</h4>
@@ -70,23 +57,37 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
             </p>
             <p>
               <span className="font-semibold">Live preview: </span>
-              <a
-                className="text-md text-blue-500 hover:underline"
-                href={liveLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {liveLink}
-              </a>
+              {liveLink ? (
+                <a
+                  className="text-md text-blue-500 hover:underline"
+                  href={liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {liveLink}
+                </a>
+              ) : (
+                <span className="text-yellow-600 italic">
+                  Project was not deployed.
+                </span>
+              )}
             </p>
             <p className="flex gap-2 items-center">
               <span className="font-semibold">Project Status:</span>
               <span>{projectStatus}</span>
             </p>
-            <p className="flex gap-2 items-center">
-              <span className="font-semibold">Project duration:</span>
-              <span>{endDate?.toString() + "-" + startDate?.toString()}</span>
-            </p>
+            {endDate && (
+              <p className="flex gap-2 items-center">
+                <span className="font-semibold">Project duration:</span>
+                <span>{getProjectDuration(endDate, startDate)}</span>
+              </p>
+            )}
+            {!endDate && (
+              <p className="flex gap-2 items-center">
+                <span className="font-semibold">Project started:</span>
+                <span>{countDays(startDate)}</span>
+              </p>
+            )}
           </div>
           <div className="mt-4">
             <h3 className="text-lg font-semibold">Project Features: </h3>

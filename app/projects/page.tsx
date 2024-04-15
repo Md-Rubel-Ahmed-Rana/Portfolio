@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import type { Metadata } from "next";
 import { getProjectData } from "../apis/getProjectData";
 import { IProject } from "../types/project.type";
 import Link from "next/link";
