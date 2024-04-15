@@ -3,9 +3,12 @@ import blogImage from "../../public/images/blogImage.jpg";
 import Image from "next/image";
 import { FaCalendarAlt, FaComments } from "react-icons/fa";
 import Link from "next/link";
-import { blogs } from "../constants/blogs";
+import { getBlogData } from "../apis/getBlogData";
+import { IBlog } from "../types/blog.type";
+import blogDateFormatter from "../utils/blogDateFormatter";
 
-const Blogs = () => {
+const Blogs = async () => {
+  const blogs = (await getBlogData()) as IBlog[];
   return (
     <section className="bg-white">
       <div className="max-w-[1440px] w-full mx-auto py-20 px-10 flex flex-col gap-10">
@@ -20,8 +23,8 @@ const Blogs = () => {
           </p>
         </div>
         <div className="flex justify-between items-center ">
-          {blogs.slice(0, 3).map((blog, index) => (
-            <Link href={`/blogs/${blog.id}`} key={index}>
+          {blogs.slice(blogs.length - 3, blogs.length).map((blog) => (
+            <Link href={`/blogs/${blog.id}`} key={blog.id}>
               <div className="relative rounded-3xl cursor-pointer overflow-hidden group">
                 <Image
                   className="transition duration-1000 group-hover:scale-110"
@@ -43,7 +46,7 @@ const Blogs = () => {
                         <p>
                           <FaCalendarAlt />
                         </p>
-                        <p>Oct 01, 2022</p>
+                        <p>{blogDateFormatter(blog.createdAt).short}</p>
                       </div>
                       <div className="flex items-center gap-2 text-sm">
                         <p>

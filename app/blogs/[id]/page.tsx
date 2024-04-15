@@ -1,20 +1,19 @@
-import { blogs } from "@/app/constants/blogs";
 import blogImage from "../../../public/images/blogImage.jpg";
 import Image from "next/image";
 import { FaCalendarAlt, FaUserCircle } from "react-icons/fa";
 import CommentButton from "@/app/components/CommentButton";
 import Comments from "@/app/components/Comments";
+import { getSingleBlogData } from "@/app/apis/getSingleBlogData";
 import { IBlog } from "@/app/types/blog.type";
+import blogDateFormatter from "@/app/utils/blogDateFormatter";
 
-const BlogDetails = ({ params }: { params: { id: string } }) => {
-  const blog = blogs.find(
-    (blg: IBlog) => blg.id === Number(params.id)
-  ) as IBlog;
+const BlogDetails = async ({ params }: { params: { id: string } }) => {
+  const blog = (await getSingleBlogData(params.id)) as IBlog;
 
   return (
-    <section className="bg-gray-100">
-      <div className="max-w-[1440px] w-full mx-auto pb-20 pt-10 px-5 flex gap-20">
-        <div className="w-3/5 rounded-md border p-3 flex flex-col gap-2 group">
+    <section className="bg-gray-50">
+      <div className="max-w-[1440px] w-full mx-auto pb-20 pt-10 px-5 flex gap-10">
+        <div className="w-3/5 rounded-md bg-gray-100 h-full border p-3 shadow-md flex flex-col gap-2 group">
           <h5 className="text-xl font-semibold leading-7 text-gray-800 group-hover:text-blue-600">
             {blog?.title}
           </h5>
@@ -26,7 +25,7 @@ const BlogDetails = ({ params }: { params: { id: string } }) => {
             <p className="flex items-center gap-2">
               <span>Posted on</span>
               <FaCalendarAlt />
-              <span>{new Date(blog?.createdAt).toString().slice(0, 15)}</span>
+              <span>{blogDateFormatter(blog.createdAt).large}</span>
             </p>
           </div>
           <p>
@@ -46,7 +45,7 @@ const BlogDetails = ({ params }: { params: { id: string } }) => {
             dangerouslySetInnerHTML={{ __html: blog?.body }}
           />
         </div>
-        <div className="w-2/5">
+        <div className="w-2/5 h-full border rounded-md bg-gray-100 p-3 shadow-md">
           <div className="flex justify-between items-center mb-3">
             <h3 className="text-2xl font-bold text-gray-600 ">
               Comments for this article

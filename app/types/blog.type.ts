@@ -3,7 +3,7 @@ export type IBlog = {
   title: string;
   type: string;
   image: string;
-  body: string | TrustedHTML;
+  body: string | TrustedHTML | any;
   createdAt: Date;
   updatedAt: Date;
   comments: number;
