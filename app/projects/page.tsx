@@ -6,10 +6,18 @@ import Link from "next/link";
 import ProjectSort from "../components/ProjectSort";
 import { getProjectDuration } from "../utils/getProjectDuration";
 
-export const metadata: Metadata = {
-  title: "Projects: Md Rubel Ahmed Rana",
-  description: "Md Rubel Ahmed Rana portfolio",
-};
+export async function generateMetadata() {
+  const projects = (await getProjectData()) as IProject[];
+
+  return {
+    title: "Projects: Md Rubel Ahmed Rana",
+    description: projects
+      .map((project) => project.name)
+      .join(",")
+      .concat(projects.map((project) => project.description).join(","))
+      .concat(projects.map((project) => project.features.toString()).join(",")),
+  };
+}
 
 export default async function Projects() {
   const projects = (await getProjectData()) as IProject[];

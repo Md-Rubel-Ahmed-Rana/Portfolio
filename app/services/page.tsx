@@ -5,10 +5,17 @@ import { getServiceData } from "../apis/getServiceData";
 import { IService } from "../types/service.type";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Services: Md Rubel Ahmed Rana",
-  description: "Md Rubel Ahmed Rana portfolio",
-};
+export async function generateMetadata() {
+  const projects = (await getServiceData()) as IService[];
+
+  return {
+    title: "Services: Md Rubel Ahmed Rana",
+    description: projects
+      .map((project) => project.name)
+      .join(",")
+      .concat(projects.map((project) => project.description).join(",")),
+  };
+}
 
 const Services = async () => {
   const services = (await getServiceData()) as IService[];
@@ -34,7 +41,10 @@ const Services = async () => {
                 <div className="rounded-md w-full">
                   <img
                     className="rounded-md h-40 w-full transition duration-500 hover:scale-110"
-                    src={service.image}
+                    src={
+                      service.image ||
+                      "https://i.ibb.co/ZdZ1R7V/image-Not-Found.png"
+                    }
                     alt={service.name}
                   />
                 </div>

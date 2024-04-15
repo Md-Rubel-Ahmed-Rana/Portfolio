@@ -1,11 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
-import blogImage from "../../public/images/blogImage.jpg";
-import Image from "next/image";
 import { FaCalendarAlt, FaComments } from "react-icons/fa";
 import Link from "next/link";
 import { getBlogData } from "../apis/getBlogData";
 import { IBlog } from "../types/blog.type";
 import blogDateFormatter from "../utils/blogDateFormatter";
+import blogImage from "../../public/images/imageNotFound.png";
 
 const Blogs = async () => {
   const blogs = (await getBlogData()) as IBlog[];
@@ -22,14 +22,22 @@ const Blogs = async () => {
             one post at a time.
           </p>
         </div>
-        <div className="flex justify-between items-center ">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
           {blogs.slice(blogs.length - 3, blogs.length).map((blog) => (
-            <Link href={`/blogs/${blog.id}`} key={blog.id}>
-              <div className="relative rounded-3xl cursor-pointer overflow-hidden group">
-                <Image
-                  className="transition duration-1000 group-hover:scale-110"
-                  src={blogImage}
-                  alt={blog.title}
+            <Link
+              href={`/blogs/${blog.id}?&t=${blog.title
+                .split(" ")
+                .join("-")}&c=${blog.body}`}
+              key={blog.id}
+            >
+              <div className="relative rounded-lg border shadow-md cursor-pointer overflow-hidden group">
+                <img
+                  className="transition w-full h-80 duration-1000 group-hover:scale-110"
+                  src={
+                    blog?.image ||
+                    "https://i.ibb.co/ZdZ1R7V/image-Not-Found.png"
+                  }
+                  alt={blog?.title}
                 />
                 <p className="absolute top-3 left-3">
                   <button

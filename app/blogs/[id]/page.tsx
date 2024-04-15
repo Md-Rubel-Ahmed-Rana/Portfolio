@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import blogImage from "../../../public/images/blogImage.jpg";
 import Image from "next/image";
 import { FaCalendarAlt, FaUserCircle } from "react-icons/fa";
@@ -44,9 +45,9 @@ const BlogDetails = async ({ params }: { params: { id: string } }) => {
             </button>
           </p>
           <div className="overflow-hidden my-5">
-            <Image
+            <img
               className="rounded-md w-full h-80 transition duration-700 hover:scale-110"
-              src={blogImage}
+              src={blog.image || "https://i.ibb.co/ZdZ1R7V/image-Not-Found.png"}
               alt={blog?.title || "Blog image"}
             />
           </div>

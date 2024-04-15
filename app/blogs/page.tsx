@@ -29,7 +29,10 @@ const Blogs = async () => {
                 <div className="overflow-hidden rounded-md w-full h-48">
                   <img
                     className="rounded-md w-full h-full object-fill  transition duration-700 group-hover:scale-110"
-                    src={blog?.image}
+                    src={
+                      blog?.image ||
+                      "https://i.ibb.co/ZdZ1R7V/image-Not-Found.png"
+                    }
                     alt={blog?.title}
                   />
                 </div>
