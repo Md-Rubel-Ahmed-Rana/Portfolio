@@ -21,6 +21,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 const ProjectDetails = async ({ params }: { params: { id: string } }) => {
   const data = (await getSingleProjectData(params.id)) as IProject;
   const {
+    id,
     name,
     category,
     description,
@@ -125,7 +126,7 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
               Comments for this project
             </h3>
             <p>
-              <CommentButton />
+              <CommentButton id={id} />
             </p>
           </div>
 
