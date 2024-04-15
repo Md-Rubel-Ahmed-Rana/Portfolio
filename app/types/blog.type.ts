@@ -5,5 +5,6 @@ export type IBlog = {
   image: string;
   body: string | TrustedHTML;
   createdAt: Date;
+  updatedAt: Date;
   comments: number;
 };

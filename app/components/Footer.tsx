@@ -1,20 +1,22 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { navList } from "../constants/navList";
 import Link from "next/link";
-import Image from "next/image";
-import Logo from "../favicon.ico";
+import { getHomeData } from "../apis/getHomeData";
 
-const Footer = () => {
+const Footer = async () => {
+  const data = await getHomeData();
+  const { name, logo } = data || {};
   return (
     <div className="bg-[#2a1454]">
       <div className="max-w-[1440px] w-full mx-auto py-16 px-10 ">
         <div className="flex flex-col gap-5 justify-center items-center">
           <div>
             <Link href={"/"}>
-              <Image
+              <img
                 title="Logo"
                 className="w-16 h-16 rounded-full"
-                src={Logo}
+                src={logo}
                 alt="Logo"
               />
             </Link>
@@ -32,10 +34,10 @@ const Footer = () => {
           </div>
           <div>
             <p
-              title="The owner of the website: Md Rubel Ahmed Rana"
+              title={`The owner of the website: ${name}`}
               className="text-lg font-semibold text-blue-500"
             >
-              © 2024 All rights reserved by Md Rubel Ahmed Rana
+              © 2024 All rights reserved by {name}
             </p>
           </div>
         </div>

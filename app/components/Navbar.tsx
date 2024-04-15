@@ -1,12 +1,13 @@
-"use client";
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
-import Logo from "../favicon.ico";
-import Image from "next/image";
 import Link from "next/link";
 import style from "./Navbar.module.css";
 import { navList } from "../constants/navList";
+import { getHomeData } from "../apis/getHomeData";
 
-const Navbar = () => {
+const Navbar = async () => {
+  const data = await getHomeData();
+  const { logo, email, phoneNumber } = data || {};
   return (
     <nav className="flex flex-col justify-center shadow-md ">
       <div className="text-center pt-2 pb-0 mb-0">
@@ -20,30 +21,30 @@ const Navbar = () => {
       <div className="flex justify-between items-center p-5 pt-0 mt-0">
         <div className="flex gap-2 items-center">
           <Link href={"/"}>
-            <Image
+            <img
               title="Logo"
               className="w-16 h-16 rounded-full"
-              src={Logo}
+              src={logo}
               alt="Logo"
             />
           </Link>
           <div className="font-semibold text-gray-500 text-lg">
             <p title="Click to send email">
               <a
-                href="mailto:mdrubelahmedrana521@gmail.com?subject=Contact Mail&body=Start writing your message"
+                href={`mailto:${email}?subject=Contact Mail&body=Start writing your message`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                mdrubelahmedrana521@gmail.com
+                {email}
               </a>
             </p>
             <p title="Click to make call">
               <a
-                href="tel:+880 1758 049882"
+                href={`tel:${phoneNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                +880 1758 049882
+                {phoneNumber}
               </a>
             </p>
           </div>

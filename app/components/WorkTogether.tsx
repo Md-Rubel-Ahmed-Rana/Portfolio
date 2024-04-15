@@ -1,7 +1,10 @@
 import React from "react";
 import { FaRegEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
+import { getHomeData } from "../apis/getHomeData";
 
-const WorkTogether = () => {
+const WorkTogether = async () => {
+  const data = await getHomeData();
+  const { email, phoneNumber, address, addressMapLocation } = data || {};
   return (
     <div className=" bg-gray-100">
       <div className="max-w-[1440px] w-full mx-auto py-20 px-10">
@@ -83,7 +86,7 @@ const WorkTogether = () => {
                 className="bg-transparent p-3 rounded-full text-white text-2xl bg-gradient-to-l to-[#9272d3] from-[#2a1454]"
               >
                 <a
-                  href="tel:+880 1758 049882"
+                  href={`tel:${phoneNumber}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -92,7 +95,7 @@ const WorkTogether = () => {
               </p>
               <div>
                 <p className="text-md">Phone</p>
-                <p className="text-xl font-sans">+880 1758 049 882</p>
+                <p className="text-xl font-sans"> {phoneNumber} </p>
               </div>
             </div>
             <div className="flex items-center gap-4">
@@ -101,7 +104,7 @@ const WorkTogether = () => {
                 className="bg-transparent p-3 rounded-full text-white text-2xl bg-gradient-to-l to-[#9272d3] from-[#2a1454]"
               >
                 <a
-                  href="mailto:mdrubelahmedrana521@gmail.com?subject=Contact Mail&body=Start writing your message"
+                  href={`mailto:${email}?subject=Contact Mail&body=Start writing your message`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -110,9 +113,7 @@ const WorkTogether = () => {
               </p>
               <div>
                 <p className="text-md">Email</p>
-                <p className="text-xl font-sans">
-                  mdrubelahmedrana521@gmail.com
-                </p>
+                <p className="text-xl font-sans">{email}</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
@@ -121,7 +122,7 @@ const WorkTogether = () => {
                 className="bg-transparent p-3 rounded-full text-white text-2xl bg-gradient-to-l to-[#9272d3] from-[#2a1454]"
               >
                 <a
-                  href="https://maps.app.goo.gl/Bk3g2A6BEpPhUEbQ6"
+                  href={addressMapLocation}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -130,9 +131,7 @@ const WorkTogether = () => {
               </p>
               <div>
                 <p className="text-md">Address</p>
-                <p className="text-xl font-sans">
-                  Companigonj, Sylhet, Bangladesh
-                </p>
+                <p className="text-xl font-sans">{address}</p>
               </div>
             </div>
           </div>

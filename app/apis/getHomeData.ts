@@ -1,14 +1,20 @@
+import { IHome } from "../types/home.type";
+
 export const getHomeData = async () => {
   try {
-    const res = await fetch("http://localhost:5002/api/v2/util", {
-      next: {
-        revalidate: 10,
-      },
-    });
+    const res = await fetch(
+      "https://portfolio-backend-v2-p89h.onrender.com/api/v2/home",
+      {
+        next: {
+          revalidate: 10,
+        },
+      }
+    );
 
     if (res.ok) {
       const data = await res.json();
-      return data.data;
+      const homeData = data.data as IHome;
+      return homeData;
     }
   } catch (error) {
     // Handle error

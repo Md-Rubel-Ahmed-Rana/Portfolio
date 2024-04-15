@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { FaDownload } from "react-icons/fa";
+import * as FaIcons from "react-icons/fa";
 import { getHomeData } from "../apis/getHomeData";
-import { socialLinks } from "../constants/socialLinks";
 
 const Banner = async () => {
   const data = await getHomeData();
-  const banner = data.bannerSection;
-  const { name, image, position, description, resumeLink } = banner || {};
+  const { name, bannerImage, position, description, resumeLink, socialLinks } =
+    data || {};
 
   return (
     <div className="max-w-[1440px] w-full mx-auto flex justify-between items-center py-16 px-10">
@@ -31,24 +31,34 @@ const Banner = async () => {
             </a>
           </p>
           <ul className="flex items-center gap-5 text-purple-500">
-            {socialLinks.map((link) => (
-              <li
-                key={Math.random()}
-                title={link.name}
-                className="text-xl ring-1 rounded-full p-2 hover:text-white hover:bg-purple-600 transition ease-out duration-200 shadow-lg"
-              >
-                <a href={link.url} target="_blank" rel="noopener noreferrer">
-                  <link.icon className="rounded-full" />
-                </a>
-              </li>
-            ))}
+            {socialLinks &&
+              socialLinks?.length > 0 &&
+              socialLinks.map((link) => {
+                const fontAwesome: any = FaIcons;
+                const IconComponent = fontAwesome[link.icon];
+                return (
+                  <li
+                    key={Math.random()}
+                    title={link.name}
+                    className="text-xl ring-1 rounded-full p-2 hover:text-white hover:bg-purple-600 transition ease-out duration-200 shadow-lg"
+                  >
+                    <a
+                      href={link.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <IconComponent className="rounded-full" />
+                    </a>
+                  </li>
+                );
+              })}
           </ul>
         </div>
       </div>
       <div className="w-1/2">
         <img
           className="rounded-md cursor-pointer w-2/3 transition duration-1000 rotate-3 hover:rotate-0 hover:scale-110"
-          src={image}
+          src={bannerImage || ""}
           alt="Banner image"
         />
       </div>

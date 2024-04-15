@@ -1,63 +1,8 @@
 import { getIcon } from "@/app/utils/getIcons";
-import { Metadata } from "next";
+import { getHomeData } from "../apis/getHomeData";
 
-export const metadata: Metadata = {
-  title: "Skills: Md Rubel Ahmed Rana",
-  description: "Md Rubel Ahmed Rana portfolio",
-};
-
-const skillsData = [
-  {
-    name: "HTML",
-    percentage: 100,
-  },
-  {
-    name: "CSS",
-    percentage: 100,
-  },
-  {
-    name: "JavaScript",
-    percentage: 100,
-  },
-  {
-    name: "Reactjs",
-    percentage: 100,
-  },
-  {
-    name: "Nextjs",
-    percentage: 90,
-  },
-  {
-    name: "Nodejs",
-    percentage: 80,
-  },
-  {
-    name: "Nestjs",
-    percentage: 80,
-  },
-  {
-    name: "MongoDB",
-    percentage: 80,
-  },
-  {
-    name: "Expressjs",
-    percentage: 80,
-  },
-  {
-    name: "Docker",
-    percentage: 80,
-  },
-  {
-    name: "PostgresQL",
-    percentage: 80,
-  },
-  {
-    name: "Microservice",
-    percentage: 80,
-  },
-];
-
-const Skills = () => {
+const Skills = async () => {
+  const data = await getHomeData();
   return (
     <div className="max-w-[1440px] w-full mx-auto py-20 px-10 flex flex-col gap-10">
       <div>
@@ -72,7 +17,7 @@ const Skills = () => {
         </p>
       </div>
       <div className="grid grid-cols-6 gap-5 ">
-        {skillsData.map((skill) => {
+        {data?.skills.map((skill) => {
           const IconComponent = getIcon(skill?.name);
           return (
             <div
