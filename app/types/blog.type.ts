@@ -1,5 +1,5 @@
 export type IBlog = {
-  id: number;
+  id: string;
   title: string;
   type: string;
   image: string;

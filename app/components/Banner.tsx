@@ -56,11 +56,19 @@ const Banner = async () => {
         </div>
       </div>
       <div className="w-1/2">
-        <img
-          className="rounded-md cursor-pointer w-2/3 transition duration-1000 rotate-3 hover:rotate-0 hover:scale-110"
-          src={bannerImage || ""}
-          alt="Banner image"
-        />
+        {bannerImage ? (
+          <img
+            className="rounded-md cursor-pointer w-2/3 transition duration-1000 rotate-3 hover:rotate-0 hover:scale-110"
+            src={bannerImage}
+            alt="Banner image"
+          />
+        ) : (
+          <div className="rounded-md flex justify-center items-center  bg-gray-100 cursor-pointer w-2/3 h-96 transition duration-1000 rotate-3 hover:rotate-0 hover:scale-110">
+            <p className="block">
+              Banner image not found <br /> Placeholder image
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

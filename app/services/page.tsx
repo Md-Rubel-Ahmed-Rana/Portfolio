@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const Services = async () => {
   const services = (await getServiceData()) as IService[];
   return (
-    <section className="bg-gray-100">
+    <section className="bg-gray-50">
       <div className="max-w-[1440px] w-full mx-auto py-20 px-5 flex flex-col gap-10 ">
         <div>
           <h3 className="font-semibold text-4xl text-center text-transparent bg-gradient-to-l to-[#8750f7] from-[#2a1454] bg-clip-text">
@@ -27,15 +27,17 @@ const Services = async () => {
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1  gap-3">
           {services.map((service) => (
             <div
-              className="border p-5 shadow-lg rounded-md  relative"
+              className="border bg-gray-100 p-5 shadow-md rounded-md  relative"
               key={service.id}
             >
               <div className="flex flex-col gap-3 mb-10 overflow-hidden">
-                <img
-                  className="rounded-md h-40 w-full transition duration-500 hover:scale-110"
-                  src={service.image}
-                  alt={service.name}
-                />
+                <div className="rounded-md w-full">
+                  <img
+                    className="rounded-md h-40 w-full transition duration-500 hover:scale-110"
+                    src={service.image}
+                    alt={service.name}
+                  />
+                </div>
                 <h4 className="text-lg text-gray-700">{service.name}</h4>
                 <p className="text-sm text-gray-500">{service.description}</p>
               </div>

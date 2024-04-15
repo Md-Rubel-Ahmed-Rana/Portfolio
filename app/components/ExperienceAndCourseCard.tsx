@@ -7,11 +7,12 @@ type Props = {
   startDate: string;
   endDate: string;
   institute: string;
+  position?: string;
   route: string;
 };
 
 const ExperienceAndCourseCard = (props: Props) => {
-  const { id, name, startDate, endDate, institute, route } = props;
+  const { id, name, startDate, endDate, institute, position, route } = props;
   return (
     <div
       className="bg-white p-5 transition duration-1000 rounded-lg flex flex-col gap-2 hover:bg-purple-800 hover:text-white group relative"
@@ -21,9 +22,16 @@ const ExperienceAndCourseCard = (props: Props) => {
         {startDate} | {endDate}
       </p>
       <h4 className="text-2xl font-bold">{name}</h4>
+      {route === "experiences" && (
+        <p className="text-md font-semibold text-gray-700 group-hover:text-white">
+          At {position}
+        </p>
+      )}
+
       <p className="text-md font-sans text-gray-700 group-hover:text-white">
         {institute}
       </p>
+
       <Link
         className={`hidden animate__animated ${
           route === "experiences"

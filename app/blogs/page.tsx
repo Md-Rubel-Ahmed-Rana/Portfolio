@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
-import blogImage from "../../public/images/blogImage.jpg";
 import Image from "next/image";
 import { FaCalendarAlt, FaComments } from "react-icons/fa";
 import Link from "next/link";
@@ -13,16 +13,16 @@ export const metadata: Metadata = {
 
 const Blogs = () => {
   return (
-    <section className="bg-gray-100">
+    <section className="bg-gray-50">
       <div className="max-w-[1440px] w-full mx-auto pb-20 pt-10 px-10 flex flex-col gap-10">
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5">
           {blogs.map((blog, index) => (
             <Link href={`/blogs/${blog.id}`} key={index}>
-              <div className="rounded-md border p-3 flex flex-col gap-2 group">
-                <div className="overflow-hidden">
-                  <Image
-                    className="rounded-md w-full transition duration-700 group-hover:scale-110"
-                    src={blogImage}
+              <div className="rounded-md bg-gray-100 shadow-md border p-3 flex flex-col gap-2 group">
+                <div className="overflow-hidden rounded-md w-full h-48">
+                  <img
+                    className="rounded-md w-full h-full object-fill  transition duration-700 group-hover:scale-110"
+                    src={blog.image}
                     alt={blog.title}
                   />
                 </div>

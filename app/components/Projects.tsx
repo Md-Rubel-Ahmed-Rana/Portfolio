@@ -31,7 +31,7 @@ export default async function Projects() {
             const { thumbnail, name, category, subTitle } = project;
             return (
               <div
-                className="border shadow-lg w-full h-full rounded-lg relative group overflow-hidden "
+                className="border shadow-lg w-full h-80 rounded-lg relative group overflow-hidden "
                 key={project.id}
               >
                 <Link href={`projects/${project.id}`}>
@@ -46,24 +46,23 @@ export default async function Projects() {
                     <p>{subTitle}</p>
                     <hr />
                     <div className="flex justify-between mt-4">
-                      <button className="bg-white w-full text-[#8750f7] bg-transparent hover:text-white hover:bg-[#2a1454] transition duration-300 ease-in-out px-4 py-2 rounded-md mr-2">
-                        <a
-                          href={project.sourceCode}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Source code
-                        </a>
-                      </button>
-                      <button className="bg-white w-full text-[#8750f7] hover:text-white hover:bg-[#8750f7] transition duration-300 ease-in-out px-4 py-2 rounded-md">
-                        <a
-                          href={project.liveLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Live preview
-                        </a>
-                      </button>
+                      <a
+                        className="bg-white text-center w-full text-[#8750f7] bg-transparent hover:text-white hover:bg-[#2a1454] transition duration-300 ease-in-out px-4 py-2 rounded-md mr-2"
+                        href={project.sourceCode}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Source code
+                      </a>
+
+                      <a
+                        className="bg-white text-center w-full text-[#8750f7] hover:text-white hover:bg-[#8750f7] transition duration-300 ease-in-out px-4 py-2 rounded-md"
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Live preview
+                      </a>
                     </div>
                   </div>
                 </Link>

@@ -46,7 +46,7 @@ const Experiences = () => {
       </h3>
       <div className="flex flex-col gap-5">
         {experiences.map((exp, index) => {
-          const { startDate, endDate, designation, location } = exp;
+          const { startDate, endDate, designation, location, name } = exp;
           return (
             <ExperienceAndCourseCard
               key={index}
@@ -55,6 +55,7 @@ const Experiences = () => {
               endDate={endDate}
               institute={location}
               name={designation}
+              position={name}
               route={"experiences"}
             />
           );
