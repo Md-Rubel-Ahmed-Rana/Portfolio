@@ -115,7 +115,12 @@ export default async function Projects() {
                           Live Preview
                         </a>
                       </button>
-                      <Link className="w-full" href={`projects/${project.id}`}>
+                      <Link
+                        className="w-full"
+                        href={`projects/${project.id}?n=${project.name
+                          .split(" ")
+                          .join("-")}&d=${project.description}`}
+                      >
                         <button
                           type="button"
                           className="w-full bg-gradient-to-l from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white  px-2 py-1 rounded-full"

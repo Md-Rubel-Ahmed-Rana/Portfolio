@@ -1,9 +1,19 @@
 /* eslint-disable @next/next/no-img-element */
+import { getProjectData } from "@/app/apis/getProjectData";
 import { getSingleProjectData } from "@/app/apis/getSingleProjectData";
 import CommentButton from "@/app/components/CommentButton";
 import Comments from "@/app/components/Comments";
 import { IProject } from "@/app/types/project.type";
 import React from "react";
+
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  const project = (await getSingleProjectData(params.id)) as IProject;
+
+  return {
+    title: `Project: ${project.name} - Md Rubel Ahmed Rana`,
+    description: `${project.description} ${project.features.toString()}`,
+  };
+}
 
 const ProjectDetails = async ({ params }: { params: { id: string } }) => {
   const data = (await getSingleProjectData(params.id)) as IProject;
@@ -134,3 +144,9 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
 };
 
 export default ProjectDetails;
+
+export async function generateStaticParams() {
+  const projects = (await getProjectData()) as IProject[];
+
+  return projects.map((project) => ({ id: project.id }));
+}

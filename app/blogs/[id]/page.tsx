@@ -6,6 +6,16 @@ import Comments from "@/app/components/Comments";
 import { getSingleBlogData } from "@/app/apis/getSingleBlogData";
 import { IBlog } from "@/app/types/blog.type";
 import blogDateFormatter from "@/app/utils/blogDateFormatter";
+import { getBlogData } from "@/app/apis/getBlogData";
+
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  const blog = (await getSingleBlogData(params.id)) as IBlog;
+
+  return {
+    title: blog.title,
+    description: blog.body,
+  };
+}
 
 const BlogDetails = async ({ params }: { params: { id: string } }) => {
   const blog = (await getSingleBlogData(params.id)) as IBlog;
@@ -71,3 +81,9 @@ const BlogDetails = async ({ params }: { params: { id: string } }) => {
 };
 
 export default BlogDetails;
+
+export async function generateStaticParams() {
+  const blogs = (await getBlogData()) as IBlog[];
+
+  return blogs.map((blog) => ({ id: blog.id }));
+}

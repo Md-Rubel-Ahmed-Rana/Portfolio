@@ -1,3 +1,5 @@
+import { getServiceData } from "@/app/apis/getServiceData";
+import { IService } from "@/app/types/service.type";
 import React from "react";
 
 const HireMeForm = () => {
@@ -11,3 +13,9 @@ const HireMeForm = () => {
 };
 
 export default HireMeForm;
+
+export async function generateStaticParams() {
+  const services = (await getServiceData()) as IService[];
+
+  return services.map((service) => ({ id: service.id }));
+}
