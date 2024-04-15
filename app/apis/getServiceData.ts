@@ -1,6 +1,13 @@
 export const getServiceData = async () => {
   try {
-    const res = await fetch("http://localhost:5002/api/v2/service");
+    const res = await fetch(
+      "https://portfolio-backend-v2-p89h.onrender.com/api/v2/service",
+      {
+        next: {
+          revalidate: 10,
+        },
+      }
+    );
 
     if (res.ok) {
       const data = await res.json();

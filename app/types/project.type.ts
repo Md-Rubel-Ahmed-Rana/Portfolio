@@ -13,6 +13,6 @@ export type IProject = {
   thumbnail: string;
   projectLength: {
     startDate: Date;
-    endDate: Date;
+    endDate: Date | null;
   };
 };

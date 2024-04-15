@@ -47,10 +47,22 @@ export default async function Projects() {
                     <hr />
                     <div className="flex justify-between mt-4">
                       <button className="bg-white w-full text-[#8750f7] bg-transparent hover:text-white hover:bg-[#2a1454] transition duration-300 ease-in-out px-4 py-2 rounded-md mr-2">
-                        Source code
+                        <a
+                          href={project.sourceCode}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Source code
+                        </a>
                       </button>
                       <button className="bg-white w-full text-[#8750f7] hover:text-white hover:bg-[#8750f7] transition duration-300 ease-in-out px-4 py-2 rounded-md">
-                        Live preview
+                        <a
+                          href={project.liveLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Live preview
+                        </a>
                       </button>
                     </div>
                   </div>

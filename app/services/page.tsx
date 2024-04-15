@@ -1,9 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 import { Metadata } from "next";
 import React from "react";
 import { getServiceData } from "../apis/getServiceData";
 import { IService } from "../types/service.type";
-import blogImage from "../../public/images/blogImage.jpg";
-import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -32,9 +31,9 @@ const Services = async () => {
               key={service.id}
             >
               <div className="flex flex-col gap-3 mb-10 overflow-hidden">
-                <Image
+                <img
                   className="rounded-md h-40 w-full transition duration-500 hover:scale-110"
-                  src={blogImage}
+                  src={service.image}
                   alt={service.name}
                 />
                 <h4 className="text-lg text-gray-700">{service.name}</h4>

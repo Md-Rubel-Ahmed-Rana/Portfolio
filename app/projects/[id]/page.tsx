@@ -34,16 +34,14 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
             />
           </div>
           <div className="flex justify-center items-center gap-3 my-4">
-            {[...images, "image.png", "image.jpg", "image.jpeg"]?.map(
-              (image, index) => (
-                <img
-                  className="rounded-md hover:scale-110 transition duration-500 w-32 h-24 border cursor-pointer"
-                  key={index}
-                  src={thumbnail}
-                  alt={name}
-                />
-              )
-            )}
+            {images?.map((image, index) => (
+              <img
+                className="rounded-md hover:scale-110 transition duration-500 w-32 h-24 border cursor-pointer"
+                key={index}
+                src={image}
+                alt={name}
+              />
+            ))}
           </div>
           <div className="flex flex-col gap-2">
             <h3 className="text-2xl font-bold text-gray-700">{name}</h3>
@@ -90,11 +88,18 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
           </div>
           <div className="mt-4">
             <h3 className="text-lg font-semibold">Technology used: </h3>
-            <ul className="list-decimal ml-6">
-              {techStack.map((tech, index) => (
-                <li key={index}>{tech}</li>
-              ))}
-            </ul>
+            <div className="flex gap-20">
+              <ul className="list-disc ml-6">
+                {techStack.slice(0, 10).map((tech, index) => (
+                  <li key={index}>{tech}</li>
+                ))}
+              </ul>
+              <ul className="list-disc ml-6">
+                {techStack.slice(10, techStack.length).map((tech, index) => (
+                  <li key={index}>{tech}</li>
+                ))}
+              </ul>
+            </div>
           </div>
           <p>
             <span className="block font-semibold text-gray-500 text-lg mt-5">

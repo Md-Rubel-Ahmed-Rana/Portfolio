@@ -1,10 +1,20 @@
+import { IProject } from "../types/project.type";
+
 export const getProjectData = async () => {
   try {
-    const res = await fetch("http://localhost:5002/api/v2/project");
+    const res = await fetch(
+      "https://portfolio-backend-v2-p89h.onrender.com/api/v2/project",
+      {
+        next: {
+          revalidate: 10,
+        },
+      }
+    );
 
     if (res.ok) {
       const data = await res.json();
-      return data.data;
+      const projectData = data.data as IProject[];
+      return projectData;
     }
   } catch (error) {
     // Handle error
