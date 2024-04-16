@@ -66,7 +66,7 @@ const BlogDetails = async ({ params }: { params: { id: string } }) => {
             </p>
           </div>
 
-          <Comments />
+          <Comments postId={blog.id} />
           {/* <p className="text-right mt-3">
             <button
               type="button"

@@ -1,7 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import { Fragment, SetStateAction, useState } from "react";
+import { Fragment, SetStateAction } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { IPostComment } from "../types/postComment.type";
+import { postComment } from "../apis/postComment";
+import { toast } from "react-toastify";
 
 type Props = {
   isOpen: boolean;
@@ -9,28 +12,26 @@ type Props = {
   id: string;
 };
 
-type Inputs = {
-  name: string;
-  image: string;
-  comment: string;
-};
-
 const CommentModal = ({ isOpen, setIsOpen, id }: Props) => {
-  const [file, setFile] = useState<any>(null);
-  const { register, handleSubmit } = useForm<Inputs>();
+  // const [file, setFile] = useState<any>(null);
+  const { register, handleSubmit } = useForm<IPostComment>();
 
   const closeModal = () => {
     setIsOpen(false);
   };
 
-  const handleCommentSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
+  const handleCommentSubmit: SubmitHandler<IPostComment> = async (data) => {
+    const res = await postComment({ ...data, postId: id });
+    if (res.statusCode === 201) {
+      toast.success(res.message);
+      setIsOpen(() => false);
+    }
   };
 
-  const handleFileChange = (event: any) => {
-    const file = event.target.files[0];
-    setFile(file);
-  };
+  // const handleFileChange = (event: any) => {
+  //   const file = event.target.files[0];
+  //   setFile(file);
+  // };
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
@@ -78,7 +79,9 @@ const CommentModal = ({ isOpen, setIsOpen, id }: Props) => {
                           placeholder="Enter your name"
                         />
                       </div>
-                      <div className="relative mb-4">
+
+                      {/* temporarily stopped uploading image */}
+                      {/* <div className="relative mb-4">
                         <input
                           {...register("image")}
                           className="opacity-0 text-gray-700 w-full absolute pointer-events-none"
@@ -99,7 +102,7 @@ const CommentModal = ({ isOpen, setIsOpen, id }: Props) => {
                             {file?.name ? file.name : "Upload your image"}
                           </span>
                         </label>
-                      </div>
+                      </div> */}
 
                       <div className="mb-6">
                         <textarea

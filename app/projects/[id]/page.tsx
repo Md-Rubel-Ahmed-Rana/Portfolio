@@ -7,7 +7,6 @@ import ProjectImages from "@/app/components/ProjectImages";
 import { IProject } from "@/app/types/project.type";
 import { countDays } from "@/app/utils/countDays";
 import { getProjectDuration } from "@/app/utils/getProjectDuration";
-import React from "react";
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const project = (await getSingleProjectData(params.id)) as IProject;
@@ -130,7 +129,7 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
             </p>
           </div>
 
-          <Comments />
+          <Comments postId={id} />
           {/* <p className="text-right mt-3">
             <button
               type="button"
