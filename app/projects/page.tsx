@@ -34,8 +34,10 @@ export default async function Projects() {
           </p>
         </div>
         <div>
-          <ProjectSort />
-          <div className="grid grid-cols-3 gap-5 mt-10">
+          <div className="lg:block hidden">
+            <ProjectSort />
+          </div>
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mt-10">
             {projects.map((project: IProject) => {
               const {
                 thumbnail,

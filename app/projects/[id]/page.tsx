@@ -37,8 +37,8 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
 
   return (
     <section className="bg-gray-100">
-      <div className="max-w-[1440px] w-full mx-auto py-20 px-5 flex gap-20">
-        <div className="w-3/5">
+      <div className="max-w-[1440px] w-full mx-auto py-20 px-5 flex lg:flex-row flex-col gap-20">
+        <div className="lg:w-3/5 w-full">
           <ProjectImages images={images} thumbnail={thumbnail} />
           <div className="flex flex-col gap-2">
             <h3 className="text-2xl font-bold text-gray-700">{name}</h3>
@@ -119,8 +119,8 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
             <span className="ml-2">{description}</span>
           </p>
         </div>
-        <div className="w-2/5">
-          <div className="flex justify-between items-center mb-3">
+        <div className="lg:w-2/5 w-full">
+          <div className="flex lg:flex-row flex-col justify-between lg:items-center gap-5 mb-3">
             <h3 className="text-2xl font-bold text-gray-600 ">
               Comments for this project
             </h3>
@@ -128,7 +128,6 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
               <CommentButton id={id} />
             </p>
           </div>
-
           <Comments postId={id} />
           {/* <p className="text-right mt-3">
             <button

@@ -5,14 +5,43 @@ import Link from "next/link";
 import style from "./Navbar.module.css";
 import { navList } from "../constants/navList";
 import { IHome } from "../types/home.type";
-import useHandlePropagation from "../hooks/useHandlePropagation";
-import { FaBars, FaTimes } from "react-icons/fa";
+import Popover from "@mui/material/Popover";
+import Button from "@mui/material/Button";
 
 const Navbar = () => {
   const [data, setData] = useState<any>(null);
-  const [toggle, setToggle] = useState(false);
-  const toggleRef = useRef(null);
-  const closeDropdown = useHandlePropagation();
+  const [currentRoute, setCurrentRoute] = useState("");
+
+  const handleChangeRoute = (route: string) => {
+    setCurrentRoute(route);
+    localStorage.setItem("RubelCurrentRoute", JSON.stringify(route));
+  };
+
+  useEffect(() => {
+    const rawPath = localStorage.getItem("RubelCurrentRoute");
+    if (rawPath !== null) {
+      const path = JSON.parse(rawPath);
+      setCurrentRoute(path);
+    }
+    if (!currentRoute) {
+      localStorage.setItem("RubelCurrentRoute", JSON.stringify("home"));
+    }
+  }, [currentRoute]);
+
+  const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
+    null
+  );
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
 
   useEffect(() => {
     const getHomeData = async () => {
@@ -42,14 +71,6 @@ const Navbar = () => {
   }, []);
 
   const { logo, email, phoneNumber } = data || {};
-
-  useEffect(() => {
-    closeDropdown(toggleRef, setToggle);
-  }, [closeDropdown]);
-
-  const handleToggle = () => {
-    setToggle((prev) => !prev);
-  };
 
   return (
     <nav className="flex flex-col justify-center shadow-md overflow-hidden p-5 w-[100%]">
@@ -95,7 +116,15 @@ const Navbar = () => {
         <div className="lg:block hidden">
           <ul className="flex items-center gap-4 font-semibold text-gray-500 text-lg">
             {navList.map((nav) => (
-              <li title={nav} key={nav} className={style.navList}>
+              <li
+                onClick={() => handleChangeRoute(nav.toLowerCase())}
+                title={nav}
+                key={nav}
+                className={`${style.navList} ${
+                  currentRoute === nav.toLowerCase() &&
+                  "text-white bg-blue-600 px-3 rounded-sm"
+                }`}
+              >
                 <Link href={nav === "Home" ? "/" : `/${nav.toLowerCase()}`}>
                   {nav}
                 </Link>
@@ -109,57 +138,42 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="dropdown dropdown-end lg:hidden">
-          <div
+          <Button
+            onClick={handleClick}
             tabIndex={0}
             role="button"
+            aria-describedby={id}
             className="bg-gradient-to-l from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white px-4 py-1 rounded-full"
           >
             Menu
-          </div>
-          <ul
-            ref={toggleRef}
-            tabIndex={0}
-            className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-md w-52"
+          </Button>
+          <Popover
+            className="mt-2"
+            id={id}
+            open={open}
+            anchorEl={anchorEl}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "left",
+            }}
           >
-            {navList.map((nav) => (
-              <li title={nav} key={nav} className={style.navList}>
-                <Link href={nav === "Home" ? "/" : `/${nav.toLowerCase()}`}>
-                  {nav}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        {/* <div id="dropdown-menu" className="lg:hidden dropdown dropdown-end">
-          <div tabIndex={0} role="button">
-            {!toggle && (
-              <button onClick={handleToggle}>
-                <FaBars />
-              </button>
-            )}
-
-            {toggle && (
-              <button onClick={handleToggle}>
-                <FaTimes />
-              </button>
-            )}
-          </div>
-          {toggle && (
-            <ul
-              ref={toggleRef}
-              tabIndex={0}
-              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-md w-52"
-            >
+            <ul className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-md w-52">
               {navList.map((nav) => (
-                <li title={nav} key={nav} className={style.navList}>
+                <li
+                  onClick={handleClose}
+                  title={nav}
+                  key={nav}
+                  className={style.navList}
+                >
                   <Link href={nav === "Home" ? "/" : `/${nav.toLowerCase()}`}>
                     {nav}
                   </Link>
                 </li>
               ))}
             </ul>
-          )}
-        </div> */}
+          </Popover>
+        </div>
       </div>
     </nav>
   );
