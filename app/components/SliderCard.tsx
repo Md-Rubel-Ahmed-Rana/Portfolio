@@ -27,7 +27,7 @@ const SliderCard = ({ cards }: any) => {
     <Slider {...settings}>
       {cards.map((feedback: any) => (
         <div key={feedback.name}>
-          <div className="p-5 m-5 border bg-white cursor-grab rounded-lg shadow-md flex flex-col gap-5 justify-center h-80">
+          <div className="lg:p-5 lg:m-5 m-2 p-2 border bg-white cursor-grab rounded-lg shadow-md flex flex-col lg:gap-5 gap-2 justify-center lg:h-80">
             <div>
               <Image
                 src={LogoImage}

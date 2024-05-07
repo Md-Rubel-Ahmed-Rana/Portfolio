@@ -1,7 +1,12 @@
 export const getCommentsData = async (postId: string) => {
   try {
     const res = await fetch(
-      `https://portfolio-backend-v2-p89h.onrender.com/api/v2/comment/by-post/${postId}`
+      `https://portfolio-backend-v2-p89h.onrender.com/api/v2/comment/by-post/${postId}`,
+      {
+        next: {
+          revalidate: 10,
+        },
+      }
     );
     if (res.ok) {
       const result = await res.json();

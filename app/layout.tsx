@@ -13,7 +13,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Md Rubel Ahmed Rana",
+  title: "Home: Md Rubel Ahmed Rana",
   description: "Md Rubel Ahmed Rana portfolio",
 };
 
@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={roboto.className}>
+      <body className={`${roboto.className}`}>
         <Navbar />
         <section>{children}</section>
         <Footer />

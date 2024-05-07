@@ -23,3 +23,20 @@
     top: 25px;
     transition-delay: 0.1s;
 }
+
+ 
+/* Hide the close icon by default */
+#dropdown-menu .swap-on {
+    display: none;
+    z-index: -1;
+}
+
+/* Show the close icon when the checkbox is checked */
+#toggleInput:checked+.swap-rotate .swap-off {
+    display: none;
+    z-index: -1;
+}
+
+#toggleInput:checked+.swap-rotate .swap-on {
+    display: block;
+}

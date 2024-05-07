@@ -9,8 +9,8 @@ const Footer = async () => {
   const { name, logo } = data || {};
   return (
     <div className="bg-[#2a1454]">
-      <div className="max-w-[1440px] w-full mx-auto py-16 px-10 ">
-        <div className="flex flex-col gap-5 justify-center items-center">
+      <div className="max-w-[1440px] w-full mx-auto lg:py-16 py-10 lg:px-10 ">
+        <div className="flex flex-col flex-wrap gap-5 justify-center items-center">
           <div>
             <Link href={"/"}>
               <img
@@ -24,7 +24,11 @@ const Footer = async () => {
           <div>
             <ul className="flex items-center gap-4 font-semibold">
               {navList.map((nav) => (
-                <li className="text-white" title={nav} key={Math.random()}>
+                <li
+                  className="text-white lg:text-md text-sm"
+                  title={nav}
+                  key={Math.random()}
+                >
                   <Link href={nav === "Home" ? "/" : `/${nav.toLowerCase()}`}>
                     {nav}
                   </Link>
@@ -35,9 +39,9 @@ const Footer = async () => {
           <div>
             <p
               title={`The owner of the website: ${name}`}
-              className="text-lg font-semibold text-blue-500"
+              className="lg:text-lg text-sm font-semibold text-blue-500"
             >
-              © 2024 All rights reserved by {name}
+              © {new Date().getFullYear()} All rights reserved by {name}
             </p>
           </div>
         </div>

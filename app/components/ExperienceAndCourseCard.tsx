@@ -18,10 +18,10 @@ const ExperienceAndCourseCard = (props: Props) => {
       className="bg-white p-5 transition duration-1000 rounded-lg flex flex-col gap-2 hover:bg-purple-800 hover:text-white group relative"
       key={Math.random()}
     >
-      <p className="text-lg font-semibold text-blue-500 group-hover:text-white">
-        {startDate} | {endDate}
+      <p className="lg:text-lg font-semibold text-blue-500 group-hover:text-white">
+        {startDate} | {endDate || "Present"}
       </p>
-      <h4 className="text-2xl font-bold">{name}</h4>
+      <h4 className="lg:text-2xl font-bold">{name}</h4>
       {route === "experiences" && (
         <p className="text-md font-semibold text-gray-700 group-hover:text-white">
           At {position}

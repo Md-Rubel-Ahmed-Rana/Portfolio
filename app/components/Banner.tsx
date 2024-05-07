@@ -10,11 +10,11 @@ const Banner = async () => {
     data || {};
 
   return (
-    <div className="max-w-[1440px] w-full mx-auto flex justify-between items-center py-16 px-10">
+    <div className="max-w-[1440px] w-full mx-auto flex lg:flex-row gap-10 flex-col-reverse justify-between items-center py-16 px-10">
       <div className="flex flex-col justify-between gap-10 max-w-lg">
         <div>
-          <h3 className="text-4xl font-bold mb-4">I&apos;m {name}</h3>
-          <h4 className="text-3xl mb-4">
+          <h3 className="lg:text-4xl font-bold mb-4">I&apos;m {name}</h3>
+          <h4 className="lg:text-3xl mb-4">
             <span className="font-semibold text-transparent bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text">
               {position}
             </span>
@@ -24,7 +24,7 @@ const Banner = async () => {
         <div className="flex items-center gap-5">
           <p title="Google drive link will be opened">
             <a href={resumeLink} target="_blank" rel="noopener noreferrer">
-              <button className="ring-1 hover:text-white shadow-2xl hover:bg-purple-600 transition ease-out duration-200 text-blue-400 px-10 py-3 rounded-full flex items-center justify-between gap-3 text-xl">
+              <button className="ring-1 hover:text-white shadow-2xl hover:bg-purple-600 transition ease-out duration-200 text-blue-400 lg:px-10 px-2 lg:py-3 py-2 rounded-full flex items-center justify-between lg:gap-3 gap-2 lg:text-xl">
                 <small>Download CV </small>
                 <FaDownload />
               </button>
@@ -55,10 +55,10 @@ const Banner = async () => {
           </ul>
         </div>
       </div>
-      <div className="w-1/2">
+      <div className="lg:w-1/2 w-full">
         {bannerImage ? (
           <img
-            className="rounded-md cursor-pointer w-2/3 transition duration-1000 rotate-3 hover:rotate-0 hover:scale-110"
+            className="rounded-md cursor-pointer lg:w-2/3 w-full transition duration-1000 rotate-3 hover:rotate-0 hover:scale-110"
             src={bannerImage}
             alt="Banner image"
           />
