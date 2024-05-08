@@ -10,7 +10,7 @@ const Blogs = async () => {
   const blogs = (await getBlogData()) as IBlog[];
   return (
     <section className="bg-white">
-      <div className="max-w-[1440px] w-full mx-auto lg:py-20 py-10 lg:px-10 px-5 flex flex-col gap-10">
+      <div className="max-w-[1440px] w-full mx-auto py-20 lg:px-10 px-5 flex flex-col gap-10">
         <div>
           <h3 className="font-semibold lg:text-4xl text-2xl text-center text-transparent bg-gradient-to-l to-[#8750f7] from-[#2a1454] bg-clip-text">
             My Recent blogs

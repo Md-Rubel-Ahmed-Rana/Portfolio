@@ -10,7 +10,7 @@ import Feedback from "./components/Feedback";
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-10">
+    <main>
       <Banner />
       <Services />
       <Projects />
