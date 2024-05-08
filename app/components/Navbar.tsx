@@ -73,7 +73,7 @@ const Navbar = () => {
   const { logo, email, phoneNumber } = data || {};
 
   return (
-    <nav className="flex flex-col justify-center shadow-md overflow-hidden p-5 w-[100%]">
+    <nav className="bg-white flex flex-col justify-center shadow-md overflow-hidden p-5 w-[100%]">
       <div className="text-center pt-2 pb-0 mb-0">
         <p
           title="Thinking is 50% of a work"
@@ -158,7 +158,7 @@ const Navbar = () => {
               horizontal: "left",
             }}
           >
-            <ul className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-md w-52">
+            <ul className="mt-3 p-2 bg-white shadow menu menu-sm dropdown-content rounded-md w-52">
               {navList.map((nav) => (
                 <li
                   onClick={handleClose}

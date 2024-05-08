@@ -26,12 +26,12 @@ const ProjectImages = ({
           alt={"Project thumbnail image"}
         />
       </div>
-      <div className="flex justify-center items-center gap-3 my-4">
+      <div className="flex justify-center items-center gap-3 px-10 my-4">
         {pImages?.map((image, index) => (
           <img
             title="Click to view largely"
             onClick={() => handleToggleImage(image)}
-            className="rounded-md hover:scale-110 transition duration-500 w-32 h-24 border cursor-pointer"
+            className="rounded-md hover:scale-110 transition duration-500 lg:w-32 w-24 h-24 border cursor-pointer"
             key={index}
             src={image}
             alt={"Project image"}

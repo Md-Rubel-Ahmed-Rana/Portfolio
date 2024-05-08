@@ -20,7 +20,7 @@ const Courses = () => {
   return (
     <div className="w-full flex flex-col gap-8">
       <h3 className="flex items-center gap-5 lg:text-4xl text-xl">
-        <FaAward className="text-[#2a1454] lg:text-5xl text-3xl" />
+        <FaAward className="text-[#2a1454] lg:text-5xl text-4xl" />
         <span className="text-transparent font-semibold bg-gradient-to-l to-[#9272d3] from-[#2a1454] bg-clip-text">
           My Achievements
         </span>

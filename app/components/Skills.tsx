@@ -4,15 +4,15 @@ import { getHomeData } from "../apis/getHomeData";
 const Skills = async () => {
   const data = await getHomeData();
   return (
-    <div className="max-w-[1440px] w-full mx-auto lg:py-20 lg:px-10 px-5 flex flex-col gap-10">
+    <div className="max-w-[1440px] w-full bg-white mx-auto lg:py-20 lg:px-10 px-5 flex flex-col gap-10">
       <div>
-        <h3 className="font-semibold lg:text-4xl text-xl text-center text-transparent bg-gradient-to-l to-[#9272d3] from-[#2a1454] bg-clip-text">
+        <h3 className="font-semibold lg:text-4xl text-2xl text-center text-transparent bg-gradient-to-l to-[#9272d3] from-[#2a1454] bg-clip-text">
           My Skills
         </h3>
-        <p className="text-center text-slate-500 lg:text-xl text-sm font-sans mt-5">
+        <p className="text-center text-slate-500 lg:text-xl text-lg font-sans mt-5">
           Dive into a showcase of my finest creations, meticulously designed to
           captivate
-          <br />
+          <br className="lg:block hidden" />
           and ignite the imagination of your audience and stakeholders alike.
         </p>
       </div>

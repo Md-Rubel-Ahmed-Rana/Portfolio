@@ -10,15 +10,15 @@ const Blogs = async () => {
   const blogs = (await getBlogData()) as IBlog[];
   return (
     <section className="bg-white">
-      <div className="max-w-[1440px] w-full mx-auto lg:py-20 lg:px-10 px-5 flex flex-col gap-10">
+      <div className="max-w-[1440px] w-full mx-auto lg:py-20 py-10 lg:px-10 px-5 flex flex-col gap-10">
         <div>
-          <h3 className="font-semibold lg:text-4xl text-xl text-center text-transparent bg-gradient-to-l to-[#8750f7] from-[#2a1454] bg-clip-text">
+          <h3 className="font-semibold lg:text-4xl text-2xl text-center text-transparent bg-gradient-to-l to-[#8750f7] from-[#2a1454] bg-clip-text">
             My Recent blogs
           </h3>
           <p className="text-center text-slate-500 lg:text-xl text-sm font-sans mt-5">
             Crafting compelling blog content that sparks curiosity and fosters
-            meaningful <br /> connections. Let&apos;s bring your ideas to life,
-            one post at a time.
+            meaningful <br className="lg:block hidden" /> connections.
+            Let&apos;s bring your ideas to life, one post at a time.
           </p>
         </div>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">

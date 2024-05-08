@@ -29,7 +29,7 @@ const WorkTogether = async () => {
                     id="firstName"
                     name="firstName"
                     placeholder="First name"
-                    className="w-full rounded-md border focus:border-blue-500 focus:ring-blue-500 p-2"
+                    className="w-full rounded-md border bg-white focus:border-blue-500 focus:ring-blue-500 p-2"
                   />
                 </div>
                 <div className="w-1/2 ml-2">
@@ -38,7 +38,7 @@ const WorkTogether = async () => {
                     id="lastName"
                     name="lastName"
                     placeholder="Last name"
-                    className="w-full rounded-md border focus:border-blue-500 focus:ring-blue-500 p-2"
+                    className="w-full rounded-md border bg-white focus:border-blue-500 focus:ring-blue-500 p-2"
                   />
                 </div>
               </div>
@@ -49,7 +49,7 @@ const WorkTogether = async () => {
                     id="email"
                     name="email"
                     placeholder="Email address"
-                    className="w-full rounded-md border focus:border-blue-500 focus:ring-blue-500 p-2"
+                    className="w-full rounded-md border bg-white focus:border-blue-500 focus:ring-blue-500 p-2"
                   />
                 </div>
                 <div className="w-1/2 ml-2">
@@ -58,7 +58,7 @@ const WorkTogether = async () => {
                     id="phone"
                     name="phone"
                     placeholder="Phone number"
-                    className="w-full rounded-md border focus:border-blue-500 focus:ring-blue-500 p-2"
+                    className="w-full rounded-md border bg-white focus:border-blue-500 focus:ring-blue-500 p-2"
                   />
                 </div>
               </div>
@@ -68,7 +68,7 @@ const WorkTogether = async () => {
                   name="message"
                   rows={6}
                   placeholder="Message"
-                  className="w-full rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500 p-2 border"
+                  className="w-full rounded-md border-gray-300 bg-white focus:border-blue-500 focus:ring-blue-500 p-2 border"
                 ></textarea>
               </div>
               <button

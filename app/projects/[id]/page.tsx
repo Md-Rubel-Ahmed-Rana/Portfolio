@@ -129,14 +129,6 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
             </p>
           </div>
           <Comments postId={id} />
-          {/* <p className="text-right mt-3">
-            <button
-              type="button"
-              className="bg-gradient-to-l from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white  px-5 py-1 rounded-full"
-            >
-              Leave a comment
-            </button>
-          </p> */}
         </div>
       </div>
     </section>
