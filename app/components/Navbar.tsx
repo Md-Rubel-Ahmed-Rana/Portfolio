@@ -1,12 +1,13 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import style from "./Navbar.module.css";
 import { navList } from "../constants/navList";
 import { IHome } from "../types/home.type";
 import Popover from "@mui/material/Popover";
 import Button from "@mui/material/Button";
+import logoImage from "../../app/favicon.ico";
 
 const Navbar = () => {
   const [data, setData] = useState<any>(null);
@@ -74,7 +75,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-white flex flex-col justify-center shadow-md overflow-hidden p-5 w-[100%]">
-      <div className="text-center pt-2 pb-0 mb-0">
+      <div className="text-center pt-2 pb-0 lg:mb-0 mb-5">
         <p
           title="Thinking is 50% of a work"
           className="lg:text-lg  text:sm font-light text-blue-800"
@@ -88,7 +89,7 @@ const Navbar = () => {
             <img
               title="Logo"
               className="lg:w-16 lg:h-16 w-10 h-10 rounded-full"
-              src={logo}
+              src={logo || "https://i.ibb.co/ysPqGGS/mdrubelahmedrana-Logo.jpg"}
               alt="Logo"
             />
           </Link>
