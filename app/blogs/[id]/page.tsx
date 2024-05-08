@@ -1,6 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import blogImage from "../../../public/images/blogImage.jpg";
-import Image from "next/image";
 import { FaCalendarAlt, FaUserCircle } from "react-icons/fa";
 import CommentButton from "@/app/components/CommentButton";
 import Comments from "@/app/components/Comments";
@@ -65,16 +63,7 @@ const BlogDetails = async ({ params }: { params: { id: string } }) => {
               <CommentButton id={blog.id} />
             </p>
           </div>
-
           <Comments postId={blog.id} />
-          {/* <p className="text-right mt-3">
-            <button
-              type="button"
-              className="bg-gradient-to-l from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white  px-5 py-1 rounded-full"
-            >
-              Leave a comment
-            </button>
-          </p> */}
         </div>
       </div>
     </section>

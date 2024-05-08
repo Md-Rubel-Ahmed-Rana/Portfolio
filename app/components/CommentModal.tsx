@@ -5,6 +5,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { IPostComment } from "../types/postComment.type";
 import { postComment } from "../apis/postComment";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 type Props = {
   isOpen: boolean;
@@ -15,6 +16,7 @@ type Props = {
 const CommentModal = ({ isOpen, setIsOpen, id }: Props) => {
   // const [file, setFile] = useState<any>(null);
   const { register, handleSubmit } = useForm<IPostComment>();
+  const router = useRouter();
 
   const closeModal = () => {
     setIsOpen(false);
@@ -25,6 +27,7 @@ const CommentModal = ({ isOpen, setIsOpen, id }: Props) => {
     if (res.statusCode === 201) {
       toast.success(res.message);
       setIsOpen(() => false);
+      router.refresh();
     }
   };
 
@@ -59,7 +62,7 @@ const CommentModal = ({ isOpen, setIsOpen, id }: Props) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="lg:w-[400px] mx-auto transform rounded-xl bg-gray-100 dark:bg-gray-600 p-4 text-left  shadow-xl transition-all relative">
+              <Dialog.Panel className="lg:w-[400px] mx-auto transform rounded-xl bg-white p-4 text-left  shadow-xl transition-all relative">
                 {/* modal content */}
                 <div className="mt-3">
                   <div className="mb-3">
@@ -73,7 +76,7 @@ const CommentModal = ({ isOpen, setIsOpen, id }: Props) => {
                       <div className="mb-4">
                         <input
                           {...register("name")}
-                          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-white leading-tight focus:outline-none focus:shadow-outline"
                           id="name"
                           type="text"
                           placeholder="Enter your name"
@@ -107,7 +110,7 @@ const CommentModal = ({ isOpen, setIsOpen, id }: Props) => {
                       <div className="mb-6">
                         <textarea
                           {...register("comment")}
-                          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                          className="shadow bg-white  appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                           id="comment"
                           rows={4}
                           placeholder="Enter your comment"

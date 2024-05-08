@@ -7,28 +7,9 @@ import { navList } from "../constants/navList";
 import { IHome } from "../types/home.type";
 import Popover from "@mui/material/Popover";
 import Button from "@mui/material/Button";
-import logoImage from "../../app/favicon.ico";
 
 const Navbar = () => {
   const [data, setData] = useState<any>(null);
-  const [currentRoute, setCurrentRoute] = useState("");
-
-  const handleChangeRoute = (route: string) => {
-    setCurrentRoute(route);
-    localStorage.setItem("RubelCurrentRoute", JSON.stringify(route));
-  };
-
-  useEffect(() => {
-    const rawPath = localStorage.getItem("RubelCurrentRoute");
-    if (rawPath !== null) {
-      const path = JSON.parse(rawPath);
-      setCurrentRoute(path);
-    }
-    if (!currentRoute) {
-      localStorage.setItem("RubelCurrentRoute", JSON.stringify("home"));
-    }
-  }, [currentRoute]);
-
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
     null
   );
@@ -117,24 +98,18 @@ const Navbar = () => {
         <div className="lg:block hidden">
           <ul className="flex items-center gap-4 font-semibold text-gray-500 text-lg">
             {navList.map((nav) => (
-              <li
-                onClick={() => handleChangeRoute(nav.toLowerCase())}
-                title={nav}
-                key={nav}
-                className={`${style.navList} ${
-                  currentRoute === nav.toLowerCase() &&
-                  "text-white bg-blue-600 px-3 rounded-sm"
-                }`}
-              >
+              <li title={nav} key={nav} className={style.navList}>
                 <Link href={nav === "Home" ? "/" : `/${nav.toLowerCase()}`}>
                   {nav}
                 </Link>
               </li>
             ))}
             <li title="Hire me actionable button">
-              <button className="bg-gradient-to-l ml-3 from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white px-10 py-3 rounded-full">
-                Hire Me!
-              </button>
+              <Link href={"/services"}>
+                <button className="bg-gradient-to-l ml-3 from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white px-10 py-3 rounded-full">
+                  Hire Me!
+                </button>
+              </Link>
             </li>
           </ul>
         </div>
