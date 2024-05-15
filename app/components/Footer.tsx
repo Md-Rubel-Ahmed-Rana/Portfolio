@@ -9,7 +9,7 @@ const Footer = async () => {
   const { name, logo } = data || {};
   return (
     <div className="bg-[#2a1454]">
-      <div className="max-w-[1440px] w-full mx-auto lg:py-16 py-10 lg:px-10 ">
+      <div className="max-w-[1440px] w-full mx-auto lg:py-16 py-10 lg:px-10 px-3">
         <div className="flex flex-col flex-wrap gap-5 justify-center items-center">
           <div>
             <Link href={"/"}>

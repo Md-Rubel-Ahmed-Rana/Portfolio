@@ -26,7 +26,7 @@ const PostFeedback = () => {
   };
 
   return (
-    <div className="lg:w-1/2 mx-auto lg:py-20 py-10 sm:px-10 xs:h-screen">
+    <div className="lg:w-1/2 mx-auto lg:py-20 py-10 sm:px-10 xs:h-screen bg-white">
       <form
         className="shadow-md p-10 rounded-md"
         onSubmit={handleSubmit(handlePostFeedback)}
@@ -95,7 +95,7 @@ const PostFeedback = () => {
           ></textarea>
         </div>
         <p className="mb-4 text-yellow-600 flex items-center gap-2">
-          <IoIosWarning className="text-2xl" />
+          <IoIosWarning className="text-3xl" />
           <span>
             Approval required {"(Admin/Owner will review your feedback)"}
           </span>
