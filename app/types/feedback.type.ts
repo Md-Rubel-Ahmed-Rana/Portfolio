@@ -1,5 +1,5 @@
 export type IFeedback = {
-  id: string;
+  id?: string;
   name: string;
   image: string;
   feedback: string;

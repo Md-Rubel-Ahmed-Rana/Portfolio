@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import LogoImage from "../../public/images/blogImage.jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { IFeedback } from "../types/feedback.type";
 
 const SliderCard = ({ cards }: any) => {
   const settings = {
@@ -25,8 +26,8 @@ const SliderCard = ({ cards }: any) => {
 
   return (
     <Slider {...settings}>
-      {cards.map((feedback: any) => (
-        <div key={feedback.name}>
+      {cards.map((feedback: IFeedback) => (
+        <div key={Math.random()}>
           <div className="lg:p-5 lg:m-5 m-2 p-2 border bg-white cursor-grab rounded-lg shadow-md flex flex-col lg:gap-5 gap-2 justify-center lg:h-80">
             <div>
               <Image

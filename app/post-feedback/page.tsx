@@ -1,5 +1,8 @@
 "use client";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { IoIosWarning } from "react-icons/io";
+import { postNewFeedback } from "../apis/getFeedbackData";
+import { toast } from "react-toastify";
 
 type Inputs = {
   name: string;
@@ -10,23 +13,31 @@ type Inputs = {
 };
 
 const PostFeedback = () => {
-  const { register, handleSubmit } = useForm<Inputs>();
+  const { register, handleSubmit, reset } = useForm<Inputs>();
 
-  const handlePostFeedback: SubmitHandler<Inputs> = (data) => console.log(data);
+  const handlePostFeedback: SubmitHandler<Inputs> = async (data) => {
+    const result: any = await postNewFeedback(data);
+    if (result && result?.statusCode === 201) {
+      toast.success("Your feedback posted successfully. Thanks!");
+      reset();
+    } else {
+      toast.error("Failed to post feedback. Please try again!");
+    }
+  };
 
   return (
-    <div className="w-1/2 mx-auto py-20 px-10 h-screen">
+    <div className="lg:w-1/2 mx-auto lg:py-20 py-10 sm:px-10 xs:h-screen">
       <form
         className="shadow-md p-10 rounded-md"
         onSubmit={handleSubmit(handlePostFeedback)}
       >
         <div className="flex mb-4">
-          <h4 className="text-3xl font-semibold">
+          <h4 className="lg:text-3xl text-lg font-semibold">
             Thanks for your valuable time
           </h4>
         </div>
-        <div className="flex mb-4">
-          <div className="w-1/2 mr-2">
+        <div className="lg:flex mb-4">
+          <div className="lg:w-1/2 lg:mr-2">
             <input
               {...register("name")}
               required
@@ -34,10 +45,10 @@ const PostFeedback = () => {
               id="name"
               name="name"
               placeholder="Enter your name"
-              className="w-full rounded-md border bg-white focus:border-blue-500 focus:ring-blue-500 p-2"
+              className="w-full rounded-md border mb-4 lg:mb-0 bg-white focus:border-blue-500 focus:ring-blue-500 p-2"
             />
           </div>
-          <div className="w-1/2 ml-2">
+          <div className="lg:w-1/2 lg:ml-2">
             <input
               {...register("designation")}
               required
@@ -49,8 +60,8 @@ const PostFeedback = () => {
             />
           </div>
         </div>
-        <div className="flex mb-4">
-          <div className="w-1/2 mr-2">
+        <div className="lg:flex mb-4">
+          <div className="lg:w-1/2 lg:mr-2">
             <input
               {...register("company")}
               required
@@ -58,13 +69,12 @@ const PostFeedback = () => {
               id="company"
               name="company"
               placeholder="Enter your company name"
-              className="w-full rounded-md border bg-white focus:border-blue-500 focus:ring-blue-500 p-2"
+              className="w-full rounded-md border mb-4 lg:mb-0 bg-white focus:border-blue-500 focus:ring-blue-500 p-2"
             />
           </div>
-          <div className="w-1/2 ml-2">
+          <div className="lg:w-1/2 lg:ml-2">
             <input
               {...register("image")}
-              required
               type="url"
               id="image"
               name="image"
@@ -80,13 +90,19 @@ const PostFeedback = () => {
             id="feedback"
             name="feedback"
             rows={6}
-            placeholder="Enter you respective feedback"
+            placeholder="Write you respective feedback"
             className="w-full rounded-md border-gray-300 bg-white focus:border-blue-500 focus:ring-blue-500 p-2 border"
           ></textarea>
         </div>
+        <p className="mb-4 text-yellow-600 flex items-center gap-2">
+          <IoIosWarning className="text-2xl" />
+          <span>
+            Approval required {"(Admin/Owner will review your feedback)"}
+          </span>
+        </p>
         <button
           type="submit"
-          className="bg-gradient-to-l ml-3 from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white px-10 py-3 rounded-full"
+          className="bg-gradient-to-l w-full from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white px-10 py-3 rounded-full"
         >
           Post feedback
         </button>
