@@ -26,7 +26,7 @@ const PostFeedback = () => {
   };
 
   return (
-    <div className="lg:w-1/2 mx-auto lg:py-20 py-10 sm:px-10 xs:h-screen bg-white">
+    <div className="lg:w-1/2 mx-auto lg:my-10 py-10 sm:px-10 xs:h-screen bg-white">
       <form
         className="shadow-md p-10 rounded-md"
         onSubmit={handleSubmit(handlePostFeedback)}
