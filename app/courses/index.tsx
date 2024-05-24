@@ -1,22 +1,9 @@
 import { FaAward } from "react-icons/fa";
 import ExperienceAndCourseCard from "../components/ExperienceAndCourseCard";
+import { getCourses } from "../apis/course.api";
 
-const courses = [
-  {
-    name: "Complete Web Development Course",
-    startDate: "01-08-2022",
-    endDate: "09-01-2024",
-    institute: "Programming Hero",
-  },
-  {
-    name: "Advanced Web Development Course",
-    startDate: "01-08-2022",
-    endDate: "09-01-2024",
-    institute: "Programming Hero",
-  },
-];
-
-const Courses = () => {
+const Courses = async () => {
+  const courses = (await getCourses()) || [];
   return (
     <div className="w-full flex flex-col gap-8">
       <h3 className="flex items-center gap-5 lg:text-4xl text-xl">
@@ -26,12 +13,12 @@ const Courses = () => {
         </span>
       </h3>
       <div className="flex flex-col gap-5">
-        {courses.map((course, index) => {
-          const { name, startDate, endDate, institute } = course;
+        {courses.map((course) => {
+          const { id, name, startDate, endDate, institute } = course;
           return (
             <ExperienceAndCourseCard
-              key={index}
-              id={index}
+              key={id}
+              id={id}
               startDate={startDate}
               endDate={endDate}
               institute={institute}

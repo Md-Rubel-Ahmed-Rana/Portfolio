@@ -1,15 +1,13 @@
 import { IFeedback } from "../types/feedback.type";
+import { rootApi } from "./rootApi";
 
 export const getFeedbackData = async () => {
   try {
-    const res = await fetch(
-      "https://portfolio-backend-v2-p89h.onrender.com/api/v2/feedback",
-      {
-        next: {
-          revalidate: 10,
-        },
-      }
-    );
+    const res = await fetch(`${rootApi}/feedback`, {
+      next: {
+        revalidate: 10,
+      },
+    });
 
     if (res.ok) {
       const data = await res.json();

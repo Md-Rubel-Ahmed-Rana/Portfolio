@@ -1,15 +1,13 @@
 import { IProject } from "../types/project.type";
+import { rootApi } from "./rootApi";
 
 export const getSingleProjectData = async (id: string) => {
   try {
-    const res = await fetch(
-      `https://portfolio-backend-v2-p89h.onrender.com/api/v2/project/single/${id}`,
-      {
-        next: {
-          revalidate: 10,
-        },
-      }
-    );
+    const res = await fetch(`${rootApi}/project/single/${id}`, {
+      next: {
+        revalidate: 10,
+      },
+    });
 
     if (res.ok) {
       const data = await res.json();

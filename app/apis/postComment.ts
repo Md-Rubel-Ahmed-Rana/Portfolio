@@ -1,4 +1,5 @@
 import { IPostComment } from "../types/postComment.type";
+import { rootApi } from "./rootApi";
 
 export const postComment = async (comment: IPostComment) => {
   try {
@@ -7,16 +8,13 @@ export const postComment = async (comment: IPostComment) => {
     // remove the image from body object for a few time
     delete comment.image;
 
-    const res = await fetch(
-      "https://portfolio-backend-v2-p89h.onrender.com/api/v2/comment/add",
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify(comment),
-      }
-    );
+    const res = await fetch(`${rootApi}/comment/add`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify(comment),
+    });
     if (res.ok) {
       const result = await res.json();
       return result;

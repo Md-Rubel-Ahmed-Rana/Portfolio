@@ -1,13 +1,12 @@
+import { rootApi } from "./rootApi";
+
 export const getServiceData = async () => {
   try {
-    const res = await fetch(
-      "https://portfolio-backend-v2-p89h.onrender.com/api/v2/service",
-      {
-        next: {
-          revalidate: 10,
-        },
-      }
-    );
+    const res = await fetch(`${rootApi}/service`, {
+      next: {
+        revalidate: 10,
+      },
+    });
 
     if (res.ok) {
       const data = await res.json();

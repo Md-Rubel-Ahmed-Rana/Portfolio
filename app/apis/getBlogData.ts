@@ -1,15 +1,13 @@
 import { IBlog } from "../types/blog.type";
+import { rootApi } from "./rootApi";
 
 export const getBlogData = async () => {
   try {
-    const res = await fetch(
-      "https://portfolio-backend-v2-p89h.onrender.com/api/v2/blog",
-      {
-        next: {
-          revalidate: 10,
-        },
-      }
-    );
+    const res = await fetch(`${rootApi}/blog`, {
+      next: {
+        revalidate: 10,
+      },
+    });
 
     if (res.ok) {
       const data = await res.json();

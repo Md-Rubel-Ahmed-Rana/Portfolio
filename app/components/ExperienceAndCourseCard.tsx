@@ -8,23 +8,31 @@ type Props = {
   endDate: string;
   institute: string;
   position?: string;
+  workType?: string;
   route: string;
 };
 
 const ExperienceAndCourseCard = (props: Props) => {
-  const { id, name, startDate, endDate, institute, position, route } = props;
+  const { id, name, startDate, endDate, institute, position, workType, route } =
+    props;
+
   return (
     <div
       className="bg-white p-5 transition duration-1000 rounded-lg flex flex-col gap-2 hover:bg-purple-800 hover:text-white group relative"
       key={Math.random()}
     >
       <p className="lg:text-lg font-semibold text-blue-500 group-hover:text-white">
-        {startDate} | {endDate || "Present"}
+        <span>{startDate.slice(0, 10).split("-").reverse().join("-")}</span> |
+        <span className="ml-1">
+          {endDate
+            ? endDate.slice(0, 10).split("-").reverse().join("-")
+            : "Present"}
+        </span>
       </p>
       <h4 className="lg:text-2xl font-bold">{name}</h4>
       {route === "experiences" && (
         <p className="text-md font-semibold text-gray-700 group-hover:text-white">
-          At {position}
+          At {position} {`(${workType})`}
         </p>
       )}
 

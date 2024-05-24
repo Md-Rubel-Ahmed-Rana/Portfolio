@@ -1,13 +1,12 @@
+import { rootApi } from "./rootApi";
+
 export const getCommentsData = async (postId: string) => {
   try {
-    const res = await fetch(
-      `https://portfolio-backend-v2-p89h.onrender.com/api/v2/comment/by-post/${postId}`,
-      {
-        next: {
-          revalidate: 10,
-        },
-      }
-    );
+    const res = await fetch(`${rootApi}/comment/by-post/${postId}`, {
+      next: {
+        revalidate: 10,
+      },
+    });
     if (res.ok) {
       const result = await res.json();
       const comments = result.data as IComment[];

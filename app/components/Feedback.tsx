@@ -5,7 +5,7 @@ import { IFeedback } from "../types/feedback.type";
 import SliderCard from "./SliderCard";
 
 const Feedback = async () => {
-  // const feedbacks = ((await getFeedbackData()) as IFeedback[]) || [];
+  const feedbacks = ((await getFeedbackData()) as IFeedback[]) || [];
   return (
     <section className="bg-gray-100">
       <div className="max-w-[1440px] w-full mx-auto py-20 lg:px-10 px-5">
@@ -28,7 +28,7 @@ const Feedback = async () => {
               </button>
             </Link>
           </div>
-          {feedbacks.length <= 0 ? (
+          {feedbacks?.length <= 0 ? (
             <div className="lg:w-3/5 mt-10 ">
               <h2 className="text-4xl font-semibold text-gray-600">
                 There is no feedback found!

@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
 import { FaDownload } from "react-icons/fa";
 import * as FaIcons from "react-icons/fa";
 import { getHomeData } from "../apis/getHomeData";
@@ -10,7 +9,7 @@ const Banner = async () => {
     data || {};
 
   return (
-    <div className="max-w-[1440px] w-full bg-white mx-auto flex lg:flex-row gap-10 flex-col-reverse justify-between items-center py-16 px-10">
+    <div className="max-w-[1440px] w-full bg-white mx-auto flex mt-10 lg:flex-row gap-10 flex-col-reverse justify-between items-center py-16 px-10">
       <div className="flex flex-col justify-between gap-10 max-w-lg">
         <div>
           <h3 className="lg:text-4xl text-2xl font-bold mb-4">
