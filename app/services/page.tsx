@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import { Metadata } from "next";
 import React from "react";
-import { getServiceData } from "../apis/getServiceData";
 import { IService } from "../types/service.type";
 import Link from "next/link";
+import { getServiceData } from "../apis/service.api";
 
 export async function generateMetadata() {
   const projects = (await getServiceData()) as IService[];

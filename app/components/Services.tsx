@@ -1,6 +1,6 @@
 import { GoArrowLeft } from "react-icons/go";
-import { getServiceData } from "../apis/getServiceData";
 import { IService } from "../types/service.type";
+import { getServiceData } from "../apis/service.api";
 
 export default async function Services() {
   const services = (await getServiceData()) as IService[];

@@ -1,9 +1,9 @@
-import { IMail } from "../types/mail.type";
+import { IHireMe } from "../types/hireMe.type";
 import { rootApi } from "./rootApi";
 
-export const sendMail = async (content: IMail) => {
+export const sendHireMe = async (content: IHireMe) => {
   try {
-    const res = await fetch(`${rootApi}/mail/send`, {
+    const res = await fetch(`${rootApi}/hire-me/send`, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -15,7 +15,7 @@ export const sendMail = async (content: IMail) => {
       return result;
     }
   } catch (error) {
-    console.error("Error sending mail:", error);
-    throw new Error("Failed to sending mail. Please try again later.");
+    console.error("Error sending hire me:", error);
+    throw new Error("Failed to sending hire me. Please try again later.");
   }
 };
