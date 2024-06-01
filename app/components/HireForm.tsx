@@ -4,7 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { IHireMe } from "../types/hireMe.type";
 import { sendHireMe } from "../apis/hireMe.api";
 import { toast } from "react-toastify";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const HiringForm = ({ position }: { position: string }) => {
   const [loading, setLoading] = useState(false);
