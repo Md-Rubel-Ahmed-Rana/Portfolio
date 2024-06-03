@@ -10,11 +10,23 @@ type Props = {
   position?: string;
   workType?: string;
   route: string;
+  queries?: string;
 };
 
 const ExperienceAndCourseCard = (props: Props) => {
-  const { id, name, startDate, endDate, institute, position, workType, route } =
-    props;
+  const {
+    id,
+    name,
+    startDate,
+    endDate,
+    institute,
+    position,
+    workType,
+    route,
+    queries,
+  } = props;
+
+  const queryString = queries ? `?${queries}` : "";
 
   return (
     <div
@@ -46,7 +58,7 @@ const ExperienceAndCourseCard = (props: Props) => {
             ? "animate__fadeInLeft"
             : "animate__fadeInRight"
         }  group-hover:block absolute bottom-2 right-5 bg-white text-[#8750f7] hover:text-white hover:bg-[#8750f7] transition duration-300 ease-in-out px-10 py-2 rounded-md`}
-        href={`/${route}/${id}`}
+        href={`/${route}/${id}${queryString}`}
       >
         Details
       </Link>

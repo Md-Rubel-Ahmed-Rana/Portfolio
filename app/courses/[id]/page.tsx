@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { getSingleCourse } from "@/app/apis/course.api";
 import { ICourse } from "@/app/types/course.type";
 
@@ -6,7 +5,9 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   const data = (await getSingleCourse(params.id)) as ICourse;
 
   return {
-    title: `Course-${data.name}`,
+    title: `Course - ${data.name} - ${
+      data.institute
+    } - ${data.courseDetails.join(", ")}`,
     description: data.courseDetails.join(", "),
   };
 }

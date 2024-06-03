@@ -14,7 +14,8 @@ const Courses = async () => {
       </h3>
       <div className="flex flex-col gap-5">
         {courses.map((course) => {
-          const { id, name, startDate, endDate, institute } = course;
+          const { id, name, startDate, endDate, institute, courseDetails } =
+            course;
           return (
             <ExperienceAndCourseCard
               key={id}
@@ -24,6 +25,9 @@ const Courses = async () => {
               institute={institute}
               name={name}
               route={"courses"}
+              queries={`name=${name}&institute=${institute}&courseDetails=${courseDetails.join(
+                ", "
+              )}`}
             />
           );
         })}

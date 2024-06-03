@@ -5,8 +5,10 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   const data = (await getSingleExperience(params.id)) as IExperience;
 
   return {
-    title: `Experience-${data.name}`,
-    description: data.responsibilities.toString(),
+    title: `Experience - ${data.name} - ${
+      data.designation
+    } - ${data.responsibilities.join(", ")}`,
+    description: data.responsibilities.join(", "),
   };
 }
 

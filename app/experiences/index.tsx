@@ -22,6 +22,7 @@ const Experiences = async () => {
             location,
             name,
             workType,
+            responsibilities,
           } = exp;
           return (
             <ExperienceAndCourseCard
@@ -34,6 +35,9 @@ const Experiences = async () => {
               position={name}
               route={"experiences"}
               workType={workType}
+              queries={`name=${name}&designation=${designation}&responsibilities=${responsibilities.join(
+                ", "
+              )}`}
             />
           );
         })}
