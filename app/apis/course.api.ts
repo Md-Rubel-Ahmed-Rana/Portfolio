@@ -19,3 +19,22 @@ export const getCourses = async () => {
     throw new Error("Failed to fetch courses data. Please try again later.");
   }
 };
+
+export const getSingleCourse = async (id: string) => {
+  try {
+    const res = await fetch(`${rootApi}/course/single/${id}`, {
+      next: {
+        revalidate: 10,
+      },
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      const courses = data.data as ICourse;
+      return courses;
+    }
+  } catch (error) {
+    console.error("Error fetching course data:", error);
+    throw new Error("Failed to fetch course data. Please try again later.");
+  }
+};

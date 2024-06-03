@@ -8,4 +8,5 @@ export type ICourse = {
   passingYear: number;
   result: string;
   institute: string;
+  courseDetails: string[];
 };
