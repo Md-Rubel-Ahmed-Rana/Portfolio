@@ -1,5 +1,5 @@
-import { getIcon } from "@/app/utils/getIcons";
 import { getHomeData } from "../apis/getHomeData";
+import { getSkillIcon } from "../utils/getSkillIcon";
 
 const Skills = async () => {
   const data = await getHomeData();
@@ -18,7 +18,7 @@ const Skills = async () => {
       </div>
       <div className="grid lg:grid-cols-6 md:grid-cols-3 grid-cols-2 lg:gap-5 gap-2">
         {data?.skills.map((skill) => {
-          const IconComponent = getIcon(skill?.name);
+          const IconComponent = getSkillIcon(data?.skillIcons, skill?.name);
           return (
             <div
               className="transition duration-1000 border flex flex-col text-center hover:bg-purple-950 hover:text-white lg:gap-3 gap-1 justify-between items-center lg:p-3 p-2 rounded-2xl cursor-pointer shadow-md group"
@@ -27,7 +27,7 @@ const Skills = async () => {
               <div>
                 {IconComponent && (
                   <IconComponent className="text-6xl text-blue-600 group-hover:text-white" />
-                )}{" "}
+                )}
                 <p className="text-xl font-semibold text-gray-500 mt-3 group-hover:text-blue-500">
                   {skill.percentage}%
                 </p>

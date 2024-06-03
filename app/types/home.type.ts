@@ -10,5 +10,8 @@ export type IHome = {
   resumeLink: string;
   bannerImage: string;
   socialLinks: [{ name: string; link: string; icon: string }];
-  skills: [{ name: string; percentage: number }];
+  skills: [
+    { name: string; percentage: number; serial: number; iconLink: string }
+  ];
+  skillIcons: any;
 };
