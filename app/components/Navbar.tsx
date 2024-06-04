@@ -70,7 +70,7 @@ const Navbar = () => {
           <Link className="lg:block hidden" href={"/"}>
             <img
               title="Logo"
-              className="lg:w-16 lg:h-16 w-10 h-10 rounded-full"
+              className="lg:w-16 lg:h-16 w-10 h-10 mr-3 rounded-full"
               src={logo || "https://i.ibb.co/ysPqGGS/mdrubelahmedrana-Logo.jpg"}
               alt="Logo"
             />

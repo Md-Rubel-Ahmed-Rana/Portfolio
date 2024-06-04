@@ -20,7 +20,7 @@ export const navList = [
     path: "/post-feedback",
   },
   {
-    label: "Contact",
-    path: "/contact",
+    label: "Updates",
+    path: "/upcoming-updates",
   },
 ];
