@@ -1,5 +1,6 @@
 import { getSingleExperience } from "@/app/apis/experience.api";
 import { IExperience } from "@/app/types/experience.type";
+import { IoMdCheckmark } from "react-icons/io";
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const data = (await getSingleExperience(params.id)) as IExperience;
@@ -71,7 +72,7 @@ const ExperienceDetails = async ({ params }: { params: { id: string } }) => {
           <h4 className="text-2xl font-semibold text-gray-700 mb-2">
             Responsibilities
           </h4>
-          <ul className="list-disc list-inside text-gray-600">
+          <ul className="list-disc text-gray-600">
             {data.responsibilities.map((item, index) => (
               <li key={index} className="mb-2">
                 {item}
@@ -83,7 +84,7 @@ const ExperienceDetails = async ({ params }: { params: { id: string } }) => {
           <h4 className="text-2xl font-semibold text-gray-700 mb-2">
             Learned New Technologies
           </h4>
-          <ul className="list-disc list-inside text-gray-600">
+          <ul className="list-disc text-gray-600">
             {data.learnedNewTech.map((tech, index) => (
               <li key={index} className="mb-2">
                 {tech}

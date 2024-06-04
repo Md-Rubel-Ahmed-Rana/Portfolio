@@ -99,10 +99,10 @@ export default async function Projects() {
                           : description}
                       </span>
                     </p>
-                    <div className="flex justify-between gap-3 mt-5">
+                    <div className="flex justify-between lg:flex-nowrap flex-wrap gap-3 mt-5">
                       <button
                         type="button"
-                        className="w-full bg-gradient-to-l from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white px-2 py-1 rounded-full"
+                        className="lg:w-1/3 w-full bg-gradient-to-l from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white px-2 py-1 rounded-full"
                       >
                         <a
                           href={sourceCode}
@@ -114,7 +114,7 @@ export default async function Projects() {
                       </button>
                       <button
                         type="button"
-                        className="w-full bg-gradient-to-l from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white  px-2 py-1 rounded-full"
+                        className="lg:w-1/3 w-full bg-gradient-to-l from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white  px-2 py-1 rounded-full"
                       >
                         <a
                           href={liveLink}
@@ -125,7 +125,7 @@ export default async function Projects() {
                         </a>
                       </button>
                       <Link
-                        className="w-full"
+                        className="lg:w-1/3 w-full"
                         href={`projects/${project.id}?n=${project.name
                           .split(" ")
                           .join("-")}&d=${project.description}`}

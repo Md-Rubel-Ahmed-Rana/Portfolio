@@ -52,11 +52,12 @@ const Services = async () => {
                 <p className="text-sm text-gray-500">{service.description}</p>
               </div>
               <Link
+                className="w-full text-center"
                 href={`/hire-me/${service.id}?name=${service.name}&description=${service.description}`}
               >
                 <button
                   type="button"
-                  className="bg-gradient-to-l from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white px-10 py-2 rounded-full absolute bottom-3"
+                  className="bg-gradient-to-l w-11/12 mx-auto from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white py-2 rounded-full absolute bottom-3"
                 >
                   Hire Now
                 </button>
