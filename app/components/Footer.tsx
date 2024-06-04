@@ -26,12 +26,10 @@ const Footer = async () => {
               {navList.map((nav) => (
                 <li
                   className="text-white lg:text-md text-sm"
-                  title={nav}
+                  title={nav.label}
                   key={Math.random()}
                 >
-                  <Link href={nav === "Home" ? "/" : `/${nav.toLowerCase()}`}>
-                    {nav}
-                  </Link>
+                  <Link href={nav.path}>{nav.label}</Link>
                 </li>
               ))}
             </ul>

@@ -6,7 +6,8 @@ import style from "./Navbar.module.css";
 import { navList } from "../constants/navList";
 import { IHome } from "../types/home.type";
 import Popover from "@mui/material/Popover";
-import Button from "@mui/material/Button";
+import { FaBars } from "react-icons/fa";
+import { RxCross2 } from "react-icons/rx";
 
 const Navbar = () => {
   const [data, setData] = useState<any>(null);
@@ -66,7 +67,7 @@ const Navbar = () => {
       </div>
       <div className="flex justify-between items-center lg:p-5 pt-0 mt-0">
         <div className="flex gap-2 items-center">
-          <Link href={"/"}>
+          <Link className="lg:block hidden" href={"/"}>
             <img
               title="Logo"
               className="lg:w-16 lg:h-16 w-10 h-10 rounded-full"
@@ -74,23 +75,64 @@ const Navbar = () => {
               alt="Logo"
             />
           </Link>
-          <div className="font-semibold text-gray-500 lg:text-lg text-xs">
+          <div className="dropdown dropdown-end lg:hidden mr-4">
+            <button
+              onClick={handleClick}
+              tabIndex={0}
+              role="button"
+              aria-describedby={id}
+              className="bg-gradient-to-l from-purple-800 to-blue-500 p-3 hover:to-purple-800 hover:from-blue-500  text-white rounded-full"
+            >
+              {open ? (
+                <RxCross2 className="text-2xl" />
+              ) : (
+                <FaBars className="text-2xl" />
+              )}
+            </button>
+            <Popover
+              className="mt-2"
+              id={id}
+              open={open}
+              anchorEl={anchorEl}
+              onClose={handleClose}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "left",
+              }}
+            >
+              <ul className="mt-3 p-2 bg-white shadow menu menu-sm dropdown-content rounded-md w-52">
+                {navList.map((nav) => (
+                  <li
+                    onClick={handleClose}
+                    title={nav.label}
+                    key={nav.label}
+                    className={style.navList}
+                  >
+                    <Link href={nav.path}>{nav.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </Popover>
+          </div>
+          <div className="font-semibold flex flex-col gap-2 text-gray-500 lg:text-lg text-xs">
             <p title="Click to send email">
               <a
-                href={`mailto:${email}?subject=Contact Mail&body=Start writing your message`}
+                href={`mailto:${
+                  email || "mdrubelahmedrana521@gmail.com"
+                }?subject=Contact Mail&body=Start writing your message`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {email}
+                {email || "mdrubelahmedrana521@gmail.com"}
               </a>
             </p>
             <p title="Click to make call">
               <a
-                href={`tel:${phoneNumber}`}
+                href={`tel:${phoneNumber || "+880 1758 049882"}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {phoneNumber}
+                {phoneNumber || "+880 1758 049882"}
               </a>
             </p>
           </div>
@@ -98,10 +140,8 @@ const Navbar = () => {
         <div className="lg:block hidden">
           <ul className="flex items-center gap-4 font-semibold text-gray-500 text-lg">
             {navList.map((nav) => (
-              <li title={nav} key={nav} className={style.navList}>
-                <Link href={nav === "Home" ? "/" : `/${nav.toLowerCase()}`}>
-                  {nav}
-                </Link>
+              <li title={nav.label} key={nav.label} className={style.navList}>
+                <Link href={nav.path}>{nav.label}</Link>
               </li>
             ))}
             <li title="Hire me actionable button">
@@ -112,43 +152,6 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
-        </div>
-        <div className="dropdown dropdown-end lg:hidden">
-          <Button
-            onClick={handleClick}
-            tabIndex={0}
-            role="button"
-            aria-describedby={id}
-            className="bg-gradient-to-l from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white px-4 py-1 rounded-full"
-          >
-            Menu
-          </Button>
-          <Popover
-            className="mt-2"
-            id={id}
-            open={open}
-            anchorEl={anchorEl}
-            onClose={handleClose}
-            anchorOrigin={{
-              vertical: "bottom",
-              horizontal: "left",
-            }}
-          >
-            <ul className="mt-3 p-2 bg-white shadow menu menu-sm dropdown-content rounded-md w-52">
-              {navList.map((nav) => (
-                <li
-                  onClick={handleClose}
-                  title={nav}
-                  key={nav}
-                  className={style.navList}
-                >
-                  <Link href={nav === "Home" ? "/" : `/${nav.toLowerCase()}`}>
-                    {nav}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </Popover>
         </div>
       </div>
     </nav>
