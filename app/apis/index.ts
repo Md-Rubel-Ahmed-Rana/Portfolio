@@ -5,8 +5,6 @@ const baseUrl =
     ? localApi
     : (rootApi as string);
 
-console.log(process.env.NEXT_PUBLIC_ENV, baseUrl);
-
 export const fetchFromApi = async (endpointRoute: string) => {
   try {
     const res = await fetch(`${baseUrl}/${endpointRoute}`, {
