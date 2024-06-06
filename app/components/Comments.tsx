@@ -1,10 +1,10 @@
 import React from "react";
 import { FaUserCircle } from "react-icons/fa";
-import { getCommentsData } from "../apis/getCommentsData";
 import moment from "moment";
+import { getCommentsData } from "../apis/comment.api";
 
 const Comments = async ({ postId }: { postId: string }) => {
-  const comments = (await getCommentsData(postId)) || [];
+  const comments = await getCommentsData(postId);
   return (
     <div className="flex flex-col gap-3">
       {comments?.map((comment) => (

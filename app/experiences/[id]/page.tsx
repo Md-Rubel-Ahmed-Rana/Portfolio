@@ -1,9 +1,7 @@
-import { getSingleExperience } from "@/app/apis/experience.api";
-import { IExperience } from "@/app/types/experience.type";
-import { IoMdCheckmark } from "react-icons/io";
+import { getExperiences, getSingleExperience } from "@/app/apis/experience.api";
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
-  const data = (await getSingleExperience(params.id)) as IExperience;
+  const data = await getSingleExperience(params.id);
 
   return {
     title: `Experience - ${data.name} - ${
@@ -14,7 +12,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 }
 
 const ExperienceDetails = async ({ params }: { params: { id: string } }) => {
-  const data = (await getSingleExperience(params.id)) as IExperience;
+  const data = await getSingleExperience(params.id);
 
   return (
     <div className="min-h-screen lg:p-8 p-2 bg-gray-100  flex justify-center items-center">

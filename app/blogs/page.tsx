@@ -3,9 +3,8 @@ import React from "react";
 import { FaCalendarAlt, FaComments } from "react-icons/fa";
 import Link from "next/link";
 import { Metadata } from "next";
-import { getBlogData } from "../apis/getBlogData";
-import { IBlog } from "../types/blog.type";
 import blogDateFormatter from "../utils/blogDateFormatter";
+import { getBlogData } from "../apis/blog.api";
 
 export const metadata: Metadata = {
   title: "Blogs: Md Rubel Ahmed Rana",
@@ -13,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 const Blogs = async () => {
-  const blogs = (await getBlogData()) as IBlog[];
+  const blogs = await getBlogData();
   return (
     <section className="bg-gray-50">
       <div className="max-w-[1440px] w-full mx-auto pb-20 pt-10 px-10 flex flex-col gap-10">

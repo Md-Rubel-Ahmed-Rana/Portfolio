@@ -17,7 +17,7 @@ const Skills = async () => {
         </p>
       </div>
       <div className="grid lg:grid-cols-6 md:grid-cols-3 grid-cols-2 lg:gap-5 gap-2">
-        {data?.skills.map((skill) => {
+        {data?.skills.map((skill: any) => {
           const IconComponent = getSkillIcon(data?.skillIcons, skill?.name);
           return (
             <div

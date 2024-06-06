@@ -1,12 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import { Metadata } from "next";
 import React from "react";
-import { IService } from "../types/service.type";
 import Link from "next/link";
 import { getServiceData } from "../apis/service.api";
 
 export async function generateMetadata() {
-  const projects = (await getServiceData()) as IService[];
+  const projects = await getServiceData();
 
   return {
     title: "Services: Md Rubel Ahmed Rana",
@@ -18,7 +17,7 @@ export async function generateMetadata() {
 }
 
 const Services = async () => {
-  const services = (await getServiceData()) as IService[];
+  const services = await getServiceData();
   return (
     <section className="bg-gray-50">
       <div className="max-w-[1440px] w-full mx-auto py-20 px-5 flex flex-col gap-10 ">

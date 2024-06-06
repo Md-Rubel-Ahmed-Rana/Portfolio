@@ -1,11 +1,9 @@
 import Link from "next/link";
-import { getFeedbackData } from "../apis/getFeedbackData";
-import { feedbacks } from "../constants/feedbacks";
-import { IFeedback } from "../types/feedback.type";
+import { getFeedbackData } from "../apis/feedback.api";
 import SliderCard from "./SliderCard";
 
 const Feedback = async () => {
-  const feedbacks = ((await getFeedbackData()) as IFeedback[]) || [];
+  const feedbacks = await getFeedbackData();
   return (
     <section className="bg-gray-100">
       <div className="max-w-[1440px] w-full mx-auto py-20 lg:px-10 px-5">

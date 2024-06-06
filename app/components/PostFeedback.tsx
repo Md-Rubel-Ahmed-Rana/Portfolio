@@ -1,7 +1,7 @@
 "use client";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { IoIosWarning } from "react-icons/io";
-import { postNewFeedback } from "../apis/getFeedbackData";
+import { postNewFeedback } from "../apis/feedback.api";
 import { toast } from "react-toastify";
 
 type Inputs = {

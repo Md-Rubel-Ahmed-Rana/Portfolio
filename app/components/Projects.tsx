@@ -1,9 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import ProjectSort from "./ProjectSort";
-import { getProjectData } from "../apis/getProjectData";
-import { IProject } from "../types/project.type";
 import Link from "next/link";
+import { getProjectData } from "../apis/project.api";
 
 export const metadata: Metadata = {
   title: "Projects: Md Rubel Ahmed Rana",
@@ -11,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Projects() {
-  const projects = (await getProjectData()) as IProject[];
+  const projects = await getProjectData();
   return (
     <section className="max-w-[1440px] w-full bg-white mx-auto py-20 px-5 flex flex-col gap-10">
       <div>
@@ -29,7 +28,7 @@ export default async function Projects() {
           <ProjectSort />
         </div>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mt-10">
-          {projects.map((project: IProject) => {
+          {projects.map((project) => {
             const { id, thumbnail, name, category, subTitle, description } =
               project;
             return (

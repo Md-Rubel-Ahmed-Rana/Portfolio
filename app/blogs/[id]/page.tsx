@@ -2,13 +2,11 @@
 import { FaCalendarAlt, FaUserCircle } from "react-icons/fa";
 import CommentButton from "@/app/components/CommentButton";
 import Comments from "@/app/components/Comments";
-import { getSingleBlogData } from "@/app/apis/getSingleBlogData";
-import { IBlog } from "@/app/types/blog.type";
 import blogDateFormatter from "@/app/utils/blogDateFormatter";
-import { getBlogData } from "@/app/apis/getBlogData";
+import { getBlogData, getSingleBlogData } from "@/app/apis/blog.api";
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
-  const blog = (await getSingleBlogData(params.id)) as IBlog;
+  const blog = await getSingleBlogData(params.id);
 
   return {
     title: blog.title,
@@ -17,7 +15,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 }
 
 const BlogDetails = async ({ params }: { params: { id: string } }) => {
-  const blog = (await getSingleBlogData(params.id)) as IBlog;
+  const blog = await getSingleBlogData(params.id);
 
   return (
     <section className="bg-gray-50">
@@ -73,7 +71,7 @@ const BlogDetails = async ({ params }: { params: { id: string } }) => {
 export default BlogDetails;
 
 export async function generateStaticParams() {
-  const blogs = (await getBlogData()) as IBlog[];
+  const blogs = await getBlogData();
 
   return blogs.map((blog) => ({ id: blog.id }));
 }

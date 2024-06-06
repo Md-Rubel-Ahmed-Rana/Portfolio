@@ -1,8 +1,7 @@
-import { getSingleCourse } from "@/app/apis/course.api";
-import { ICourse } from "@/app/types/course.type";
+import { getCourses, getSingleCourse } from "@/app/apis/course.api";
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
-  const data = (await getSingleCourse(params.id)) as ICourse;
+  const data = await getSingleCourse(params.id);
 
   return {
     title: `Course - ${data.name} - ${
@@ -13,7 +12,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 }
 
 const CourseDetails = async ({ params }: { params: { id: string } }) => {
-  const data = (await getSingleCourse(params.id)) as ICourse;
+  const data = await getSingleCourse(params.id);
   return (
     <div className="min-h-screen lg:p-8 p-2 bg-gray-100 flex justify-center items-center">
       <div className="w-full max-w-4xl bg-white shadow-lg rounded-lg p-6">

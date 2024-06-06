@@ -3,9 +3,9 @@ import { Fragment, SetStateAction } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { IPostComment } from "../types/postComment.type";
-import { postComment } from "../apis/postComment";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import { postComment } from "../apis/comment.api";
 
 type Props = {
   isOpen: boolean;

@@ -2,12 +2,11 @@
 import React from "react";
 import { FaCalendarAlt, FaComments } from "react-icons/fa";
 import Link from "next/link";
-import { getBlogData } from "../apis/getBlogData";
-import { IBlog } from "../types/blog.type";
 import blogDateFormatter from "../utils/blogDateFormatter";
+import { getBlogData } from "../apis/blog.api";
 
 const Blogs = async () => {
-  const blogs = (await getBlogData()) as IBlog[];
+  const blogs = await getBlogData();
   return (
     <section className="bg-white">
       <div className="max-w-[1440px] w-full mx-auto py-20 lg:px-10 px-5 flex flex-col gap-10">

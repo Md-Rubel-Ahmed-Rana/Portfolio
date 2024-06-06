@@ -1,15 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
-import { getProjectData } from "@/app/apis/getProjectData";
-import { getSingleProjectData } from "@/app/apis/getSingleProjectData";
+import { getProjectData, getSingleProjectData } from "@/app/apis/project.api";
 import CommentButton from "@/app/components/CommentButton";
 import Comments from "@/app/components/Comments";
 import ProjectImages from "@/app/components/ProjectImages";
-import { IProject } from "@/app/types/project.type";
 import { countDays } from "@/app/utils/countDays";
 import { getProjectDuration } from "@/app/utils/getProjectDuration";
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
-  const project = (await getSingleProjectData(params.id)) as IProject;
+  const project = await getSingleProjectData(params.id);
 
   return {
     title: `Project: ${project.name} - Md Rubel Ahmed Rana`,
@@ -18,7 +16,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 }
 
 const ProjectDetails = async ({ params }: { params: { id: string } }) => {
-  const data = (await getSingleProjectData(params.id)) as IProject;
+  const data = await getSingleProjectData(params.id);
   const {
     id,
     name,
@@ -138,7 +136,7 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
 export default ProjectDetails;
 
 export async function generateStaticParams() {
-  const projects = (await getProjectData()) as IProject[];
+  const projects = await getProjectData();
 
   return projects.map((project) => ({ id: project.id }));
 }

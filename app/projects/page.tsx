@@ -1,12 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
-import { getProjectData } from "../apis/getProjectData";
 import { IProject } from "../types/project.type";
 import Link from "next/link";
 import ProjectSort from "../components/ProjectSort";
 import { getProjectDuration } from "../utils/getProjectDuration";
+import { getProjectData } from "../apis/project.api";
 
 export async function generateMetadata() {
-  const projects = (await getProjectData()) as IProject[];
+  const projects = await getProjectData();
 
   return {
     title: "Projects: Md Rubel Ahmed Rana",
@@ -19,7 +19,7 @@ export async function generateMetadata() {
 }
 
 export default async function Projects() {
-  const projects = (await getProjectData()) as IProject[];
+  const projects = await getProjectData();
   return (
     <section className="bg-gray-50">
       <div className="max-w-[1440px] w-full mx-auto py-20 px-5 flex flex-col gap-10">

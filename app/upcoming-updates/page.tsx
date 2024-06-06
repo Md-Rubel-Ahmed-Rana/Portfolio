@@ -1,8 +1,7 @@
 import { getUpdateData } from "../apis/update.api";
-import { IUpdate } from "../types/update.types";
 
 const Updates = async () => {
-  const data = (await getUpdateData()) as IUpdate[];
+  const data = await getUpdateData();
   return (
     <div className="min-h-screen lg:p-8 p-2 bg-gray-100 flex justify-center items-center">
       <div className="w-full max-w-4xl bg-white shadow-lg rounded-lg p-6">

@@ -1,21 +1,6 @@
-import { IHome } from "../types/home.type";
-import { rootApi } from "./rootApi";
+import { fetchFromApi } from ".";
 
 export const getHomeData = async () => {
-  try {
-    const res = await fetch(`${rootApi}/home`, {
-      next: {
-        revalidate: 10,
-      },
-    });
-
-    if (res.ok) {
-      const data = await res.json();
-      const homeData = data.data as IHome;
-      return homeData;
-    }
-  } catch (error) {
-    console.error("Error fetching home data:", error);
-    throw new Error("Failed to fetch home data. Please try again later.");
-  }
+  const homeData = await fetchFromApi(`home`);
+  return homeData;
 };

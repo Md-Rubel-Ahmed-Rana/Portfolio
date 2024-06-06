@@ -1,40 +1,12 @@
+import { fetchFromApi } from ".";
 import { ICourse } from "../types/course.type";
 import { rootApi } from "./rootApi";
 
 export const getCourses = async () => {
-  try {
-    const res = await fetch(`${rootApi}/course`, {
-      next: {
-        revalidate: 10,
-      },
-    });
-
-    if (res.ok) {
-      const data = await res.json();
-      const courses = data.data as ICourse[];
-      return courses;
-    }
-  } catch (error) {
-    console.error("Error fetching courses data:", error);
-    throw new Error("Failed to fetch courses data. Please try again later.");
-  }
+  return ((await fetchFromApi("course")) as ICourse[]) || [];
 };
-
 export const getSingleCourse = async (id: string) => {
-  try {
-    const res = await fetch(`${rootApi}/course/single/${id}`, {
-      next: {
-        revalidate: 10,
-      },
-    });
-
-    if (res.ok) {
-      const data = await res.json();
-      const courses = data.data as ICourse;
-      return courses;
-    }
-  } catch (error) {
-    console.error("Error fetching course data:", error);
-    throw new Error("Failed to fetch course data. Please try again later.");
-  }
+  return (
+    ((await fetchFromApi(`${rootApi}/course/single/${id}`)) as ICourse) || {}
+  );
 };
