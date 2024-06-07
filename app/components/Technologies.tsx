@@ -13,6 +13,7 @@ import {
   SiAxios,
   SiJsonwebtokens,
   SiCss3,
+  SiFramer,
 } from "react-icons/si";
 
 const techs = [
@@ -55,6 +56,11 @@ const techs = [
     name: "Axios",
     icon: <SiAxios className="text-6xl text-[#0078D4]" />,
     color: "#0078D4",
+  },
+  {
+    name: "Framer Motion",
+    icon: <SiFramer className="text-6xl text-[#000000]" />,
+    color: "#000000",
   },
 ];
 
