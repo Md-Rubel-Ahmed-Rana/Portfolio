@@ -58,7 +58,7 @@ const BlogDetails = async ({ params }: { params: { id: string } }) => {
               Comments for this article
             </h3>
             <p>
-              <CommentButton id={blog.id} />
+              <CommentButton id={blog.id} postType={"Blog"} />
             </p>
           </div>
           <Comments postId={blog.id} />

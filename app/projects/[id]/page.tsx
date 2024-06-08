@@ -123,7 +123,7 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
               Comments for this project
             </h3>
             <p>
-              <CommentButton id={id} />
+              <CommentButton id={id} postType={"Project"} />
             </p>
           </div>
           <Comments postId={id} />

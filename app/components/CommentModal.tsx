@@ -11,9 +11,10 @@ type Props = {
   isOpen: boolean;
   setIsOpen: (value: SetStateAction<boolean>) => void;
   id: string;
+  postType: string;
 };
 
-const CommentModal = ({ isOpen, setIsOpen, id }: Props) => {
+const CommentModal = ({ isOpen, setIsOpen, id, postType }: Props) => {
   // const [file, setFile] = useState<any>(null);
   const { register, handleSubmit } = useForm<IPostComment>();
   const router = useRouter();
@@ -23,7 +24,7 @@ const CommentModal = ({ isOpen, setIsOpen, id }: Props) => {
   };
 
   const handleCommentSubmit: SubmitHandler<IPostComment> = async (data) => {
-    const res = await postComment({ ...data, postId: id });
+    const res = await postComment({ ...data, postId: id, postType });
     if (res.statusCode === 201) {
       toast.success(res.message);
       setIsOpen(() => false);

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import CommentModal from "./CommentModal";
 
-const CommentButton = ({ id }: { id: string }) => {
+const CommentButton = ({ id, postType }: { id: string; postType: string }) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleComment = () => {
     setIsOpen(() => true);
@@ -16,7 +16,14 @@ const CommentButton = ({ id }: { id: string }) => {
       >
         Leave a comment
       </button>
-      {isOpen && <CommentModal isOpen={isOpen} id={id} setIsOpen={setIsOpen} />}
+      {isOpen && (
+        <CommentModal
+          isOpen={isOpen}
+          id={id}
+          setIsOpen={setIsOpen}
+          postType={postType}
+        />
+      )}
     </>
   );
 };

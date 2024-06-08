@@ -3,4 +3,5 @@ export type IPostComment = {
   image?: File;
   comment: string;
   postId: string;
+  postType: string;
 };
