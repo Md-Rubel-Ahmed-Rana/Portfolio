@@ -9,6 +9,9 @@ export const fetchFromApi = async (endpointRoute: string) => {
   try {
     const res = await fetch(`${baseUrl}/${endpointRoute}`, {
       headers: authHeaders,
+      next: {
+        revalidate: 60,
+      },
     });
 
     if (res.ok) {
