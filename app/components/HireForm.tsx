@@ -42,8 +42,8 @@ const HiringForm = ({ position }: { position: string }) => {
       className="lg:w-1/2 w-full lg:p-0 p-5"
       onSubmit={handleSubmit(handleHireSubmit)}
     >
-      <div className="flex mb-4 w-full">
-        <div className="w-1/2 mr-2">
+      <div className="lg:flex mb-4 w-full">
+        <div className="lg:w-1/2 w-full lg:mb-0 mb-4 lg:mr-2">
           <input
             {...register("name", { required: "Name required" })}
             type="text"
@@ -56,7 +56,7 @@ const HiringForm = ({ position }: { position: string }) => {
             <p className="text-red-600 font-serif">{errors.name.message}</p>
           )}
         </div>
-        <div className="w-1/2 ml-2">
+        <div className="lg:w-1/2 w-full lg:ml-2">
           <input
             {...register("email", { required: "Last name required" })}
             type="email"
@@ -70,8 +70,8 @@ const HiringForm = ({ position }: { position: string }) => {
           )}
         </div>
       </div>
-      <div className="flex mb-4 w-full">
-        <div className="w-1/2 mr-2">
+      <div className="lg:flex mb-4 w-full">
+        <div className="lg:w-1/2 w-full lg:mb-0 mb-4 lg:mr-2">
           <input
             {...register("jobType")}
             type="text"
@@ -81,7 +81,7 @@ const HiringForm = ({ position }: { position: string }) => {
             className="w-full rounded-md border bg-white focus:border-blue-500 focus:ring-blue-500 p-2"
           />
         </div>
-        <div className="w-1/2 ml-2">
+        <div className="lg:w-1/2 w-full lg:ml-2">
           <input
             {...register("jobCategory")}
             type="text"
@@ -92,8 +92,8 @@ const HiringForm = ({ position }: { position: string }) => {
           />
         </div>
       </div>
-      <div className="flex mb-4 w-full">
-        <div className="w-1/2 mr-2">
+      <div className="lg:flex mb-4 w-full">
+        <div className="lg:w-1/2 w-full lg:mb-0 mb-4 lg:mr-2">
           <input
             {...register("companyName")}
             type="text"
@@ -103,7 +103,7 @@ const HiringForm = ({ position }: { position: string }) => {
             className="w-full rounded-md border bg-white focus:border-blue-500 focus:ring-blue-500 p-2"
           />
         </div>
-        <div className="w-1/2 ml-2">
+        <div className="lg:w-1/2 w-full lg:ml-2">
           <input
             {...register("officialEmail")}
             type="email"
@@ -114,8 +114,8 @@ const HiringForm = ({ position }: { position: string }) => {
           />
         </div>
       </div>
-      <div className="flex mb-4 w-full">
-        <div className="w-1/2 mr-2">
+      <div className="lg:flex mb-4 w-full">
+        <div className="lg:w-1/2 w-full lg:mb-0 mb-4 lg:mr-2">
           <input
             {...register("salary")}
             type="text"
@@ -125,7 +125,7 @@ const HiringForm = ({ position }: { position: string }) => {
             className="w-full rounded-md border bg-white focus:border-blue-500 focus:ring-blue-500 p-2"
           />
         </div>
-        <div className="w-1/2 ml-2">
+        <div className="lg:w-1/2 w-full lg:ml-2">
           <input
             {...register("location")}
             type="text"
