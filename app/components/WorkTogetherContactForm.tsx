@@ -52,7 +52,6 @@ const WorkTogetherContactForm = () => {
       setLoading(false);
     }
   };
-
   return (
     <form onSubmit={handleSubmit(handleSendContact)}>
       <div className="flex mb-4">
@@ -63,7 +62,8 @@ const WorkTogetherContactForm = () => {
             id="firstName"
             name="firstName"
             placeholder="First name"
-            className="w-full rounded-md border bg-white focus:border-blue-500 focus:ring-blue-500 p-2"
+            className="w-full border border-blue-300 rounded focus:outline-none focus:ring-1
+             focus:ring-blue-500 p-2"
           />
           {errors.firstName && (
             <p className="text-red-600 font-serif">
@@ -78,7 +78,8 @@ const WorkTogetherContactForm = () => {
             id="lastName"
             name="lastName"
             placeholder="Last name"
-            className="w-full rounded-md border bg-white focus:border-blue-500 focus:ring-blue-500 p-2"
+            className="w-full border border-blue-300 rounded focus:outline-none focus:ring-1
+             focus:ring-blue-500 p-2"
           />
           {errors.lastName && (
             <p className="text-red-600 font-serif">{errors.lastName.message}</p>
@@ -93,7 +94,8 @@ const WorkTogetherContactForm = () => {
             id="email"
             name="email"
             placeholder="Email address"
-            className="w-full rounded-md border bg-white focus:border-blue-500 focus:ring-blue-500 p-2"
+            className="w-full border border-blue-300 rounded focus:outline-none focus:ring-1
+             focus:ring-blue-500 p-2"
           />
           {errors.email && (
             <p className="text-red-600 font-serif">{errors.email.message}</p>
@@ -106,7 +108,8 @@ const WorkTogetherContactForm = () => {
             id="phone"
             name="phone"
             placeholder="Phone number"
-            className="w-full rounded-md border bg-white focus:border-blue-500 focus:ring-blue-500 p-2"
+            className="w-full border border-blue-300 rounded focus:outline-none focus:ring-1
+             focus:ring-blue-500 p-2"
           />
         </div>
       </div>
@@ -117,7 +120,8 @@ const WorkTogetherContactForm = () => {
           name="message"
           rows={6}
           placeholder="Message"
-          className="w-full rounded-md border-gray-300 bg-white focus:border-blue-500 focus:ring-blue-500 p-2 border"
+          className="w-full border border-blue-300 rounded focus:outline-none focus:ring-1
+             focus:ring-blue-500 p-2"
         ></textarea>
         {errors.message && (
           <p className="text-red-600 font-serif">{errors.message.message}</p>

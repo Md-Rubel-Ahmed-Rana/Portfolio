@@ -1,6 +1,13 @@
-import { GoArrowLeft } from "react-icons/go";
+/* eslint-disable @next/next/no-img-element */
 import { IService } from "../types/service.type";
 import { getServiceData } from "../apis/service.api";
+import dynamic from "next/dynamic";
+const Card = dynamic(() => import("antd/lib/card"), {
+  ssr: false,
+});
+const Meta = dynamic(() => import("antd/lib/card/Meta"), {
+  ssr: false,
+});
 
 export default async function Services() {
   const services = (await getServiceData()) as IService[];
@@ -17,24 +24,23 @@ export default async function Services() {
             inspire both you and your customers/clients
           </p>
         </div>
-        <ul className="flex flex-col gap-4">
-          {services.map((service: IService) => (
-            <li
-              className="transition border rounded-md shadow-md duration-1000 px-4 py-6 lg:border-b-2 hover:rounded-md lg:flex items-center gap-5 cursor-pointer hover:bg-purple-800 group"
-              key={service.id}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {services.map((service) => (
+            <Card
+              key={service?.id}
+              hoverable
+              cover={
+                <img
+                  alt={service?.name}
+                  className="h-40 lg:h-60"
+                  src={service?.image}
+                />
+              }
             >
-              <h5 className="lg:w-2/5 font-semibold lg:text-2xl text-xl text-transparent bg-gradient-to-r from-purple-800 to-sky-400 bg-clip-text group-hover:text-white relative z-20">
-                {service.name}
-              </h5>
-              <p className="lg:text-lg lg:w-3/5 text-slate-600 group-hover:text-white relative z-20">
-                {service.description}
-              </p>
-              <p className="lg:block hidden">
-                <GoArrowLeft className="text-4xl transform transition-transform ease-out duration-1000 -rotate-45 group-hover:rotate-45 group-hover:text-white" />
-              </p>
-            </li>
+              <Meta title={service?.name} description={service?.description} />
+            </Card>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );

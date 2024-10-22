@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { FaCss3Alt } from "react-icons/fa";
 import {
   SiNextdotjs,
   SiTypescript,
@@ -11,8 +10,6 @@ import {
   SiAntdesign,
   SiTailwindcss,
   SiAxios,
-  SiJsonwebtokens,
-  SiCss3,
   SiFramer,
 } from "react-icons/si";
 
@@ -36,11 +33,6 @@ const techs = [
     name: "TypeScript",
     icon: <SiTypescript className="text-6xl text-[#3178C6]" />,
     color: "#3178C6",
-  },
-  {
-    name: "Material-UI",
-    icon: <SiMui className="text-6xl text-[#0081CB]" />,
-    color: "#0081CB",
   },
   {
     name: "Ant Design",

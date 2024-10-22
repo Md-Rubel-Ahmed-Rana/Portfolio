@@ -53,19 +53,11 @@ const Navbar = () => {
     getHomeData();
   }, []);
 
-  const { logo, email, phoneNumber } = data || {};
+  const { logo } = data || {};
 
   return (
-    <nav className="bg-white flex flex-col justify-center shadow-md overflow-hidden p-5 w-[100%]">
-      <div className="text-center pt-2 pb-0 lg:mb-0 mb-5">
-        <p
-          title="Thinking is 50% of a work"
-          className="lg:text-lg  text:sm font-light text-blue-800"
-        >
-          Thought comprises half the work.
-        </p>
-      </div>
-      <div className="flex justify-between items-center lg:p-5 pt-0 mt-0">
+    <nav className="bg-white flex flex-col justify-center shadow-md overflow-hidden lg:p-0 p-5 w-[100%]">
+      <div className="flex justify-between items-center lg:p-3 pt-0 mt-0">
         <div className="flex gap-2 items-center">
           <Link className="lg:block hidden" href={"/"}>
             <img
@@ -75,7 +67,7 @@ const Navbar = () => {
               alt="Logo"
             />
           </Link>
-          <div className="dropdown dropdown-end lg:hidden mr-4">
+          <div className="dropdown dropdown-end lg:hidden">
             <button
               onClick={handleClick}
               tabIndex={0}
@@ -113,28 +105,6 @@ const Navbar = () => {
                 ))}
               </ul>
             </Popover>
-          </div>
-          <div className="font-semibold flex flex-col gap-2 text-gray-500 lg:text-lg text-xs">
-            <p title="Click to send email">
-              <a
-                href={`mailto:${
-                  email || "mdrubelahmedrana521@gmail.com"
-                }?subject=Contact Mail&body=Start writing your message`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {email || "mdrubelahmedrana521@gmail.com"}
-              </a>
-            </p>
-            <p title="Click to make call">
-              <a
-                href={`tel:${phoneNumber || "+880 1758 049882"}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {phoneNumber || "+880 1758 049882"}
-              </a>
-            </p>
           </div>
         </div>
         <div className="lg:block hidden">

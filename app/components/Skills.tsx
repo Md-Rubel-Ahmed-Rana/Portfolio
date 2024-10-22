@@ -28,9 +28,6 @@ const Skills = async () => {
                 {IconComponent && (
                   <IconComponent className="text-6xl text-blue-600 group-hover:text-white" />
                 )}
-                <p className="text-xl font-semibold text-gray-500 mt-3 group-hover:text-blue-500">
-                  {skill.percentage}%
-                </p>
               </div>
               <h6 className="text-blue-600 group-hover:text-white">
                 {skill.name}

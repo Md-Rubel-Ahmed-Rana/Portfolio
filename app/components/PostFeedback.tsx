@@ -49,7 +49,8 @@ const PostFeedback = () => {
               id="name"
               name="name"
               placeholder="Enter your name"
-              className="w-full rounded-md border mb-4 lg:mb-0 bg-white focus:border-blue-500 focus:ring-blue-500 p-2"
+              className="w-full mb-4 lg:mb-0 bg-white border border-blue-300 rounded focus:outline-none focus:ring-1
+             focus:ring-blue-500 p-2"
             />
             {errors.name && (
               <p className="text-red-600">{errors.name.message}</p>
@@ -64,7 +65,8 @@ const PostFeedback = () => {
               id="designation"
               name="designation"
               placeholder="Enter your designation"
-              className="w-full rounded-md border bg-white focus:border-blue-500 focus:ring-blue-500 p-2"
+              className="w-full   bg-white border border-blue-300 rounded focus:outline-none focus:ring-1
+             focus:ring-blue-500 p-2"
             />
             {errors.designation && (
               <p className="text-red-600">{errors.designation.message}</p>
@@ -79,7 +81,8 @@ const PostFeedback = () => {
               id="company"
               name="company"
               placeholder="Enter your company name"
-              className="w-full rounded-md border mb-4 lg:mb-0 bg-white focus:border-blue-500 focus:ring-blue-500 p-2"
+              className="w-full mb-4 lg:mb-0 bg-white border border-blue-300 rounded focus:outline-none focus:ring-1
+             focus:ring-blue-500 p-2"
             />
             {errors.company && (
               <p className="text-red-600">{errors.company.message}</p>
@@ -92,7 +95,8 @@ const PostFeedback = () => {
               id="image"
               name="image"
               placeholder="Enter your profile image url"
-              className="w-full rounded-md border bg-white focus:border-blue-500 focus:ring-blue-500 p-2"
+              className="w-full bg-white border border-blue-300 rounded focus:outline-none focus:ring-1
+             focus:ring-blue-500 p-2"
             />
           </div>
         </div>
@@ -113,7 +117,8 @@ const PostFeedback = () => {
             name="feedback"
             rows={6}
             placeholder="Write your respective feedback"
-            className="w-full rounded-md border-gray-300 bg-white focus:border-blue-500 focus:ring-blue-500 p-2 border"
+            className="w-full  bg-white border border-blue-300 rounded focus:outline-none focus:ring-1
+             focus:ring-blue-500 p-2"
           ></textarea>
           {errors.feedback && (
             <p className="text-red-600">{errors.feedback.message}</p>

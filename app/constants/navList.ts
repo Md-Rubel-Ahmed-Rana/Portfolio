@@ -19,8 +19,4 @@ export const navList = [
     label: "Feedback",
     path: "/post-feedback",
   },
-  {
-    label: "Updates",
-    path: "/upcoming-updates",
-  },
 ];
