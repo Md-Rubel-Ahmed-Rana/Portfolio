@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { IProject } from "../types/project.type";
 import Link from "next/link";
-import ProjectSort from "../components/ProjectSort";
 import { getProjectDuration } from "../utils/getProjectDuration";
 import { getProjectData } from "../apis/project.api";
 
@@ -34,9 +33,6 @@ export default async function Projects() {
           </p>
         </div>
         <div>
-          <div className="lg:block hidden">
-            <ProjectSort />
-          </div>
           <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mt-10">
             {projects.map((project: IProject) => {
               const {

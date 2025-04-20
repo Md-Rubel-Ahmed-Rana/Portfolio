@@ -1,0 +1,2 @@
+export const developerSkillDescription =
+  "Md Rubel Ahmed Rana – Full Stack Developer, Frontend Developer, Backend Developer, JavaScript Developer, TypeScript Developer, React Developer, Next.js Developer, NestJS Developer. Skilled in Tailwind CSS, Bootstrap, Redux, Express.js, Prisma ORM, MongoDB, PostgreSQL, Docker, AWS, Redis, RabbitMQ, Firebase, REST API, OAuth, Passport.js, Microservices, and System Design. 3+ years of experience building scalable web applications.";

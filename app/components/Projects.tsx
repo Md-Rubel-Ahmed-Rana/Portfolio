@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
-import ProjectSort from "./ProjectSort";
 import Link from "next/link";
 import { getProjectData } from "../apis/project.api";
 
@@ -24,9 +23,6 @@ export default async function Projects() {
         </p>
       </div>
       <div>
-        <div className="lg:block hidden">
-          <ProjectSort />
-        </div>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mt-10">
           {projects.map((project) => {
             const { id, thumbnail, name, category, subTitle, description } =

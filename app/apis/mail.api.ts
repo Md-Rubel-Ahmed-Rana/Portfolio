@@ -1,9 +1,9 @@
+import { baseApi } from ".";
 import { IMail } from "../types/mail.type";
-import { rootApi } from "./rootApi";
 
 export const sendMail = async (content: IMail) => {
   try {
-    const res = await fetch(`${rootApi}/mail/send`, {
+    const res = await fetch(`${baseApi}/mail/send`, {
       headers: {
         "Content-Type": "application/json",
       },
