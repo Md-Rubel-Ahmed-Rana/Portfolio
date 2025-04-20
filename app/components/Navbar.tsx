@@ -8,6 +8,7 @@ import { IHome } from "../types/home.type";
 import Popover from "@mui/material/Popover";
 import { FaBars } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
+import { baseApi } from "../apis";
 
 const Navbar = () => {
   const [data, setData] = useState<any>(null);
@@ -29,22 +30,19 @@ const Navbar = () => {
   useEffect(() => {
     const getHomeData = async () => {
       try {
-        const res = await fetch(
-          "https://portfolio-backend-v2-p89h.onrender.com/api/v2/home",
-          {
-            next: {
-              revalidate: 10,
-            },
-          }
-        );
+        const res = await fetch(`${baseApi}/home`, {
+          next: {
+            revalidate: 10,
+          },
+        });
 
         if (res.ok) {
           const data = await res.json();
+          console.log(data);
           const homeData = data.data as IHome;
           setData(homeData);
         }
       } catch (error) {
-        // Handle error
         console.error("Error fetching home data:", error);
         throw new Error("Failed to fetch home data. Please try again later.");
       }
@@ -63,7 +61,7 @@ const Navbar = () => {
             <img
               title="Logo"
               className="lg:w-16 lg:h-16 w-10 h-10 mr-3 rounded-full"
-              src={logo || "https://i.ibb.co/ysPqGGS/mdrubelahmedrana-Logo.jpg"}
+              src={logo}
               alt="Logo"
             />
           </Link>
@@ -115,7 +113,7 @@ const Navbar = () => {
               </li>
             ))}
             <li title="Hire me actionable button">
-              <Link href={"/services"}>
+              <Link href={"/hire-me"}>
                 <button className="bg-gradient-to-l ml-3 from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white px-10 py-3 rounded-full">
                   Hire Me!
                 </button>

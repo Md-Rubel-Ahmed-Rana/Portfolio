@@ -1,14 +1,8 @@
-import { authHeaders, localApi, rootApi } from "./rootApi";
-
-const baseUrl =
-  process.env.NEXT_PUBLIC_ENV === "development"
-    ? localApi
-    : (rootApi as string);
+export const baseApi = process.env.NEXT_PUBLIC_BASE_API as string;
 
 export const fetchFromApi = async (endpointRoute: string) => {
   try {
-    const res = await fetch(`${baseUrl}/${endpointRoute}`, {
-      headers: authHeaders,
+    const res = await fetch(`${baseApi}/${endpointRoute}`, {
       next: {
         revalidate: 60,
       },
@@ -28,8 +22,8 @@ export const fetchFromApi = async (endpointRoute: string) => {
 
 export const postToApi = async (endpointRoute: string, data: any) => {
   try {
-    const res = await fetch(`${baseUrl}/${endpointRoute}`, {
-      headers: { ...authHeaders, "Content-type": "application/json" },
+    const res = await fetch(`${baseApi}/${endpointRoute}`, {
+      headers: { "Content-type": "application/json" },
       method: "POST",
       body: JSON.stringify(data),
     });
