@@ -2,9 +2,16 @@ export type IBlog = {
   id: string;
   title: string;
   type: string;
-  image: string;
-  body: string | TrustedHTML | any;
+  tags: string[];
+  thumbnail: string;
+  body: IArticleSection[];
   createdAt: Date;
   updatedAt: Date;
-  comments: number;
+};
+
+export type IArticleSection = {
+  id: string;
+  title: string;
+  images: string[];
+  description: string;
 };
