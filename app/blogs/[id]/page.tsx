@@ -4,6 +4,7 @@ import blogDateFormatter from "@/app/utils/blogDateFormatter";
 import { getBlogData, getSingleBlogData } from "@/app/apis/blog.api";
 import extractSectionTitleAndMakeUrl from "@/app/utils/extractSectionTitleAndMakeUrl";
 import BlogSections from "./BlogSections";
+import MorePosts from "./MorePosts";
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const blog = await getSingleBlogData(params.id);
@@ -72,6 +73,7 @@ const BlogDetails = async ({ params }: { params: { id: string } }) => {
           </div>
           <Comments postId={blog.id} />
         </div> */}
+        <MorePosts id={params.id} />
       </div>
     </section>
   );

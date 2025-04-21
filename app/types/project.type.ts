@@ -9,7 +9,7 @@ export type IProject = {
   liveLink: string;
   projectStatus: string;
   category: string;
-  images: string[];
+  screenshots: string[];
   thumbnail: string;
   projectLength: {
     startDate: Date;

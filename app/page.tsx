@@ -19,7 +19,7 @@ export default function Home() {
       <Feedback />
       <Blogs />
       <WorkTogether />
-      <Technologies />
+      {/* <Technologies /> */}
     </main>
   );
 }
