@@ -10,14 +10,14 @@ type Props = {
   sections: IArticleSection[];
 };
 
-const BlogSections = ({ sections }: Props) => {
+const BlogSections = ({ sections = [] }: Props) => {
   return (
     <div className="">
       {sections.map((section) => (
         <div key={section.id} className="mb-10">
           <h1 className="mb-2">{section.title}</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
-            {section?.images.map((image, idx) => (
+            {section?.images?.map((image, idx) => (
               <img
                 key={idx}
                 src={image as string}

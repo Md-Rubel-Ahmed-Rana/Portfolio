@@ -5,7 +5,7 @@ import Link from "next/link";
 import React from "react";
 
 const MorePosts = async ({ id }: { id: string }) => {
-  const AllBlogs = (await getBlogsData()) as IBlog[];
+  const AllBlogs = ((await getBlogsData()) || []) as IBlog[];
   const blogs = AllBlogs.filter((blog) => blog?.id !== id);
   return (
     <div>

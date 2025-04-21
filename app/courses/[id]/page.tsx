@@ -40,7 +40,7 @@ const CourseDetails = async ({ params }: { params: { id: string } }) => {
           <div>
             <span className="font-semibold">Course Details:</span>
             <ul className="list-disc pl-4">
-              {data.courseDetails.map((detail, index) => (
+              {data?.courseDetails?.map((detail, index) => (
                 <li className="mb-2" key={index}>
                   {detail}
                 </li>

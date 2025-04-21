@@ -11,7 +11,7 @@ const Meta = dynamic(() => import("antd/lib/card/Meta"), {
 });
 
 export default async function Services() {
-  const services = (await getServiceData()) as IService[];
+  const services = ((await getServiceData()) || []) as IService[];
   return (
     <section className="bg-gray-100">
       <div className="max-w-[1440px] w-full mx-auto py-20 px-5 flex flex-col gap-10 ">
@@ -26,7 +26,7 @@ export default async function Services() {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {services.map((service) => (
+          {services?.map((service) => (
             <Card
               data-aos="zoom-in-up"
               data-aos-duration="3000"

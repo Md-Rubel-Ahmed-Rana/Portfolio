@@ -106,7 +106,7 @@ const Technologies: React.FC = () => {
               fill="none"
             />
           </svg>
-          {techs.map((tech, index) => {
+          {techs?.map((tech, index) => {
             const angle = (index / techs.length) * 2 * Math.PI;
             const x = centerX + circleRadius * Math.cos(angle);
             const y = centerY + circleRadius * Math.sin(angle);
@@ -141,7 +141,7 @@ const Technologies: React.FC = () => {
       {/* for mobile device  */}
       <div className="lg:hidden block p-5">
         <div className="grid grid-cols-2 justify-center items-center gap-4">
-          {techs.map((tech) => (
+          {techs?.map((tech) => (
             <div
               className={`text-[${tech.color}] rounded-md  flex flex-col justify-center items-center border p-3`}
               key={Math.random()}

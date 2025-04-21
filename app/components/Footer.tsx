@@ -23,7 +23,7 @@ const Footer = async () => {
           </div>
           <div>
             <ul className="flex items-center flex-wrap justify-center gap-4 font-semibold">
-              {navList.map((nav) => (
+              {navList?.map((nav) => (
                 <li
                   className="text-white lg:text-md text-sm"
                   title={nav.label}
