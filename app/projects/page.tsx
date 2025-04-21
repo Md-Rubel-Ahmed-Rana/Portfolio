@@ -122,7 +122,7 @@ export default async function Projects() {
                       </button>
                       <Link
                         className="lg:w-1/3 w-full"
-                        href={`projects/${project.id}?n=${project.name
+                        href={`/projects/${project.id}?n=${project.name
                           .split(" ")
                           .join("-")}&d=${project.description}`}
                       >

@@ -4,6 +4,7 @@ import ProjectImages from "@/app/components/ProjectImages";
 import { IProject } from "@/app/types/project.type";
 import { countDays } from "@/app/utils/countDays";
 import { getProjectDuration } from "@/app/utils/getProjectDuration";
+import MoreProjects from "./MoreProjects";
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const project = await getSingleProjectData(params.id);
@@ -34,7 +35,7 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
 
   return (
     <section className="bg-gray-100">
-      <div className="max-w-[1440px] w-full mx-auto py-10 px-5 flex lg:flex-row flex-col gap-20">
+      <div className="max-w-[1440px] w-full mx-auto py-10 px-5 flex flex-col gap-20">
         <div className="">
           <ProjectImages images={screenshots} thumbnail={thumbnail} />
           <div className="flex flex-col gap-2">
@@ -116,6 +117,7 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
             </div>
           </div>
         </div>
+        <MoreProjects id={params?.id} />
         {/* <div className="lg:w-2/5 w-full">
           <div className="flex lg:flex-row flex-col justify-between lg:items-center gap-5 mb-3">
             <h3 className="text-2xl font-bold text-gray-600 ">
