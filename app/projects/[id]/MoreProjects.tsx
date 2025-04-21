@@ -1,8 +1,5 @@
-import { getBlogData } from "@/app/apis/blog.api";
 import { getProjectData } from "@/app/apis/project.api";
-import { IBlog } from "@/app/types/blog.type";
 import { IProject } from "@/app/types/project.type";
-import extractSectionTitleAndMakeUrl from "@/app/utils/extractSectionTitleAndMakeUrl";
 import Link from "next/link";
 import React from "react";
 

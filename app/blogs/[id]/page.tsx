@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { FaCalendarAlt, FaUserCircle } from "react-icons/fa";
 import blogDateFormatter from "@/app/utils/blogDateFormatter";
-import { getBlogData, getSingleBlogData } from "@/app/apis/blog.api";
+import { getBlogsData, getSingleBlogData } from "@/app/apis/blog.api";
 import extractSectionTitleAndMakeUrl from "@/app/utils/extractSectionTitleAndMakeUrl";
 import BlogSections from "./BlogSections";
 import MorePosts from "./MorePosts";
@@ -82,7 +82,7 @@ const BlogDetails = async ({ params }: { params: { id: string } }) => {
 export default BlogDetails;
 
 export async function generateStaticParams() {
-  const blogs = await getBlogData();
+  const blogs = await getBlogsData();
 
   return blogs.map((blog) => ({ id: blog.id }));
 }

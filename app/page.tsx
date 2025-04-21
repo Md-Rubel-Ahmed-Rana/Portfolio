@@ -7,7 +7,6 @@ import Skills from "./components/Skills";
 import WorkTogether from "./components/WorkTogether";
 import Blogs from "./components/Blogs";
 import Feedback from "./components/Feedback";
-import Technologies from "./components/Technologies";
 export default function Home() {
   return (
     <main>

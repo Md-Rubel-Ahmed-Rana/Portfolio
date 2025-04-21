@@ -3,10 +3,10 @@ import React from "react";
 import { FaCalendarAlt, FaComments } from "react-icons/fa";
 import Link from "next/link";
 import blogDateFormatter from "../utils/blogDateFormatter";
-import { getBlogData } from "../apis/blog.api";
+import { getBlogsData } from "../apis/blog.api";
 
 const Blogs = async () => {
-  const blogs = await getBlogData();
+  const blogs = await getBlogsData();
   return (
     <section className="bg-white">
       <div className="max-w-[1440px] w-full mx-auto py-20 lg:px-10 px-5 flex flex-col gap-10">
@@ -32,7 +32,7 @@ const Blogs = async () => {
                 <img
                   className="transition w-full h-80 duration-1000 group-hover:scale-110"
                   src={
-                    blog?.image ||
+                    blog?.thumbnail ||
                     "https://i.ibb.co/ZdZ1R7V/image-Not-Found.png"
                   }
                   alt={blog?.title}
@@ -58,7 +58,7 @@ const Blogs = async () => {
                         <p>
                           <FaComments />
                         </p>
-                        <p>Comments ({blog.comments})</p>
+                        <p>Comments (0)</p>
                       </div>
                     </div>
                     <div className="mt-3">

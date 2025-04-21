@@ -6,6 +6,8 @@ import Footer from "./components/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Script from "next/script";
+import { useEffect } from "react";
+import AOSWrapper from "./components/AOSWrapper";
 
 const roboto = Roboto({
   weight: "400",
@@ -26,14 +28,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto.className}`}>
+        <AOSWrapper />
         <Navbar />
         <section>{children}</section>
         <Footer />
         <ToastContainer />
-        <Script
-          src="https://accounts.google.com/gsi/client"
-          strategy="beforeInteractive"
-        />
       </body>
     </html>
   );

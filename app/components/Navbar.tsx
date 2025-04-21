@@ -38,8 +38,7 @@ const Navbar = () => {
 
         if (res.ok) {
           const data = await res.json();
-          console.log(data);
-          const homeData = data.data as IHome;
+          const homeData = data?.data as IHome;
           setData(homeData);
         }
       } catch (error) {
