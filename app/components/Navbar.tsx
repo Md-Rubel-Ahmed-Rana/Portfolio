@@ -11,7 +11,7 @@ import { RxCross2 } from "react-icons/rx";
 import { baseApi } from "../apis";
 
 const Navbar = () => {
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<IHome | null>(null);
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
     null
   );
@@ -51,58 +51,63 @@ const Navbar = () => {
     getHomeData();
   }, []);
 
-  const { logo } = data || {};
+  const { logo, name } = data || {};
 
   return (
-    <nav className="bg-white flex flex-col justify-center shadow-md overflow-hidden lg:p-0 p-5 w-[100%]">
+    <nav className="bg-white flex flex-col justify-center shadow-md overflow-hidden lg:p-0 p-5">
       <div className="flex justify-between items-center lg:p-3 pt-0 mt-0">
-        <div className="flex gap-2 items-center">
-          <Link className="lg:block hidden" href={"/"}>
-            <img
-              title="Logo"
-              className="lg:w-16 lg:h-16 w-10 h-10 mr-3 rounded-full"
-              src={logo}
-              alt="Logo"
-            />
-          </Link>
-          <div className="dropdown dropdown-end lg:hidden">
-            <button
-              onClick={handleClick}
-              tabIndex={0}
-              role="button"
-              aria-describedby={id}
-              className="bg-gradient-to-l from-purple-800 to-blue-500 p-3 hover:to-purple-800 hover:from-blue-500  text-white rounded-full"
-            >
-              {open ? (
-                <RxCross2 className="text-2xl" />
-              ) : (
-                <FaBars className="text-2xl" />
-              )}
-            </button>
-            <Popover
-              className="mt-2"
-              id={id}
-              open={open}
-              anchorEl={anchorEl}
-              onClose={handleClose}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-            >
-              <ul className="mt-3 p-2 bg-white shadow menu menu-sm dropdown-content rounded-md w-52">
-                {navList.map((nav) => (
-                  <li
-                    onClick={handleClose}
-                    title={nav.label}
-                    key={nav.label}
-                    className={style.navList}
-                  >
-                    <Link href={nav.path}>{nav.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </Popover>
+        <div className="border-blue-500 flex justify-between lg:w-auto w-full">
+          <div className="flex gap-2 items-center">
+            <Link className="" href={"/"}>
+              <img
+                title="Logo"
+                className="lg:w-16 lg:h-16 w-14 h-14 rounded-full"
+                src={logo}
+                alt="Logo"
+              />
+            </Link>
+            <h2 className="text-lg font-semibold text-gray-700">{name}</h2>
+          </div>
+          <div className="dropdown dropdown-end  lg:hidden">
+            <div>
+              <button
+                onClick={handleClick}
+                tabIndex={0}
+                role="button"
+                aria-describedby={id}
+                className="bg-gradient-to-l from-purple-800 to-blue-500 p-3 hover:to-purple-800 hover:from-blue-500  text-white rounded-full"
+              >
+                {open ? (
+                  <RxCross2 className="text-2xl" />
+                ) : (
+                  <FaBars className="text-2xl" />
+                )}
+              </button>
+              <Popover
+                className="mt-2"
+                id={id}
+                open={open}
+                anchorEl={anchorEl}
+                onClose={handleClose}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+              >
+                <ul className="mt-3 p-2 bg-white shadow menu menu-sm dropdown-content rounded-md w-52">
+                  {navList.map((nav) => (
+                    <li
+                      onClick={handleClose}
+                      title={nav.label}
+                      key={nav.label}
+                      className={style.navList}
+                    >
+                      <Link href={nav.path}>{nav.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </Popover>
+            </div>
           </div>
         </div>
         <div className="lg:block hidden">
