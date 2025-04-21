@@ -1,8 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { getProjectData, getSingleProjectData } from "@/app/apis/project.api";
-import CommentButton from "@/app/components/CommentButton";
-import Comments from "@/app/components/Comments";
 import ProjectImages from "@/app/components/ProjectImages";
+import { IProject } from "@/app/types/project.type";
 import { countDays } from "@/app/utils/countDays";
 import { getProjectDuration } from "@/app/utils/getProjectDuration";
 
@@ -16,14 +15,14 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 }
 
 const ProjectDetails = async ({ params }: { params: { id: string } }) => {
-  const data = await getSingleProjectData(params.id);
+  const data = (await getSingleProjectData(params.id)) as IProject;
   const {
     id,
     name,
     category,
     description,
     features,
-    images = [],
+    screenshots = [],
     liveLink,
     projectLength: { endDate, startDate },
     projectStatus,
@@ -35,13 +34,19 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
 
   return (
     <section className="bg-gray-100">
-      <div className="max-w-[1440px] w-full mx-auto py-20 px-5 flex lg:flex-row flex-col gap-20">
-        <div className="lg:w-3/5 w-full">
-          <ProjectImages images={images} thumbnail={thumbnail} />
+      <div className="max-w-[1440px] w-full mx-auto py-10 px-5 flex lg:flex-row flex-col gap-20">
+        <div className="">
+          <ProjectImages images={screenshots} thumbnail={thumbnail} />
           <div className="flex flex-col gap-2">
             <h3 className="text-2xl font-bold text-gray-700">{name}</h3>
             <h4 className="text-lg">{subTitle}</h4>
             <h6 className="font-serif text-md"># {category}</h6>
+            <p>
+              <span className="font-semibold text-gray-500 text-lg mt-5">
+                Overview:{" "}
+              </span>
+              <span className="ml-2">{description}</span>
+            </p>
             <p>
               <span className="font-semibold">Source code: </span>
               <a
@@ -110,14 +115,8 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
               </ul>
             </div>
           </div>
-          <p>
-            <span className="block font-semibold text-gray-500 text-lg mt-5">
-              Description:{" "}
-            </span>
-            <span className="ml-2">{description}</span>
-          </p>
         </div>
-        <div className="lg:w-2/5 w-full">
+        {/* <div className="lg:w-2/5 w-full">
           <div className="flex lg:flex-row flex-col justify-between lg:items-center gap-5 mb-3">
             <h3 className="text-2xl font-bold text-gray-600 ">
               Comments for this project
@@ -127,7 +126,7 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
             </p>
           </div>
           <Comments postId={id} />
-        </div>
+        </div> */}
       </div>
     </section>
   );
