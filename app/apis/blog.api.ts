@@ -1,7 +1,7 @@
 import { fetchFromApi } from ".";
 import { IBlog } from "../types/blog.type";
 
-export const getBlogData = async () => {
+export const getBlogsData = async () => {
   return (await fetchFromApi("blog")) as IBlog[];
 };
 

@@ -1,10 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import { FaCalendarAlt, FaComments } from "react-icons/fa";
-import Link from "next/link";
 import { Metadata } from "next";
-import blogDateFormatter from "../utils/blogDateFormatter";
-import { getBlogData } from "../apis/blog.api";
+import { getBlogsData } from "../apis/blog.api";
 import BlogCard from "./BlogCard";
 
 export const metadata: Metadata = {
@@ -13,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 const Blogs = async () => {
-  const blogs = await getBlogData();
+  const blogs = await getBlogsData();
   return (
     <section className="bg-gray-50">
       <div className="max-w-[1440px] w-full mx-auto pb-20 pt-10 px-10 flex flex-col gap-10">

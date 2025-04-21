@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
-import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -29,7 +29,7 @@ const SliderCard = ({ cards }: any) => {
         <div key={Math.random()}>
           <div className="lg:p-5 lg:m-5 m-2 p-2 border bg-white cursor-grab rounded-lg shadow-md flex flex-col lg:gap-5 gap-2 justify-center lg:h-80">
             <div>
-              <Image
+              <img
                 src={feedback?.image}
                 alt={feedback.name}
                 className="w-24 h-24 rounded-full mx-auto"

@@ -2,6 +2,7 @@
 import { FaDownload } from "react-icons/fa";
 import * as FaIcons from "react-icons/fa";
 import { getHomeData } from "../apis/getHomeData";
+import DesignationsStreaming from "./DesignationsStreaming";
 
 const Banner = async () => {
   const data = await getHomeData();
@@ -16,9 +17,10 @@ const Banner = async () => {
             I&apos;m {name}
           </h3>
           <h4 className="lg:text-3xl text-xl mb-4">
-            <span className="font-semibold text-transparent bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text">
+            <DesignationsStreaming />
+            {/* <span className="font-semibold text-transparent bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text">
               {position}
-            </span>
+            </span> */}
           </h4>
           <p className="text-xl text-gray-700 leading-relaxed">{description}</p>
         </div>

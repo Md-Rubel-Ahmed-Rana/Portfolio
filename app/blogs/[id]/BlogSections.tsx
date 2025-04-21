@@ -1,8 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import { IArticleSection } from "@/app/types/blog.type";
-import Image from "next/image";
 import React from "react";
-import DisplayRichText from "./DisplayRichText";
+import dynamic from "next/dynamic";
+const DisplayRichText = dynamic(() => import("./DisplayRichText"), {
+  ssr: false,
+});
 
 type Props = {
   sections: IArticleSection[];
