@@ -19,19 +19,22 @@ const ProjectImages = ({
   };
   return (
     <div>
-      <div className="overflow-hidden border shadow-md rounded-md p-1">
+      <div className="overflow-hidden border border-blue-500 shadow-md rounded-md p-1">
         <img
-          className="w-full  h-80 rounded-md hover:scale-110 transition duration-500"
+          className="w-full max-h-[400px] h-full  rounded-md hover:scale-110 transition duration-500"
           src={toggleImage}
           alt={"Project thumbnail image"}
         />
       </div>
-      <div className="flex justify-center items-center gap-3 px-10 my-4">
+      <h3 className="text-center my-2 text-lg font-semibold text-gray-600">
+        Screenshots
+      </h3>
+      <div className="flex justify-center items-center gap-3 px-10 mb-4">
         {pImages?.map((image, index) => (
           <img
             title="Click to view largely"
             onClick={() => handleToggleImage(image)}
-            className="rounded-md hover:scale-110 transition duration-500 lg:w-32 w-24 h-24 border cursor-pointer"
+            className="rounded-md hover:scale-110 transition duration-500 lg:w-32 w-24 h-24 border cursor-pointer border-blue-500"
             key={index}
             src={image}
             alt={"Project image"}
