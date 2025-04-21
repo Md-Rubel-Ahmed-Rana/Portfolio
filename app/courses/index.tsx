@@ -3,7 +3,7 @@ import ExperienceAndCourseCard from "../components/ExperienceAndCourseCard";
 import { getCourses } from "../apis/course.api";
 
 const Courses = async () => {
-  const courses = await getCourses();
+  const courses = (await getCourses()) || [];
   return (
     <div className="w-full flex flex-col gap-8">
       <h3 className="flex items-center gap-5 lg:text-4xl text-xl">
@@ -13,7 +13,7 @@ const Courses = async () => {
         </span>
       </h3>
       <div className="flex flex-col gap-5">
-        {courses.map((course) => {
+        {courses?.map((course) => {
           const { id, name, startDate, endDate, institute, courseDetails } =
             course;
           return (

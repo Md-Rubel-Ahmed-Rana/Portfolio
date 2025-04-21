@@ -44,7 +44,7 @@ const Banner = async () => {
           <ul className="flex  items-center gap-5 text-purple-500">
             {socialLinks &&
               socialLinks?.length > 0 &&
-              socialLinks.map((link: any) => {
+              socialLinks?.map((link: any) => {
                 const fontAwesome: any = FaIcons;
                 const IconComponent = fontAwesome[link.icon];
                 return (

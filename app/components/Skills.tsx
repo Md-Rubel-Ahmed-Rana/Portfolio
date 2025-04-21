@@ -3,7 +3,7 @@ import { ISkill } from "../types/skill.type";
 import { getSkillIcon } from "../utils/getSkillIcon";
 
 const Skills = async () => {
-  const skills = (await getSkillData()) as ISkill[];
+  const skills = ((await getSkillData()) || []) as ISkill[];
   return (
     <div className="max-w-[1440px] w-full bg-white mx-auto py-20 lg:px-10 px-5 flex flex-col gap-10">
       <div>
@@ -18,7 +18,7 @@ const Skills = async () => {
         </p>
       </div>
       <div className="grid lg:grid-cols-6 md:grid-cols-3 grid-cols-2 lg:gap-5 gap-2">
-        {skills.map((skill: ISkill, index: number) => {
+        {skills?.map((skill: ISkill, index: number) => {
           const IconComponent = getSkillIcon(skill?.icon);
           return (
             <div

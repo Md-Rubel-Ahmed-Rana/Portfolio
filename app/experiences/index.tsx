@@ -13,7 +13,7 @@ const Experiences = async () => {
         </span>
       </h3>
       <div className="flex flex-col gap-5">
-        {experiences.map((exp) => {
+        {experiences?.map((exp) => {
           const {
             id,
             startDate,

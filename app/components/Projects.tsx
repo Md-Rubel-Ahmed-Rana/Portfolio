@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Projects() {
-  const projects = await getProjectData();
+  const projects = (await getProjectData()) || [];
   return (
     <section className="max-w-[1440px] w-full bg-white mx-auto py-20 px-5 flex flex-col gap-10">
       <div>
@@ -24,7 +24,7 @@ export default async function Projects() {
       </div>
       <div>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mt-10">
-          {projects.map((project) => {
+          {projects?.map((project) => {
             const { id, thumbnail, name, category, subTitle, description } =
               project;
             return (

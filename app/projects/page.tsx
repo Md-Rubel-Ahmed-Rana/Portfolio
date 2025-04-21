@@ -10,15 +10,17 @@ export async function generateMetadata() {
   return {
     title: "Projects: Md Rubel Ahmed Rana",
     description: projects
-      .map((project) => project.name)
+      ?.map((project) => project.name)
       .join(",")
-      .concat(projects.map((project) => project.description).join(","))
-      .concat(projects.map((project) => project.features.toString()).join(",")),
+      .concat(projects?.map((project) => project.description).join(","))
+      .concat(
+        projects?.map((project) => project.features.toString()).join(",")
+      ),
   };
 }
 
 export default async function Projects() {
-  const projects = await getProjectData();
+  const projects = (await getProjectData()) || [];
   return (
     <section className="bg-gray-50">
       <div className="max-w-[1440px] w-full mx-auto py-20 px-5 flex flex-col gap-10">
@@ -34,7 +36,7 @@ export default async function Projects() {
         </div>
         <div>
           <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mt-10">
-            {projects.map((project: IProject) => {
+            {projects?.map((project: IProject) => {
               const {
                 thumbnail,
                 name,

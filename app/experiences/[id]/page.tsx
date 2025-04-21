@@ -71,7 +71,7 @@ const ExperienceDetails = async ({ params }: { params: { id: string } }) => {
             Responsibilities
           </h4>
           <ul className="list-disc text-gray-600">
-            {data.responsibilities.map((item, index) => (
+            {data?.responsibilities?.map((item, index) => (
               <li key={index} className="mb-2">
                 {item}
               </li>
@@ -83,7 +83,7 @@ const ExperienceDetails = async ({ params }: { params: { id: string } }) => {
             Learned New Technologies
           </h4>
           <ul className="list-disc text-gray-600">
-            {data.learnedNewTech.map((tech, index) => (
+            {data?.learnedNewTech?.map((tech, index) => (
               <li key={index} className="mb-2">
                 {tech}
               </li>

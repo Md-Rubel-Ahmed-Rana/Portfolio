@@ -1,23 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
-import { Metadata } from "next";
 import React from "react";
 import Link from "next/link";
 import { getServiceData } from "../apis/service.api";
 
 export async function generateMetadata() {
-  const projects = await getServiceData();
+  const services = await getServiceData();
 
   return {
     title: "Services: Md Rubel Ahmed Rana",
-    description: projects
-      .map((project) => project.name)
+    description: services
+      ?.map((service) => service.name)
       .join(",")
-      .concat(projects.map((project) => project.description).join(",")),
+      .concat(services?.map((service) => service.description).join(",")),
   };
 }
 
 const Services = async () => {
-  const services = await getServiceData();
+  const services = (await getServiceData()) || [];
   return (
     <section className="bg-gray-50">
       <div className="max-w-[1440px] w-full mx-auto py-20 px-5 flex flex-col gap-10 ">
@@ -31,7 +30,7 @@ const Services = async () => {
           </p>
         </div>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1  gap-3">
-          {services.map((service) => (
+          {services?.map((service) => (
             <div
               data-aos="zoom-in-up"
               data-aos-duration="3000"

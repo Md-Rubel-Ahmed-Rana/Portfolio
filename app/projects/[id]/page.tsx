@@ -96,7 +96,7 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
           <div className="mt-4">
             <h3 className="text-lg font-semibold">Project Features: </h3>
             <ul className="list-decimal ml-6">
-              {features.map((feature, index) => (
+              {features?.map((feature, index) => (
                 <li key={index}>{feature}</li>
               ))}
             </ul>
@@ -105,12 +105,12 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
             <h3 className="text-lg font-semibold">Technology used: </h3>
             <div className="flex gap-20">
               <ul className="list-disc ml-6">
-                {techStack.slice(0, 10).map((tech, index) => (
+                {techStack?.slice(0, 10)?.map((tech, index) => (
                   <li key={index}>{tech}</li>
                 ))}
               </ul>
               <ul className="list-disc ml-6">
-                {techStack.slice(10, techStack.length).map((tech, index) => (
+                {techStack?.slice(10, techStack?.length)?.map((tech, index) => (
                   <li key={index}>{tech}</li>
                 ))}
               </ul>
@@ -137,7 +137,7 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
 export default ProjectDetails;
 
 export async function generateStaticParams() {
-  const projects = await getProjectData();
+  const projects = (await getProjectData()) || [];
 
-  return projects.map((project) => ({ id: project.id }));
+  return projects?.map((project) => ({ id: project.id }));
 }

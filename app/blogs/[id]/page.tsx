@@ -42,7 +42,7 @@ const BlogDetails = async ({ params }: { params: { id: string } }) => {
             </button>
           </p>
           <div className="flex flex-wrap items-center gap-2">
-            {blog?.tags.map((tag, index) => (
+            {blog?.tags?.map((tag, index) => (
               <button
                 key={index}
                 className="bg-gradient-to-l text-sm from-green-800 to-teal-500 hover:to-green-800 hover:from-teal-700  text-white px-2 py-1 rounded-full"
@@ -55,7 +55,8 @@ const BlogDetails = async ({ params }: { params: { id: string } }) => {
             <img
               className="rounded-md border border-blue-500 w-full max-h-[300px] h-full  transition duration-700 hover:scale-110"
               src={
-                blog.thumbnail || "https://i.ibb.co/ZdZ1R7V/image-Not-Found.png"
+                blog?.thumbnail ||
+                "https://i.ibb.co/ZdZ1R7V/image-Not-Found.png"
               }
               alt={blog?.title || "Blog image"}
             />
@@ -82,7 +83,7 @@ const BlogDetails = async ({ params }: { params: { id: string } }) => {
 export default BlogDetails;
 
 export async function generateStaticParams() {
-  const blogs = await getBlogsData();
+  const blogs = (await getBlogsData()) || [];
 
-  return blogs.map((blog) => ({ id: blog.id }));
+  return blogs?.map((blog) => ({ id: blog.id }));
 }
