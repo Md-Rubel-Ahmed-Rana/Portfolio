@@ -13,7 +13,10 @@ const Banner = async () => {
     <div className="max-w-[1440px] w-full bg-white mx-auto flex mt-10 lg:flex-row gap-10 flex-col-reverse justify-between items-center py-16 px-10">
       <div className="flex flex-col justify-between gap-10 max-w-lg">
         <div>
-          <h3 className="lg:text-4xl text-2xl font-bold mb-4">
+          <h3
+            data-aos="fade-up"
+            className="lg:text-4xl text-2xl font-bold mb-4"
+          >
             I&apos;m {name}
           </h3>
           <h4 className="lg:text-3xl text-xl mb-4">
@@ -22,7 +25,12 @@ const Banner = async () => {
               {position}
             </span> */}
           </h4>
-          <p className="text-xl text-gray-700 leading-relaxed">{description}</p>
+          <p
+            data-aos="fade-up"
+            className="text-xl text-gray-700 leading-relaxed"
+          >
+            {description}
+          </p>
         </div>
         <div className="flex lg:flex-row flex-col items-center lg:gap-5 gap-10">
           <p title="Google drive link will be opened">
@@ -61,6 +69,7 @@ const Banner = async () => {
       <div className="lg:w-1/2 w-full">
         {bannerImage ? (
           <img
+            data-aos="fade-right"
             className="rounded-md cursor-pointer lg:w-2/3 w-full transition duration-1000 rotate-3 hover:rotate-0 hover:scale-110"
             src={bannerImage}
             alt="Banner image"

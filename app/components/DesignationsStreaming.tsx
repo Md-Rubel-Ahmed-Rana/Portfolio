@@ -12,7 +12,10 @@ const DesignationsStreaming = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
     >
-      <span className="font-semibold text-transparent bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text typing">
+      <span
+        data-aos="fade-left"
+        className="font-semibold text-transparent bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text typing"
+      >
         {text}
       </span>
       <span className="blinking-cursor">|</span>

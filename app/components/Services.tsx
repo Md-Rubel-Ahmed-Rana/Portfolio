@@ -2,6 +2,7 @@
 import { IService } from "../types/service.type";
 import { getServiceData } from "../apis/service.api";
 import dynamic from "next/dynamic";
+
 const Card = dynamic(() => import("antd/lib/card"), {
   ssr: false,
 });
@@ -27,6 +28,8 @@ export default async function Services() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((service) => (
             <Card
+              data-aos="zoom-in-up"
+              data-aos-duration="3000"
               key={service?.id}
               hoverable
               cover={
