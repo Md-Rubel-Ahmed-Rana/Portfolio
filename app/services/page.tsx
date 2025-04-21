@@ -33,6 +33,8 @@ const Services = async () => {
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1  gap-3">
           {services.map((service) => (
             <div
+              data-aos="zoom-in-up"
+              data-aos-duration="3000"
               className="border bg-gray-100 p-5 shadow-md rounded-md  relative"
               key={service.id}
             >

@@ -18,10 +18,13 @@ const Skills = async () => {
         </p>
       </div>
       <div className="grid lg:grid-cols-6 md:grid-cols-3 grid-cols-2 lg:gap-5 gap-2">
-        {skills.map((skill: ISkill) => {
+        {skills.map((skill: ISkill, index: number) => {
           const IconComponent = getSkillIcon(skill?.icon);
           return (
             <div
+              data-aos="fade-up"
+              data-aos-duration={`${index * 200}`}
+              data-aos-delay="300"
               className="transition duration-1000 border flex flex-col text-center hover:bg-purple-950 hover:text-white lg:gap-3 gap-1 justify-between items-center lg:p-3 p-2 rounded-2xl cursor-pointer shadow-md group"
               key={skill?.id}
             >

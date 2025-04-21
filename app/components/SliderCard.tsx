@@ -29,11 +29,19 @@ const SliderCard = ({ cards }: any) => {
         <div key={Math.random()}>
           <div className="lg:p-5 lg:m-5 m-2 p-2 border bg-white cursor-grab rounded-lg shadow-md flex flex-col lg:gap-5 gap-2 justify-center lg:h-80">
             <div>
-              <img
-                src={feedback?.image}
-                alt={feedback.name}
-                className="w-24 h-24 rounded-full mx-auto"
-              />
+              {feedback?.image ? (
+                <img
+                  src={feedback?.image}
+                  alt={feedback.name}
+                  className="w-24 h-24 rounded-full mx-auto"
+                />
+              ) : (
+                <div className="w-24 h-24 rounded-full bg-gray-200 mx-auto flex items-center justify-center">
+                  <span className="text-gray-500 text-2xl font-bold">
+                    {feedback.name.charAt(0)}
+                  </span>
+                </div>
+              )}
             </div>
             <div>
               <h4 className="text-lg font-semibold">{feedback.name}</h4>

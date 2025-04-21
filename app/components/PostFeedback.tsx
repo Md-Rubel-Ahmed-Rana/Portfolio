@@ -17,7 +17,7 @@ const PostFeedback = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<Inputs>();
 
   const handlePostFeedback: SubmitHandler<Inputs> = async (data) => {
@@ -109,7 +109,7 @@ const PostFeedback = () => {
                 message: "Feedback must be at least 100 characters",
               },
               maxLength: {
-                value: 200,
+                value: 250,
                 message: "Feedback must be no more than 200 characters",
               },
             })}
@@ -131,10 +131,15 @@ const PostFeedback = () => {
           </span>
         </p>
         <button
+          disabled={isSubmitting}
           type="submit"
-          className="bg-gradient-to-l w-full from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500 text-white px-10 py-3 rounded-full"
+          className={`${
+            isSubmitting
+              ? "bg-gray-600 cursor-not-allowed"
+              : "bg-gradient-to-l from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500"
+          }   text-white px-10 py-3 rounded-full  w-full`}
         >
-          Post feedback
+          {isSubmitting ? "Posting..." : "Post feedback"}
         </button>
       </form>
     </div>
