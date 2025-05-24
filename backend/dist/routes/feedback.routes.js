@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.FeedbackRoutes = void 0;
+const express_1 = require("express");
+const feedback_controller_1 = require("../controllers/feedback.controller");
+const router = (0, express_1.Router)();
+router.post("/", feedback_controller_1.FeedbackController.addFeedback);
+router.get("/", feedback_controller_1.FeedbackController.getAllFeedbacks);
+router.get("/all", feedback_controller_1.FeedbackController.getAllFeedbacksForAdmin);
+router.get("/single/:id", feedback_controller_1.FeedbackController.getSingleFeedback);
+router.patch("/update/:id", feedback_controller_1.FeedbackController.updateFeedback);
+router.delete("/delete/:id", feedback_controller_1.FeedbackController.deleteFeedback);
+exports.FeedbackRoutes = router;

@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CommentRoutes = void 0;
+const express_1 = require("express");
+const comment_controller_1 = require("../controllers/comment.controller");
+const router = (0, express_1.Router)();
+router.post("/add", comment_controller_1.CommentController.addComment);
+router.get("/", comment_controller_1.CommentController.getAllComments);
+router.get("/by-post/:postId", comment_controller_1.CommentController.getCommentsForSpecificPost);
+router.get("/single/:id", comment_controller_1.CommentController.getSingleComment);
+router.patch("/update/:id", comment_controller_1.CommentController.updateComment);
+router.delete("/delete/:id", comment_controller_1.CommentController.deleteComment);
+exports.CommentRoutes = router;
