@@ -57,6 +57,17 @@ class Controller extends rootController_1.default {
                 data,
             });
         }));
+        this.getFeedbacksByOwner = this.catchAsync((req, res) => __awaiter(this, void 0, void 0, function* () {
+            var _a;
+            const email = (_a = req.params) === null || _a === void 0 ? void 0 : _a.email;
+            const data = yield feedback_service_1.FeedbackService.getFeedbacksByOwner(email);
+            this.apiResponse(res, {
+                success: true,
+                message: "Feedbacks fetched for owner",
+                statusCode: http_status_1.default.OK,
+                data,
+            });
+        }));
         this.getSingleFeedback = this.catchAsync((req, res) => __awaiter(this, void 0, void 0, function* () {
             const data = yield feedback_service_1.FeedbackService.getSingleFeedback(req.params.id);
             this.apiResponse(res, {

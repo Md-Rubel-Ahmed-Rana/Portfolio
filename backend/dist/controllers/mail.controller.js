@@ -19,12 +19,12 @@ class Controller extends rootController_1.default {
     constructor() {
         super(...arguments);
         this.send = (req, res) => __awaiter(this, void 0, void 0, function* () {
-            const result = yield mail_service_1.MailServices.send(req.body);
+            yield mail_service_1.MailServices.send(req.body);
             this.apiResponse(res, {
                 success: true,
                 message: "Your mail has been sent successfully. Thanks!",
                 statusCode: 200,
-                data: { mailId: result },
+                data: null,
             });
         });
     }

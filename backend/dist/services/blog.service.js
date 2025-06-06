@@ -25,30 +25,21 @@ class Service {
     }
     getAllBlogs() {
         return __awaiter(this, void 0, void 0, function* () {
-            const data = yield blog_model_1.Blog.find({}).populate("comments");
-            return data;
+            return yield blog_model_1.Blog.find({}).populate("comments").sort({ createdAt: -1 });
         });
     }
     getSingleBlog(id) {
         return __awaiter(this, void 0, void 0, function* () {
             yield this.isBlogExist(id);
-            const data = yield blog_model_1.Blog.findById(id).populate("comments");
-            return data;
+            return yield blog_model_1.Blog.findById(id).populate("comments").sort({ createdAt: -1 });
         });
     }
     updateBlog(id, data) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log(data);
             const isExist = yield this.isBlogExist(id);
             const oldImages = this.extractBlogImages(isExist);
             const newImages = this.extractBlogImages(data);
             const deletableImages = (0, compareArrayValues_1.default)(oldImages, newImages);
-            console.log({
-                oldImages,
-                newImages,
-                deletableImages,
-                from: "Blog update service",
-            });
             if ((deletableImages === null || deletableImages === void 0 ? void 0 : deletableImages.length) > 0) {
                 supabase_service_1.SupabaseService.deleteFiles(deletableImages);
             }

@@ -25,7 +25,9 @@ class Service {
     }
     getAllProjects() {
         return __awaiter(this, void 0, void 0, function* () {
-            const data = yield project_model_1.Project.find({}).populate("comments");
+            const data = yield project_model_1.Project.find({})
+                .populate("comments")
+                .sort({ createdAt: -1 });
             return data;
         });
     }

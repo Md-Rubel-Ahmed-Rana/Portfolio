@@ -19,7 +19,7 @@ class Service {
     }
     getAllExperiences() {
         return __awaiter(this, void 0, void 0, function* () {
-            const data = yield experience_model_1.Experience.find({});
+            const data = yield experience_model_1.Experience.find({}).sort({ createdAt: -1 });
             return data;
         });
     }

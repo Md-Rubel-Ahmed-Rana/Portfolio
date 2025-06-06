@@ -20,7 +20,7 @@ class Service {
     }
     getAllServices() {
         return __awaiter(this, void 0, void 0, function* () {
-            const data = yield service_model_1.Service.find({});
+            const data = yield service_model_1.Service.find({}).sort({ createdAt: -1 });
             return data;
         });
     }

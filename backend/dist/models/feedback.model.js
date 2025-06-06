@@ -18,7 +18,7 @@ const feedbackSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
-    company: {
+    email: {
         type: String,
         required: true,
     },

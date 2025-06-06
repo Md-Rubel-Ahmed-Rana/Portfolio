@@ -14,29 +14,27 @@ const course_model_1 = require("../models/course.model");
 class Service {
     addCourse(data) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield course_model_1.Course.create(data);
+            return yield course_model_1.Course.create(data);
         });
     }
     getAllCourses() {
         return __awaiter(this, void 0, void 0, function* () {
-            const data = yield course_model_1.Course.find({});
-            return data;
+            return yield course_model_1.Course.find({}).sort({ createdAt: -1 });
         });
     }
     getSingleCourse(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            const data = yield course_model_1.Course.findById(id);
-            return data;
+            return yield course_model_1.Course.findById(id);
         });
     }
     editCourse(id, data) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield course_model_1.Course.findByIdAndUpdate(id, { $set: Object.assign({}, data) });
+            return yield course_model_1.Course.findByIdAndUpdate(id, { $set: Object.assign({}, data) });
         });
     }
     deleteCourse(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield course_model_1.Course.findByIdAndDelete(id);
+            return yield course_model_1.Course.findByIdAndDelete(id);
         });
     }
 }

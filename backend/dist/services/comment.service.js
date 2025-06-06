@@ -20,20 +20,20 @@ class Service {
     getAllComments(filter) {
         return __awaiter(this, void 0, void 0, function* () {
             const filters = filter ? { post: filter } : {};
-            const data = yield comment_model_1.Comment.find(filters).populate({
+            return yield comment_model_1.Comment.find(filters)
+                .populate({
                 path: "post",
                 select: {
                     name: 1,
                     title: 1,
                 },
-            });
-            return data;
+            })
+                .sort({ createdAt: -1 });
         });
     }
     getCommentsForSpecificPost(postId) {
         return __awaiter(this, void 0, void 0, function* () {
-            const data = yield comment_model_1.Comment.find({ post: postId });
-            return data;
+            return yield comment_model_1.Comment.find({ post: postId }).sort({ createdAt: -1 });
         });
     }
     getSingleComment(id) {
@@ -44,12 +44,12 @@ class Service {
     }
     updateComment(id, data) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield comment_model_1.Comment.findByIdAndUpdate(id, { $set: Object.assign({}, data) });
+            return yield comment_model_1.Comment.findByIdAndUpdate(id, { $set: Object.assign({}, data) });
         });
     }
     deleteComment(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield comment_model_1.Comment.findByIdAndDelete(id);
+            return yield comment_model_1.Comment.findByIdAndDelete(id);
         });
     }
 }
