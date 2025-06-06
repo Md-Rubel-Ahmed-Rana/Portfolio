@@ -46,6 +46,17 @@ class Controller extends RootController {
     }
   );
 
+  getFeedbacksByOwner = this.catchAsync(async (req: Request, res: Response) => {
+    const email = req.params?.email as string;
+    const data = await FeedbackService.getFeedbacksByOwner(email);
+    this.apiResponse(res, {
+      success: true,
+      message: "Feedbacks fetched for owner",
+      statusCode: httpStatus.OK,
+      data,
+    });
+  });
+
   getSingleFeedback = this.catchAsync(async (req: Request, res: Response) => {
     const data = await FeedbackService.getSingleFeedback(req.params.id);
     this.apiResponse(res, {

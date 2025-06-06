@@ -8,7 +8,7 @@ class Service {
     await MailServices.feedbackMail(
       data?.name,
       data?.designation,
-      data?.company,
+      data.email,
       data?.feedback
     );
   }
@@ -20,6 +20,10 @@ class Service {
       })
       .sort({ createdAt: -1 });
     return data?.length >= 2 ? data : [];
+  }
+
+  async getFeedbacksByOwner(email: string) {
+    return await Feedback.find({ email }).sort({ createdAt: -1 });
   }
 
   async getAllFeedbacksForAdmin(filter: string = "all") {

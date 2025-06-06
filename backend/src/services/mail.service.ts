@@ -29,7 +29,7 @@ class Service {
   async feedbackMail(
     name: string,
     designation: string,
-    company: string,
+    email: string,
     feedback: string
   ) {
     const htmlContent = `
@@ -50,8 +50,8 @@ class Service {
                   <td style="color: #555;">${designation}</td>
                 </tr>
                 <tr>
-                  <td style="font-weight: bold; color: #333;">Company:</td>
-                  <td style="color: #555;">${company}</td>
+                  <td style="font-weight: bold; color: #333;">Email:</td>
+                  <td style="color: #555;">${email}</td>
                 </tr>
               </table>
   

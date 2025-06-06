@@ -15,7 +15,7 @@ const feedbackSchema = new Schema<IFeedback>(
       type: String,
       required: true,
     },
-    company: {
+    email: {
       type: String,
       required: true,
     },
