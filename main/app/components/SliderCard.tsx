@@ -45,9 +45,6 @@ const SliderCard = ({ cards = [] }: any) => {
             </div>
             <div>
               <h4 className="text-lg font-semibold">{feedback.name}</h4>
-              <p className="text-sm text-gray-600">
-                {feedback.designation}, {feedback.company}
-              </p>
             </div>
             <p className="text-gray-700 flex-grow text-sm">
               {feedback.feedback}

@@ -8,7 +8,7 @@ type Inputs = {
   name: string;
   image: string;
   designation: string;
-  company: string;
+  email: string;
   feedback: string;
 };
 
@@ -76,16 +76,16 @@ const PostFeedback = () => {
         <div className="lg:flex mb-4">
           <div className="lg:w-1/2 lg:mr-2">
             <input
-              {...register("company", { required: "Company name is required" })}
-              type="text"
+              {...register("email", { required: "Email is required" })}
+              type="email"
               id="company"
               name="company"
-              placeholder="Enter your company name"
+              placeholder="Enter your email"
               className="w-full mb-4 lg:mb-0 bg-white border border-blue-300 rounded focus:outline-none focus:ring-1
              focus:ring-blue-500 p-2"
             />
-            {errors.company && (
-              <p className="text-red-600">{errors.company.message}</p>
+            {errors.email && (
+              <p className="text-red-600">{errors.email.message}</p>
             )}
           </div>
           <div className="lg:w-1/2 lg:ml-2">
