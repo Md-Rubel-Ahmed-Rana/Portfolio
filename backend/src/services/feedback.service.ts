@@ -1,9 +1,16 @@
 import { IFeedback } from "../interfaces/feedback.interface";
 import { Feedback } from "../models/feedback.model";
+import { MailServices } from "./mail.service";
 
 class Service {
   async addFeedback(data: IFeedback) {
     await Feedback.create(data);
+    await MailServices.feedbackMail(
+      data?.name,
+      data?.designation,
+      data?.company,
+      data?.feedback
+    );
   }
 
   async getAllFeedbacks() {
