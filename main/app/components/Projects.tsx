@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 
 export default async function Projects() {
   const projects = (await getProjectData()) || [];
+
   return (
     <section className="max-w-[1440px] w-full bg-white mx-auto py-20 px-5 flex flex-col gap-10">
       <div>

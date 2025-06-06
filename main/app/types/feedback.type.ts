@@ -4,5 +4,5 @@ export type IFeedback = {
   image: string;
   feedback: string;
   designation: string;
-  company: string;
+  email: string;
 };
