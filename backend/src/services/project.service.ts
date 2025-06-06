@@ -10,7 +10,9 @@ class Service {
   }
 
   async getAllProjects() {
-    const data = await Project.find({}).populate("comments");
+    const data = await Project.find({})
+      .populate("comments")
+      .sort({ createdAt: -1 });
     return data;
   }
 

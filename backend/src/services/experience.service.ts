@@ -7,7 +7,7 @@ class Service {
   }
 
   async getAllExperiences() {
-    const data = await Experience.find({});
+    const data = await Experience.find({}).sort({ createdAt: -1 });
     return data;
   }
 

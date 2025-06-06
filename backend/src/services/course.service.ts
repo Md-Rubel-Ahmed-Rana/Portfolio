@@ -3,25 +3,23 @@ import { Course } from "../models/course.model";
 
 class Service {
   async addCourse(data: ICourse) {
-    await Course.create(data);
+    return await Course.create(data);
   }
 
   async getAllCourses() {
-    const data = await Course.find({});
-    return data;
+    return await Course.find({}).sort({ createdAt: -1 });
   }
 
   async getSingleCourse(id: string) {
-    const data = await Course.findById(id);
-    return data;
+    return await Course.findById(id);
   }
 
   async editCourse(id: string, data: ICourse) {
-    await Course.findByIdAndUpdate(id, { $set: { ...data } });
+    return await Course.findByIdAndUpdate(id, { $set: { ...data } });
   }
 
   async deleteCourse(id: string) {
-    await Course.findByIdAndDelete(id);
+    return await Course.findByIdAndDelete(id);
   }
 }
 

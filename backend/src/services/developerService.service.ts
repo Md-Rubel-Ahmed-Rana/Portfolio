@@ -8,7 +8,7 @@ class Service {
   }
 
   async getAllServices() {
-    const data = await ServiceModel.find({});
+    const data = await ServiceModel.find({}).sort({ createdAt: -1 });
     return data;
   }
 

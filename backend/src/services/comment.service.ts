@@ -8,19 +8,19 @@ class Service {
 
   async getAllComments(filter: string) {
     const filters = filter ? { post: filter } : {};
-    const data = await Comment.find(filters).populate({
-      path: "post",
-      select: {
-        name: 1,
-        title: 1,
-      },
-    });
-    return data;
+    return await Comment.find(filters)
+      .populate({
+        path: "post",
+        select: {
+          name: 1,
+          title: 1,
+        },
+      })
+      .sort({ createdAt: -1 });
   }
 
   async getCommentsForSpecificPost(postId: string) {
-    const data = await Comment.find({ post: postId });
-    return data;
+    return await Comment.find({ post: postId }).sort({ createdAt: -1 });
   }
 
   async getSingleComment(id: string) {
@@ -29,11 +29,11 @@ class Service {
   }
 
   async updateComment(id: string, data: IComment) {
-    await Comment.findByIdAndUpdate(id, { $set: { ...data } });
+    return await Comment.findByIdAndUpdate(id, { $set: { ...data } });
   }
 
   async deleteComment(id: string) {
-    await Comment.findByIdAndDelete(id);
+    return await Comment.findByIdAndDelete(id);
   }
 }
 
