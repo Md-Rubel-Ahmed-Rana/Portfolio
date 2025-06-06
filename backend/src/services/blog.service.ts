@@ -11,30 +11,20 @@ class Service {
   }
 
   async getAllBlogs() {
-    const data = await Blog.find({}).populate("comments");
-    return data;
+    return await Blog.find({}).populate("comments").sort({ createdAt: -1 });
   }
 
   async getSingleBlog(id: Types.ObjectId) {
     await this.isBlogExist(id);
-    const data = await Blog.findById(id).populate("comments");
-    return data;
+    return await Blog.findById(id).populate("comments").sort({ createdAt: -1 });
   }
 
   async updateBlog(id: Types.ObjectId, data: IBlog) {
-    console.log(data);
     const isExist = await this.isBlogExist(id);
     const oldImages = this.extractBlogImages(isExist);
     const newImages = this.extractBlogImages(data);
 
     const deletableImages = compareArrayValues(oldImages, newImages);
-
-    console.log({
-      oldImages,
-      newImages,
-      deletableImages,
-      from: "Blog update service",
-    });
 
     if (deletableImages?.length > 0) {
       SupabaseService.deleteFiles(deletableImages);

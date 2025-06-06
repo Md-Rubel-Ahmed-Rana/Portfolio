@@ -14,21 +14,19 @@ class Service {
   }
 
   async getAllFeedbacks() {
-    const data = await Feedback.find({ status: "approved" }).select({
-      status: 0,
-    });
+    const data = await Feedback.find({ status: "approved" })
+      .select({
+        status: 0,
+      })
+      .sort({ createdAt: -1 });
     return data?.length >= 2 ? data : [];
   }
 
   async getAllFeedbacksForAdmin(filter: string = "all") {
-    if (filter) {
-      if (filter === "all") {
-        return await Feedback.find({});
-      } else {
-        return await Feedback.find({ status: filter });
-      }
+    if (filter === "all") {
+      return await Feedback.find({}).sort({ createdAt: -1 });
     } else {
-      return await Feedback.find({});
+      return await Feedback.find({ status: filter }).sort({ createdAt: -1 });
     }
   }
 
