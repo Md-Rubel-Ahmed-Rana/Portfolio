@@ -4,12 +4,12 @@ import RootController from "../shared/rootController";
 
 class Controller extends RootController {
   send = async (req: Request, res: Response) => {
-    const result = await MailServices.send(req.body);
+    await MailServices.send(req.body);
     this.apiResponse(res, {
       success: true,
       message: "Your mail has been sent successfully. Thanks!",
       statusCode: 200,
-      data: { mailId: result },
+      data: null,
     });
   };
 }
