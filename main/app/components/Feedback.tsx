@@ -17,14 +17,24 @@ const Feedback = async () => {
               feedback shapes my future endeavors and drives continuous
               improvement
             </p>
-            <Link href={"/post-feedback"}>
-              <button
-                type="button"
-                className="bg-gradient-to-l from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white px-10 py-3 rounded-full"
-              >
-                Leave a feedback
-              </button>
-            </Link>
+            <div className="flex items-center gap-5">
+              <Link href={"/post-feedback"}>
+                <button
+                  type="button"
+                  className="bg-gradient-to-l from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white px-10 py-3 rounded-full"
+                >
+                  Leave a feedback
+                </button>
+              </Link>
+              <p>
+                <Link
+                  className="border-2 rounded-full hover:bg-slate-200 px-2 py-1 text-blue-500"
+                  href="/"
+                >
+                  My Feedbacks
+                </Link>
+              </p>
+            </div>
           </div>
           {feedbacks?.length <= 0 ? (
             <div className="lg:w-3/5 mt-10 ">
