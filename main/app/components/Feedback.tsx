@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getFeedbackData } from "../apis/feedback.api";
 import SliderCard from "./SliderCard";
+import MyFeedbackModal from "./MyFeedbackModal";
 
 const Feedback = async () => {
   const feedbacks = await getFeedbackData();
@@ -17,7 +18,7 @@ const Feedback = async () => {
               feedback shapes my future endeavors and drives continuous
               improvement
             </p>
-            <div className="flex items-center gap-5">
+            <div className="flex items-center flex-col lg:flex-row gap-5">
               <Link href={"/post-feedback"}>
                 <button
                   type="button"
@@ -26,14 +27,7 @@ const Feedback = async () => {
                   Leave a feedback
                 </button>
               </Link>
-              <p>
-                <Link
-                  className="border-2 rounded-full hover:bg-slate-200 px-2 py-1 text-blue-500"
-                  href="/"
-                >
-                  My Feedbacks
-                </Link>
-              </p>
+              <MyFeedbackModal />
             </div>
           </div>
           {feedbacks?.length <= 0 ? (
