@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 export const baseApi = process.env.NEXT_PUBLIC_BASE_API as string;
 
 export const fetchFromApi = async (endpointRoute: string) => {
@@ -20,7 +22,7 @@ export const fetchFromApi = async (endpointRoute: string) => {
   }
 };
 
-export const postToApi = async (endpointRoute: string, data: any) => {
+export const postToApi = async <T>(endpointRoute: string, data: T) => {
   try {
     const res = await fetch(`${baseApi}/${endpointRoute}`, {
       headers: { "Content-type": "application/json" },
@@ -35,7 +37,6 @@ export const postToApi = async (endpointRoute: string, data: any) => {
       throw new Error(`API request failed with status ${res.status}`);
     }
   } catch (error) {
-    console.error("Error posting data:", error);
-    throw new Error("Failed to post data. Please try again later.");
+    toast.error("Failed to post data. Please try again later.");
   }
 };
