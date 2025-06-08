@@ -8,3 +8,7 @@ export const getFeedbackData = async () => {
 export const postNewFeedback = async (feedback: IFeedback) => {
   return await postToApi(`feedback`, feedback);
 };
+
+export const sendFeedbackEmail = async (data: { email: string }) => {
+  return await postToApi("feedback/send-request-email", data);
+};
