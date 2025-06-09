@@ -18,7 +18,7 @@ const ProjectImages = ({
     setToggleImage(image);
   };
   return (
-    <div>
+    <div className="">
       <div className="overflow-hidden border border-blue-500 shadow-md rounded-md p-1">
         <img
           className="w-full max-h-[400px] h-full  rounded-md hover:scale-110 transition duration-500"
@@ -29,7 +29,7 @@ const ProjectImages = ({
       <h3 className="text-center my-2 text-lg font-semibold text-gray-600">
         Screenshots
       </h3>
-      <div className="flex justify-center items-center gap-3 px-10 mb-4">
+      <div className="flex justify-center items-center gap-3 px-10 pb-4 mb-4 w-full overflow-auto">
         {pImages?.map((image, index) => (
           <img
             title="Click to view largely"

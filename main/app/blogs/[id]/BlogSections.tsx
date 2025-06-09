@@ -22,7 +22,7 @@ const BlogSections = ({ sections = [] }: Props) => {
                 key={idx}
                 src={image as string}
                 alt={`Section Image ${idx + 1}`}
-                className="rounded-md border max-h-[250px] h-full border-blue-500"
+                className="rounded-md border max-h-[250px] h-full border-blue-500 w-full"
               />
             ))}
           </div>
