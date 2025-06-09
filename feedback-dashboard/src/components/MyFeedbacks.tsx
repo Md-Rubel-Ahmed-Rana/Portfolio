@@ -5,6 +5,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import FeedbackContainer from "./FeedbackContainer";
+import Link from "next/link";
 
 const MyFeedbacks = () => {
   const [feedbacks, setFeedbacks] = useState<IFeedback[]>([]);
@@ -37,9 +38,20 @@ const MyFeedbacks = () => {
 
   return (
     <div className="p-2 lg:p-4">
-      <h1 className="text-lg lg:text-2xl font-bold text-gray-600 text-center">
-        Welcome to Feedback Dashboard
-      </h1>
+      <div className="flex flex-col justify-center items-center gap-3">
+        <h1 className="text-xl lg:text-2xl font-bold text-gray-600 text-center">
+          Welcome to Feedback Dashboard
+        </h1>
+        <Link
+          href={"https://mdrubelahmedrana.vercel.app/post-feedback"}
+          target="_blank"
+          className="text-center"
+        >
+          <button className="bg-green-600 hover:bg-green-700 px-3 py-1 cursor-pointer text-white rounded-md transition">
+            Post Feedback
+          </button>
+        </Link>
+      </div>
 
       {(isLoading || error) && (
         <div className="w-full min-h-[50vh] flex flex-col justify-center items-center">
