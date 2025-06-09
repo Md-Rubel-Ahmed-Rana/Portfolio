@@ -195,6 +195,12 @@ class JWT {
       });
     }
   };
+
+  public async generateFeedbackToken(email: string): Promise<string> {
+    return await jwt.sign({ email }, envConfig.jwt.accessTokenSecret, {
+      expiresIn: "24h",
+    });
+  }
 }
 
 export const JwtInstance = new JWT();

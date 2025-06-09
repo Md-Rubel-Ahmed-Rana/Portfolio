@@ -13,6 +13,7 @@ export const envConfig = {
     process.env.LOCAL_ORIGIN as string,
     process.env.LIVE_ORIGIN as string,
     process.env.CMS_ORIGIN as string,
+    process.env.FEEDBACK_DASHBOARD as string,
   ],
   gmail: {
     service: process.env.GMAIL_SERVICE as string,

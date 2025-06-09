@@ -76,6 +76,113 @@ class Service {
     });
   }
 
+  async sendFeedbackDashboardMail(
+    name: string,
+    email: string,
+    dashboardUrl: string
+  ) {
+    const htmlContent = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f7;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .email-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .header {
+      padding: 24px;
+      background-color: #4f46e5;
+      color: #ffffff;
+      text-align: center;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+    .content {
+      padding: 24px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .button {
+      display: inline-block;
+      background-color: #4f46e5;
+      color: #ffffff;
+      padding: 12px 24px;
+      margin: 20px 0;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .footer {
+      padding: 16px;
+      font-size: 13px;
+      text-align: center;
+      color: #888;
+      background: #f4f4f7;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <div class="header">
+      <h1>Your Feedback Dashboard</h1>
+    </div>
+    <div class="content">
+      <p>Hi ${name},</p>
+      <p>Thank you for sharing your valuable feedback!</p>
+      <p>You can now access your submitted feedbacks securely by clicking the button below:</p>
+      <p style="text-align:center;">
+        <a style="color:white;" href="${dashboardUrl}" class="button" target="_blank">View My Feedbacks</a>
+      </p>
+      <p>This link is valid for the next <strong>24 hours</strong> only. For your security, please do not share this link with anyone.</p>
+      <p>If you didn’t request this email, you can safely ignore it.</p>
+      <p>Best regards,<br/>The Team</p>
+    </div>
+    <div class="footer">
+      &copy; ${new Date().getFullYear()} Md Rubel Ahmed Rana. All rights reserved.
+    </div>
+  </div>
+</body>
+</html>
+    `;
+
+    const transporter: Transporter = nodemailer.createTransport({
+      service: process.env.GMAIL_SERVICE,
+      host: process.env.GMAIL_HOST,
+      port: parseInt(process.env.GMAIL_PORT as string, 10),
+      secure: true,
+      auth: {
+        user: process.env.GOOGLE_USER,
+        pass: process.env.GOOGLE_APP_PASSWORD,
+      },
+    });
+
+    const info: SentMessageInfo = await transporter.sendMail({
+      subject: "My Feedback Dashboard",
+      from: `${name} <${process.env.GOOGLE_USER}>`,
+      to: email,
+      html: htmlContent,
+    });
+    console.log(info);
+
+    return;
+  }
+
   private sendEmail(
     subject: string,
     to: string | string[],

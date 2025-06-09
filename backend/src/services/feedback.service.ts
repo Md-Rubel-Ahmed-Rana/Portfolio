@@ -1,5 +1,8 @@
+import { envConfig } from "../config/envConfig";
 import { IFeedback } from "../interfaces/feedback.interface";
 import { Feedback } from "../models/feedback.model";
+import ApiError from "../shared/apiError";
+import { JwtInstance } from "../shared/jwt";
 import { MailServices } from "./mail.service";
 
 class Service {
@@ -45,6 +48,26 @@ class Service {
 
   async deleteFeedback(id: string) {
     await Feedback.findByIdAndDelete(id);
+  }
+
+  async sendFeedbackRequestMail(email: string) {
+    const isExist = await Feedback.findOne({ email });
+
+    if (!isExist) {
+      throw new ApiError(404, "You don't have any feedbacks");
+    }
+
+    const token = await JwtInstance.generateFeedbackToken(email);
+
+    const formattedName = isExist.name.toLowerCase().replace(/\s+/g, "");
+
+    const url = `${envConfig.origins[3]}/${formattedName}/${isExist?.email}/${token}`;
+
+    return await MailServices.sendFeedbackDashboardMail(
+      isExist?.name,
+      isExist?.email,
+      url
+    );
   }
 }
 

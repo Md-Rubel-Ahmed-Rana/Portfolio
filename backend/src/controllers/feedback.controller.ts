@@ -86,6 +86,18 @@ class Controller extends RootController {
       data,
     });
   });
+
+  sendFeedbackRequestMail = this.catchAsync(
+    async (req: Request, res: Response) => {
+      await FeedbackService.sendFeedbackRequestMail(req.body.email);
+      this.apiResponse(res, {
+        success: true,
+        message: "A secure feedback link has been sent to your email",
+        statusCode: httpStatus.OK,
+        data: null,
+      });
+    }
+  );
 }
 
 export const FeedbackController = new Controller();

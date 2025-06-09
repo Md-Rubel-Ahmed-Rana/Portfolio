@@ -33,4 +33,6 @@ router.delete(
   FeedbackController.deleteFeedback
 );
 
+router.post("/send-request-email", FeedbackController.sendFeedbackRequestMail);
+
 export const FeedbackRoutes = router;
