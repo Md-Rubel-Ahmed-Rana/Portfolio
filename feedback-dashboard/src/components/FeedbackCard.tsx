@@ -1,4 +1,5 @@
 import { IFeedback } from "@/types";
+import FeedbackActions from "./FeedbackActions";
 
 type Props = {
   feedback: IFeedback;
@@ -22,6 +23,7 @@ const FeedbackCard = ({ feedback }: Props) => {
         <p>Created at: {new Date(feedback.createdAt).toLocaleString()}</p>
         <p>Updated at: {new Date(feedback.updatedAt).toLocaleString()}</p>
       </div>
+      <FeedbackActions feedback={feedback} />
     </div>
   );
 };
