@@ -8,9 +8,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FeedbackService = void 0;
+const envConfig_1 = require("../config/envConfig");
 const feedback_model_1 = require("../models/feedback.model");
+const apiError_1 = __importDefault(require("../shared/apiError"));
+const jwt_1 = require("../shared/jwt");
 const mail_service_1 = require("./mail.service");
 class Service {
     addFeedback(data) {
@@ -58,6 +64,18 @@ class Service {
     deleteFeedback(id) {
         return __awaiter(this, void 0, void 0, function* () {
             yield feedback_model_1.Feedback.findByIdAndDelete(id);
+        });
+    }
+    sendFeedbackRequestMail(email) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const isExist = yield feedback_model_1.Feedback.findOne({ email });
+            if (!isExist) {
+                throw new apiError_1.default(404, "You don't have any feedbacks");
+            }
+            const token = yield jwt_1.JwtInstance.generateFeedbackToken(email);
+            const formattedName = isExist.name.toLowerCase().replace(/\s+/g, "");
+            const url = `${envConfig_1.envConfig.origins[3]}/${formattedName}/${isExist === null || isExist === void 0 ? void 0 : isExist.email}/${token}`;
+            return yield mail_service_1.MailServices.sendFeedbackDashboardMail(isExist === null || isExist === void 0 ? void 0 : isExist.name, isExist === null || isExist === void 0 ? void 0 : isExist.email, url);
         });
     }
 }

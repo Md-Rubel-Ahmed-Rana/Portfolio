@@ -163,6 +163,20 @@ class JWT {
                 });
             }
         });
+        this.verifyFeedbackToken = (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+            try {
+                const token = req.query.token;
+                if (!token) {
+                    return res.status(400).json({ message: "Token is required" });
+                }
+                const decoded = jsonwebtoken_1.default.verify(token, envConfig_1.envConfig.jwt.accessTokenSecret);
+                req.body.email = decoded.email;
+                next();
+            }
+            catch (err) {
+                return res.status(401).json({ message: "Invalid or expired token" });
+            }
+        });
     }
     getExpiredDate(date) {
         return String(date);
@@ -171,6 +185,13 @@ class JWT {
         return __awaiter(this, void 0, void 0, function* () {
             const token = yield this.signToken({ id, email }, envConfig_1.envConfig.jwt.accessTokenSecret, "10m");
             return token;
+        });
+    }
+    generateFeedbackToken(email) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield jsonwebtoken_1.default.sign({ email }, envConfig_1.envConfig.jwt.accessTokenSecret, {
+                expiresIn: "24h",
+            });
         });
     }
 }

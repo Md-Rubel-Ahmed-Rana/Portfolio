@@ -47,8 +47,7 @@ class Controller extends RootController {
   );
 
   getFeedbacksByOwner = this.catchAsync(async (req: Request, res: Response) => {
-    const email = req.params?.email as string;
-    const data = await FeedbackService.getFeedbacksByOwner(email);
+    const data = await FeedbackService.getFeedbacksByOwner(req.body.email);
     this.apiResponse(res, {
       success: true,
       message: "Feedbacks fetched for owner",

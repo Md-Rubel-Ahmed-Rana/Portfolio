@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { FeedbackController } from "../controllers/feedback.controller";
+import { JwtInstance } from "../shared/jwt";
 
 const router = Router();
 
@@ -7,7 +8,11 @@ router.post("/", FeedbackController.addFeedback);
 
 router.get("/", FeedbackController.getAllFeedbacks);
 
-router.get("/owner/:email", FeedbackController.getFeedbacksByOwner);
+router.get(
+  "/me",
+  JwtInstance.verifyFeedbackToken as any,
+  FeedbackController.getFeedbacksByOwner
+);
 
 router.get(
   "/all",

@@ -58,9 +58,7 @@ class Controller extends rootController_1.default {
             });
         }));
         this.getFeedbacksByOwner = this.catchAsync((req, res) => __awaiter(this, void 0, void 0, function* () {
-            var _a;
-            const email = (_a = req.params) === null || _a === void 0 ? void 0 : _a.email;
-            const data = yield feedback_service_1.FeedbackService.getFeedbacksByOwner(email);
+            const data = yield feedback_service_1.FeedbackService.getFeedbacksByOwner(req.body.email);
             this.apiResponse(res, {
                 success: true,
                 message: "Feedbacks fetched for owner",
@@ -93,6 +91,15 @@ class Controller extends rootController_1.default {
                 message: "Feedback deleted",
                 statusCode: http_status_1.default.OK,
                 data,
+            });
+        }));
+        this.sendFeedbackRequestMail = this.catchAsync((req, res) => __awaiter(this, void 0, void 0, function* () {
+            yield feedback_service_1.FeedbackService.sendFeedbackRequestMail(req.body.email);
+            this.apiResponse(res, {
+                success: true,
+                message: "A secure feedback link has been sent to your email",
+                statusCode: http_status_1.default.OK,
+                data: null,
             });
         }));
     }

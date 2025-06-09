@@ -14,6 +14,7 @@ exports.envConfig = {
         process.env.LOCAL_ORIGIN,
         process.env.LIVE_ORIGIN,
         process.env.CMS_ORIGIN,
+        process.env.FEEDBACK_DASHBOARD,
     ],
     gmail: {
         service: process.env.GMAIL_SERVICE,

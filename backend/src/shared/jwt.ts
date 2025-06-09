@@ -201,6 +201,29 @@ class JWT {
       expiresIn: "24h",
     });
   }
+
+  public verifyFeedbackToken = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) => {
+    try {
+      const token = req.query.token as string;
+
+      if (!token) {
+        return res.status(400).json({ message: "Token is required" });
+      }
+
+      const decoded = jwt.verify(token, envConfig.jwt.accessTokenSecret) as {
+        email: string;
+      };
+
+      req.body.email = decoded.email;
+      next();
+    } catch (err) {
+      return res.status(401).json({ message: "Invalid or expired token" });
+    }
+  };
 }
 
 export const JwtInstance = new JWT();
