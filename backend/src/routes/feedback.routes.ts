@@ -8,6 +8,8 @@ router.post("/", FeedbackController.addFeedback);
 
 router.get("/", FeedbackController.getAllFeedbacks);
 
+router.get("/owner/:email", FeedbackController.getFeedbacksByOwner);
+
 router.get(
   "/me",
   JwtInstance.verifyFeedbackToken as any,
