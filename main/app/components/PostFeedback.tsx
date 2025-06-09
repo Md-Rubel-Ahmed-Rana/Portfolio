@@ -23,7 +23,7 @@ const PostFeedback = () => {
   const handlePostFeedback: SubmitHandler<Inputs> = async (data) => {
     const result: any = await postNewFeedback(data);
     if (result && result?.statusCode === 201) {
-      toast.success("Your feedback posted successfully. Thanks!");
+      toast.success("Your feedback posted successfully. Thanks for your time!");
       reset();
     } else {
       toast.error("Failed to post feedback. Please try again!");
@@ -44,6 +44,8 @@ const PostFeedback = () => {
         <div className="lg:flex mb-4">
           <div className="lg:w-1/2 lg:mr-2">
             <input
+              autoFocus
+              autoComplete="name"
               {...register("name", { required: "Name is required" })}
               type="text"
               id="name"
@@ -61,6 +63,7 @@ const PostFeedback = () => {
               {...register("designation", {
                 required: "Designation is required",
               })}
+              autoComplete="designation"
               type="text"
               id="designation"
               name="designation"
@@ -78,8 +81,9 @@ const PostFeedback = () => {
             <input
               {...register("email", { required: "Email is required" })}
               type="email"
-              id="company"
-              name="company"
+              autoComplete="email"
+              id="email"
+              name="email"
               placeholder="Enter your email"
               className="w-full mb-4 lg:mb-0 bg-white border border-blue-300 rounded focus:outline-none focus:ring-1
              focus:ring-blue-500 p-2"
