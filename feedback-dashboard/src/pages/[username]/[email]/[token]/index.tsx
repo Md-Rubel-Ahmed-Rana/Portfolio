@@ -1,10 +1,14 @@
 import MyFeedbacks from "@/components/MyFeedbacks";
+import Head from "next/head";
 
 const MyFeedbacksPage = () => {
   return (
-    <div>
+    <>
+    <Head>
+      <title>My Feedbacks - Md Rubel Ahmed Rana</title>
+    </Head>
       <MyFeedbacks />
-    </div>
+    </>
   );
 };
 
