@@ -22,13 +22,13 @@ export async function generateMetadata() {
 export default async function Projects() {
   const projects = (await getProjectData()) || [];
   return (
-    <section className="bg-gray-50">
-      <div className="max-w-[1440px] w-full mx-auto py-20 px-5 flex flex-col gap-10">
+    <section className="dark:bg-gray-800 bg-gray-50">
+      <div className="max-w-[1440px] w-full mx-auto pb-20 pt-10 px-5 flex flex-col gap-10">
         <div>
-          <h3 className="font-semibold text-4xl text-center text-transparent bg-gradient-to-l to-[#9272d3] from-[#2a1454] bg-clip-text">
+          <h3 className="font-semibold dark:text-gray-200 text-4xl text-center text-transparent bg-gradient-to-l to-[#9272d3] from-[#2a1454] bg-clip-text">
             My Showcase Projects
           </h3>
-          <p className="text-center text-slate-500 text-xl font-sans mt-5">
+          <p className="text-center text-slate-400 text-xl font-sans mt-5">
             Presenting a curated selection of my latest projects, crafted to
             <br />
             impress and inspire both you and your potential clients
@@ -50,7 +50,7 @@ export default async function Projects() {
               } = project;
               return (
                 <div
-                  className="border bg-gray-100 shadow-md rounded-lg group p-5"
+                  className="border dark:border-transparent dark:bg-gray-700 bg-gray-100 dark:text-gray-300 shadow-md rounded-lg group p-5"
                   key={project.id}
                 >
                   <div className="border rounded-lg overflow-hidden">
@@ -61,7 +61,7 @@ export default async function Projects() {
                     />
                   </div>
                   <div className="w-full mt-4">
-                    <h3 className="text-xl font-semibold text-gray-700">
+                    <h3 className="text-xl font-semibold dark:text-gray-300 text-gray-700">
                       {name}
                     </h3>
                     <p>
