@@ -34,12 +34,14 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
   } = data;
 
   return (
-    <section className="bg-gray-100">
+    <section className="dark:bg-gray-800 dark:text-gray-300 bg-gray-100">
       <div className="max-w-[1440px] w-full mx-auto py-10 px-5 flex flex-col gap-20">
         <div className="">
           <ProjectImages images={screenshots} thumbnail={thumbnail} />
           <div className="flex flex-col gap-2">
-            <h3 className="text-2xl font-bold text-gray-700">{name}</h3>
+            <h3 className="text-2xl font-bold dark:text-gray-200 text-gray-700">
+              {name}
+            </h3>
             <h4 className="text-lg">{subTitle}</h4>
             <h6 className="font-serif text-md"># {category}</h6>
             <p>
@@ -118,17 +120,6 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
           </div>
         </div>
         <MoreProjects id={params?.id} />
-        {/* <div className="lg:w-2/5 w-full">
-          <div className="flex lg:flex-row flex-col justify-between lg:items-center gap-5 mb-3">
-            <h3 className="text-2xl font-bold text-gray-600 ">
-              Comments for this project
-            </h3>
-            <p>
-              <CommentButton id={id} postType={"Project"} />
-            </p>
-          </div>
-          <Comments postId={id} />
-        </div> */}
       </div>
     </section>
   );
