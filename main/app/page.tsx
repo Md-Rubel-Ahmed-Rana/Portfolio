@@ -9,7 +9,7 @@ import Blogs from "./components/Blogs";
 import Feedback from "./components/Feedback";
 export default function Home() {
   return (
-    <main>
+    <main className="dark:bg-gray-800">
       <Banner />
       <Services />
       <Projects />
@@ -18,7 +18,6 @@ export default function Home() {
       <Feedback />
       <Blogs />
       <WorkTogether />
-      {/* <Technologies /> */}
     </main>
   );
 }
