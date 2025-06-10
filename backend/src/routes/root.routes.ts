@@ -11,6 +11,7 @@ import { CommentRoutes } from "./comment.routes";
 import { MailRoutes } from "./mail.routes";
 import { AuthRoutes } from "./auth.routes";
 import { SkillRoutes } from "./skill.routes";
+import { UserTrackRoutes } from "./userTrack.routes";
 
 const router = Router();
 
@@ -49,5 +50,8 @@ router.use("/auth", AuthRoutes);
 
 // skill endpoints
 router.use("/skill", SkillRoutes);
+
+// skill endpoints
+router.use("/user-track", UserTrackRoutes);
 
 export const RootRoute = router;

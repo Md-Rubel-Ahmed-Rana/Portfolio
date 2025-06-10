@@ -37,4 +37,7 @@ export const envConfig = {
     bucket: process.env.SUPABASE_BUCKET as string,
     bucketBaseUrl: process.env.SUPABASE_BUCKET_BASE_URL as string,
   },
+  ip: {
+    accessKey: process.env.IP_API_ACCESS_KEY as string,
+  },
 };

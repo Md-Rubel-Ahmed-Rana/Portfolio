@@ -38,4 +38,7 @@ exports.envConfig = {
         bucket: process.env.SUPABASE_BUCKET,
         bucketBaseUrl: process.env.SUPABASE_BUCKET_BASE_URL,
     },
+    ip: {
+        accessKey: process.env.IP_API_ACCESS_KEY,
+    },
 };

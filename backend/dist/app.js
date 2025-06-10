@@ -12,6 +12,7 @@ const envConfig_1 = require("./config/envConfig");
 const morgan_1 = __importDefault(require("morgan"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const app = (0, express_1.default)();
+app.set("trust proxy", true);
 // middlewares
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));

@@ -14,6 +14,7 @@ const comment_routes_1 = require("./comment.routes");
 const mail_routes_1 = require("./mail.routes");
 const auth_routes_1 = require("./auth.routes");
 const skill_routes_1 = require("./skill.routes");
+const userTrack_routes_1 = require("./userTrack.routes");
 const router = (0, express_1.Router)();
 // course endpoints
 router.use("/user", user_routes_1.UserRoutes);
@@ -39,4 +40,6 @@ router.use("/mail", mail_routes_1.MailRoutes);
 router.use("/auth", auth_routes_1.AuthRoutes);
 // skill endpoints
 router.use("/skill", skill_routes_1.SkillRoutes);
+// skill endpoints
+router.use("/user-track", userTrack_routes_1.UserTrackRoutes);
 exports.RootRoute = router;

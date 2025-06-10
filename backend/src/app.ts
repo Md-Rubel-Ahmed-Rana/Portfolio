@@ -6,9 +6,10 @@ import errorHandler from "./shared/errorHandler";
 import { envConfig } from "./config/envConfig";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
-import { SupabaseService } from "./services/supabase.service";
 
 const app: Application = express();
+
+app.set("trust proxy", true);
 
 // middlewares
 app.use(express.json());
