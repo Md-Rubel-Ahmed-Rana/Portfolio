@@ -63,7 +63,7 @@ const WorkTogetherContactForm = () => {
             name="firstName"
             placeholder="First name"
             className="w-full border border-blue-300 rounded focus:outline-none focus:ring-1
-             focus:ring-blue-500 p-2"
+             focus:ring-blue-500 p-2 dark:text-gray-300"
           />
           {errors.firstName && (
             <p className="text-red-600 font-serif">
@@ -127,17 +127,19 @@ const WorkTogetherContactForm = () => {
           <p className="text-red-600 font-serif">{errors.message.message}</p>
         )}
       </div>
-      <button
-        disabled={loading}
-        type="submit"
-        className={` ${
-          loading
-            ? "bg-gray-500"
-            : "bg-gradient-to-l  from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500"
-        }   text-white px-10 py-3 rounded-full ml-3`}
-      >
-        {loading ? "Sending mail..." : "Send message"}
-      </button>
+      <p className="text-center">
+        <button
+          disabled={loading}
+          type="submit"
+          className={` ${
+            loading
+              ? "bg-gray-500"
+              : "bg-gradient-to-l  from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500"
+          }   text-white px-10 py-3 rounded-full ml-3`}
+        >
+          {loading ? "Sending..." : "Send message"}
+        </button>
+      </p>
     </form>
   );
 };
