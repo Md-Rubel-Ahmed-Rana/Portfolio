@@ -18,13 +18,13 @@ export async function generateMetadata() {
 const Services = async () => {
   const services = (await getServiceData()) || [];
   return (
-    <section className="bg-gray-50">
-      <div className="max-w-[1440px] w-full mx-auto py-20 px-5 flex flex-col gap-10 ">
+    <section className="dark:bg-gray-800 bg-gray-50">
+      <div className="max-w-[1440px] w-full mx-auto pb-20 pt-10 px-5 flex flex-col gap-10 ">
         <div>
-          <h3 className="font-semibold text-4xl text-center text-transparent bg-gradient-to-l to-[#8750f7] from-[#2a1454] bg-clip-text">
+          <h3 className="font-semibold text-4xl dark:text-gray-200 text-center text-transparent bg-gradient-to-l to-[#8750f7] from-[#2a1454] bg-clip-text">
             My Quality Services
           </h3>
-          <p className="text-center text-slate-500 text-xl font-sans mt-5">
+          <p className="text-center text-slate-400 text-xl font-sans mt-5">
             Transforming your ideas into captivating web projects that <br />
             inspire both you and your customers/clients
           </p>
@@ -34,7 +34,7 @@ const Services = async () => {
             <div
               data-aos="zoom-in-up"
               data-aos-duration="3000"
-              className="border bg-gray-100 p-5 shadow-md rounded-md  relative"
+              className="border dark:border-transparent dark:bg-gray-700 bg-gray-100 p-5 shadow-md rounded-md  relative"
               key={service.id}
             >
               <div className="flex flex-col gap-3 mb-10 overflow-hidden">
@@ -48,8 +48,12 @@ const Services = async () => {
                     alt={service.name}
                   />
                 </div>
-                <h4 className="text-lg text-gray-700">{service.name}</h4>
-                <p className="text-sm text-gray-500">{service.description}</p>
+                <h4 className="text-lg dark:text-gray-200 text-gray-700">
+                  {service.name}
+                </h4>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  {service.description}
+                </p>
               </div>
               <Link className="w-full text-center" href={`/hire-me`}>
                 <button
