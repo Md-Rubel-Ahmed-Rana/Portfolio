@@ -33,7 +33,7 @@ const MyFeedbackModal = () => {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="border border-transparent rounded-full dark:bg-gray-600 dark:hover:bg-gray-700 hover:bg-slate-200 px-2 py-1 text-blue-500"
+        className="border dark:border-transparent rounded-full dark:bg-gray-600 dark:hover:bg-gray-700 hover:bg-slate-200 px-2 py-1 text-blue-500"
       >
         My Feedbacks
       </button>
@@ -44,20 +44,20 @@ const MyFeedbackModal = () => {
           aria-hidden="true"
         />
         <div className="fixed inset-0 z-10 flex items-center justify-center p-4">
-          <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+          <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl dark:bg-gray-700 bg-white p-6 text-left align-middle shadow-xl transition-all">
             <div className="flex items-center gap-3 mb-4">
               <div className="flex items-center justify-center rounded-full bg-blue-100 p-2">
                 <CiMail className="text-blue-600 text-2xl" />
               </div>
               <Dialog.Title
                 as="h3"
-                className="text-lg font-medium leading-6 text-gray-900"
+                className="text-lg font-medium leading-6 dark:text-gray-200 text-gray-900"
               >
                 Request Your Feedbacks
               </Dialog.Title>
             </div>
 
-            <p className="text-sm text-gray-600 mb-4">
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
               Enter your email address and we&apos;ll send you a secure link to
               view your submitted feedbacks. This helps us ensure the feedbacks
               are shared only with the rightful owner.
@@ -83,7 +83,7 @@ const MyFeedbackModal = () => {
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
-                  className="rounded-md px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 border"
+                  className="rounded-md px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 border"
                 >
                   Cancel
                 </button>

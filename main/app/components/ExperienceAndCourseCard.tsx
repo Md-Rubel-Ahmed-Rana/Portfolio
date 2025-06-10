@@ -31,7 +31,7 @@ const ExperienceAndCourseCard = (props: Props) => {
   return (
     <div
       data-aos={route === "experiences" ? "fade-right" : "fade-left"}
-      className="dark:bg-gray-800 dark:shadow-xl bg-gray-100 p-5 transition duration-1000 rounded-lg flex flex-col gap-2 hover:bg-purple-800 hover:text-white group relative"
+      className="dark:bg-gray-700 bg-white p-5 transition duration-1000 rounded-lg flex flex-col gap-2 hover:bg-purple-800 hover:text-white group relative"
       key={Math.random()}
     >
       <p className="lg:text-lg font-semibold text-blue-500 group-hover:text-white">
