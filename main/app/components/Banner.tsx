@@ -10,7 +10,7 @@ const Banner = async () => {
     data || {};
 
   return (
-    <div className="max-w-[1440px] w-full bg-white mx-auto flex mt-10 lg:flex-row gap-10 flex-col-reverse justify-between items-center py-16 px-10">
+    <div className="max-w-[1440px] w-full mx-auto flex mt-10 lg:flex-row gap-10 flex-col-reverse justify-between items-center py-16 px-10">
       <div className="flex flex-col justify-between gap-10 max-w-lg">
         <div>
           <h3
@@ -21,9 +21,6 @@ const Banner = async () => {
           </h3>
           <h4 className="lg:text-3xl text-xl mb-4">
             <DesignationsStreaming />
-            {/* <span className="font-semibold text-transparent bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text">
-              {position}
-            </span> */}
           </h4>
           <p
             data-aos="fade-up"

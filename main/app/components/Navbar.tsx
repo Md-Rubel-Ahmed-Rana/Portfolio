@@ -9,6 +9,7 @@ import Popover from "@mui/material/Popover";
 import { FaBars } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { baseApi } from "../apis";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const Navbar = () => {
   const [data, setData] = useState<IHome | null>(null);
@@ -53,7 +54,7 @@ const Navbar = () => {
   const { logo, name } = data || {};
 
   return (
-    <nav className="bg-white flex flex-col justify-center shadow-md overflow-hidden lg:p-0 p-5">
+    <nav className="dark:bg-gray-800 dark:text-white flex flex-col justify-center shadow-md overflow-hidden lg:p-0 p-5">
       <div className="flex justify-between items-center lg:p-3 pt-0 mt-0">
         <div className="border-blue-500 flex justify-between lg:w-auto w-full">
           <div className="flex gap-2 items-center">
@@ -65,7 +66,7 @@ const Navbar = () => {
                 alt="Logo"
               />
             </Link>
-            <h2 className="text-lg font-semibold text-gray-700">{name}</h2>
+            <h2 className="text-lg font-semibold">{name}</h2>
           </div>
           <div className="dropdown dropdown-end  lg:hidden">
             <div>
@@ -110,12 +111,13 @@ const Navbar = () => {
           </div>
         </div>
         <div className="lg:block hidden">
-          <ul className="flex items-center gap-4 font-semibold text-gray-500 text-lg">
+          <ul className="flex items-center gap-4 font-semibold text-lg">
             {navList.map((nav) => (
               <li title={nav.label} key={nav.label} className={style.navList}>
                 <Link href={nav.path}>{nav.label}</Link>
               </li>
             ))}
+            <ThemeSwitcher />
             <li title="Hire me actionable button">
               <Link href={"/hire-me"}>
                 <button className="bg-gradient-to-l ml-3 from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white px-10 py-3 rounded-full">

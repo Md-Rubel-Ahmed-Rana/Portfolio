@@ -5,9 +5,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Script from "next/script";
-import { useEffect } from "react";
 import AOSWrapper from "./components/AOSWrapper";
+import { ThemeProvider } from "next-themes";
 
 const roboto = Roboto({
   weight: "400",
@@ -28,11 +27,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto.className}`}>
-        <AOSWrapper />
-        <Navbar />
-        <section>{children}</section>
-        <Footer />
-        <ToastContainer />
+        <ThemeProvider attribute={"class"}>
+          <AOSWrapper />
+          <Navbar />
+          <section>{children}</section>
+          <Footer />
+          <ToastContainer />
+        </ThemeProvider>
       </body>
     </html>
   );
