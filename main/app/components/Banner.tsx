@@ -15,14 +15,17 @@ const Banner = async () => {
         <div>
           <h3
             data-aos="fade-up"
-            className="lg:text-4xl text-2xl font-bold mb-4"
+            className="lg:text-4xl dark:text-gray-200 text-2xl font-bold mb-4"
           >
             I&apos;m {name}
           </h3>
           <h4 className="lg:text-3xl text-xl mb-4">
             <DesignationsStreaming />
           </h4>
-          <p data-aos="fade-up" className="text-xl leading-relaxed">
+          <p
+            data-aos="fade-up"
+            className="text-xl dark:text-gray-300 leading-relaxed"
+          >
             {description}
           </p>
         </div>

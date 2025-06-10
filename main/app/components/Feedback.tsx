@@ -6,11 +6,11 @@ import MyFeedbackModal from "./MyFeedbackModal";
 const Feedback = async () => {
   const feedbacks = await getFeedbackData();
   return (
-    <section className="bg-gray-100">
+    <section className="dark:bg-gray-800 bg-gray-100">
       <div className="max-w-[1440px] w-full mx-auto py-20 lg:px-10 px-5">
         <div className="flex lg:flex-row flex-col justify-center items-center lg:gap-20 gap-10">
           <div className="lg:w-2/5 flex flex-col gap-4">
-            <h3 className="font-semibold lg:text-4xl text-2xl text-transparent bg-gradient-to-l to-[#9272d3] from-[#2a1454] bg-clip-text">
+            <h3 className="font-semibold lg:text-4xl dark:text-gray-300 text-2xl text-transparent bg-gradient-to-l to-[#9272d3] from-[#2a1454] bg-clip-text">
               Feedback Showcase
             </h3>
             <p className=" text-slate-500 lg:text-xl text-lg font-sans">

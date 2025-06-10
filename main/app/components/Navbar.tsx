@@ -66,7 +66,7 @@ const Navbar = () => {
                 alt="Logo"
               />
             </Link>
-            <h2 className="text-lg font-semibold">{name}</h2>
+            <h2 className="text-lg dark:text-gray-200 font-semibold">{name}</h2>
           </div>
           <div className="dropdown dropdown-end  lg:hidden">
             <div>
@@ -113,7 +113,11 @@ const Navbar = () => {
         <div className="lg:block hidden">
           <ul className="flex items-center gap-4 font-semibold text-lg">
             {navList.map((nav) => (
-              <li title={nav.label} key={nav.label} className={style.navList}>
+              <li
+                title={nav.label}
+                key={nav.label}
+                className={`${style.navList} dark:text-gray-200`}
+              >
                 <Link href={nav.path}>{nav.label}</Link>
               </li>
             ))}

@@ -33,7 +33,7 @@ const MyFeedbackModal = () => {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="border-2 rounded-full hover:bg-slate-200 px-2 py-1 text-blue-500"
+        className="border border-transparent rounded-full dark:bg-gray-600 dark:hover:bg-gray-700 hover:bg-slate-200 px-2 py-1 text-blue-500"
       >
         My Feedbacks
       </button>

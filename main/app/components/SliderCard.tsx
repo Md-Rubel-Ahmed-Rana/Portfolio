@@ -27,7 +27,7 @@ const SliderCard = ({ cards = [] }: any) => {
     <Slider {...settings}>
       {cards?.map((feedback: IFeedback) => (
         <div key={Math.random()}>
-          <div className="lg:p-5 lg:m-5 m-2 p-2 border bg-white cursor-grab rounded-lg shadow-md flex flex-col lg:gap-5 gap-2 justify-center lg:h-80">
+          <div className="lg:p-5 lg:m-5 m-2 p-2 border dark:bg-gray-800 bg-white cursor-grab rounded-lg shadow-md flex flex-col lg:gap-5 gap-2 justify-center lg:h-80">
             <div>
               {feedback?.image ? (
                 <img
@@ -44,9 +44,11 @@ const SliderCard = ({ cards = [] }: any) => {
               )}
             </div>
             <div>
-              <h4 className="text-lg font-semibold">{feedback.name}</h4>
+              <h4 className="text-lg dark:text-gray-300 font-semibold">
+                {feedback.name}
+              </h4>
             </div>
-            <p className="text-gray-700 flex-grow text-sm">
+            <p className="text-gray-700 dark:text-gray-400 flex-grow text-sm">
               {feedback.feedback}
             </p>
           </div>

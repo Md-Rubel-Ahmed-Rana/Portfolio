@@ -7,7 +7,7 @@ const Skills = async () => {
   return (
     <div className="max-w-[1440px] w-full dark:bg-gray-800 bg-white mx-auto py-20 lg:px-10 px-5 flex flex-col gap-10">
       <div>
-        <h3 className="font-semibold lg:text-4xl dark:text-white text-2xl text-center text-transparent bg-gradient-to-l to-[#9272d3] from-[#2a1454] bg-clip-text">
+        <h3 className="font-semibold lg:text-4xl dark:text-gray-300 text-2xl text-center text-transparent bg-gradient-to-l to-[#9272d3] from-[#2a1454] bg-clip-text">
           My Skills
         </h3>
         <p className="text-center text-slate-400 lg:text-xl text-lg font-sans mt-5">

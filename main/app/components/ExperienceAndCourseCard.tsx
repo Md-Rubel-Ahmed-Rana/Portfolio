@@ -42,7 +42,7 @@ const ExperienceAndCourseCard = (props: Props) => {
             : "Present"}
         </span>
       </p>
-      <h4 className="lg:text-2xl font-bold">{name}</h4>
+      <h4 className="lg:text-2xl dark:text-gray-200 font-bold">{name}</h4>
       {route === "experiences" && (
         <p className="text-md font-semibold dark:text-gray-300 text-gray-700 group-hover:text-white">
           At {position} {`(${workType})`}
