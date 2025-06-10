@@ -15,7 +15,7 @@ const DisplayRichText = ({ description }: Props) => {
 
   return (
     <div
-      className="mt-4 prose max-w-none prose-img:rounded-lg prose-pre:bg-gray-100 prose-code:text-sm prose-code:before:hidden prose-code:after:hidden text-black"
+      className="mt-4 prose max-w-none prose-img:rounded-lg prose-pre:bg-gray-100 prose-code:text-sm prose-code:before:hidden prose-code:after:hidden dark:text-gray-400 text-black overflow-auto pb-4"
       dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(description) }}
     />
   );

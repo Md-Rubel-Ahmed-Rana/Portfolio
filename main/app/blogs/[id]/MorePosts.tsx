@@ -9,7 +9,9 @@ const MorePosts = async ({ id }: { id: string }) => {
   const blogs = AllBlogs.filter((blog) => blog?.id !== id);
   return (
     <div>
-      <h3 className="text-lg lg:text-2xl font-semibold mb-3">More posts</h3>
+      <h3 className="text-lg lg:text-2xl font-semibold mb-3 dark:text-gray-300">
+        More posts
+      </h3>
       <div className="flex flex-col gap-2">
         {blogs.map((blog) => (
           <Link

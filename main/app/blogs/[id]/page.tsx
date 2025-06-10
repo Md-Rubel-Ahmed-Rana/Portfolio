@@ -19,13 +19,13 @@ const BlogDetails = async ({ params }: { params: { id: string } }) => {
   const blog = await getSingleBlogData(params.id);
 
   return (
-    <section className="bg-gray-50">
+    <section className="dark:bg-gray-800 text-gray-300 bg-gray-50">
       <div className="max-w-[1440px] w-full mx-auto pb-20 pt-10 px-5 flex flex-col gap-10">
         <div className="w-full  flex flex-col gap-2 group">
-          <h5 className="text-xl font-semibold leading-7 text-gray-800 group-hover:text-blue-600">
+          <h5 className="text-xl font-semibold leading-7 dark:text-gray-300 text-gray-800">
             {blog?.title}
           </h5>
-          <div className="lg:flex items-center gap-10 text-gray-600 text-sm font-sans">
+          <div className="lg:flex items-center gap-10 dark:text-gray-300 text-gray-600 text-sm font-sans">
             <p className="flex items-center gap-2">
               <FaUserCircle />
               <span>By Md Rubel Ahmed Rana</span>
@@ -63,17 +63,6 @@ const BlogDetails = async ({ params }: { params: { id: string } }) => {
           </div>
         </div>
         <BlogSections sections={blog.body} />
-        {/* <div className="lg:w-2/5 w-full h-full border rounded-md bg-gray-100 p-3 shadow-md">
-          <div className="flex lg:flex-row flex-col justify-between lg:items-center gap-5 mb-3">
-            <h3 className="text-2xl font-bold text-gray-600 ">
-              Comments for this article
-            </h3>
-            <p>
-              <CommentButton id={blog.id} postType={"Blog"} />
-            </p>
-          </div>
-          <Comments postId={blog.id} />
-        </div> */}
         <MorePosts id={params.id} />
       </div>
     </section>
