@@ -54,7 +54,7 @@ const Navbar = () => {
   const { logo, name } = data || {};
 
   return (
-    <nav className="dark:bg-gray-800 dark:text-white flex flex-col justify-center shadow-md overflow-hidden lg:p-0 p-5">
+    <nav className="dark:bg-gray-800 bg-white dark:text-white flex flex-col justify-center shadow-md overflow-hidden lg:p-0 p-5 sticky top-0 z-50">
       <div className="flex justify-between items-center lg:p-3 pt-0 mt-0">
         <div className="border-blue-500 flex justify-between lg:w-auto w-full">
           <div className="flex gap-2 items-center">
@@ -66,9 +66,11 @@ const Navbar = () => {
                 alt="Logo"
               />
             </Link>
-            <h2 className="text-lg dark:text-gray-200 font-semibold">{name}</h2>
+            <h2 className="lg:text-lg text-md dark:text-gray-200 font-semibold">
+              {name}
+            </h2>
           </div>
-          <div className="dropdown dropdown-end  lg:hidden">
+          <div className="dropdown dropdown-end z-50 lg:hidden">
             <div>
               <button
                 onClick={handleClick}
