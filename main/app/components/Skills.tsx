@@ -5,12 +5,12 @@ import { getSkillIcon } from "../utils/getSkillIcon";
 const Skills = async () => {
   const skills = ((await getSkillData()) || []) as ISkill[];
   return (
-    <div className="max-w-[1440px] w-full bg-white mx-auto py-20 lg:px-10 px-5 flex flex-col gap-10">
+    <div className="max-w-[1440px] w-full dark:bg-gray-800 bg-white mx-auto py-20 lg:px-10 px-5 flex flex-col gap-10">
       <div>
-        <h3 className="font-semibold lg:text-4xl text-2xl text-center text-transparent bg-gradient-to-l to-[#9272d3] from-[#2a1454] bg-clip-text">
+        <h3 className="font-semibold lg:text-4xl dark:text-white text-2xl text-center text-transparent bg-gradient-to-l to-[#9272d3] from-[#2a1454] bg-clip-text">
           My Skills
         </h3>
-        <p className="text-center text-slate-500 lg:text-xl text-lg font-sans mt-5">
+        <p className="text-center text-slate-400 lg:text-xl text-lg font-sans mt-5">
           Dive into a showcase of my finest creations, meticulously designed to
           captivate
           <br className="lg:block hidden" />
@@ -25,7 +25,7 @@ const Skills = async () => {
               data-aos="fade-up"
               data-aos-duration={`${index * 200}`}
               data-aos-delay="300"
-              className="transition duration-1000 border flex flex-col text-center hover:bg-purple-950 hover:text-white lg:gap-3 gap-1 justify-between items-center lg:p-3 p-2 rounded-2xl cursor-pointer shadow-md group"
+              className="transition duration-1000 border-transparent flex flex-col text-center hover:bg-purple-950 hover:text-white lg:gap-3 gap-1 justify-between items-center lg:p-3 p-2 rounded-2xl cursor-pointer shadow-md group"
               key={skill?.id}
             >
               <div>
@@ -33,7 +33,7 @@ const Skills = async () => {
                   <IconComponent className="text-6xl text-blue-600 group-hover:text-white" />
                 )}
               </div>
-              <h6 className="text-blue-600 group-hover:text-white">
+              <h6 className="dark:text-white text-blue-600 group-hover:text-white">
                 {skill.name}
               </h6>
             </div>
