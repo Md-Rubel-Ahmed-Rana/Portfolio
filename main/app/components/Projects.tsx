@@ -12,12 +12,12 @@ export default async function Projects() {
   const projects = (await getProjectData()) || [];
 
   return (
-    <section className="max-w-[1440px] w-full bg-white mx-auto py-20 px-5 flex flex-col gap-10">
+    <section className="max-w-[1440px] w-full dark:bg-gray-800 mx-auto py-20 px-5 flex flex-col gap-10">
       <div>
         <h3 className="font-semibold lg:text-4xl text-2xl text-center text-transparent bg-gradient-to-l to-[#9272d3] from-[#2a1454] bg-clip-text">
           My Recent Works
         </h3>
-        <p className="text-center text-slate-500 lg:text-xl text-lg font-sans mt-5">
+        <p className="text-center text-slate-400 lg:text-xl text-lg font-sans mt-5">
           Presenting a curated selection of my latest projects, crafted to
           <br className="lg:block hidden" />
           impress and inspire both you and your potential clients
