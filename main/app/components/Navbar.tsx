@@ -96,7 +96,8 @@ const Navbar = () => {
                   horizontal: "left",
                 }}
               >
-                <ul className="mt-3 p-2 bg-white shadow menu menu-sm dropdown-content rounded-md w-52">
+                <ul className="px-5 py-2 dark:bg-gray-700 dark:text-gray-300 flex flex-col gap-3 justify-center items-center bg-white shadow menu menu-sm dropdown-content w-auto">
+                  <ThemeSwitcher />
                   {navList.map((nav) => (
                     <li
                       onClick={handleClose}
