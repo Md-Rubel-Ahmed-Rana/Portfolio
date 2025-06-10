@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const PostFeedbackPage = () => {
   return (
-    <div>
+    <div className="dark:bg-gray-800">
       <PostFeedback />
     </div>
   );

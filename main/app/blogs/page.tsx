@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const Blogs = async () => {
   const blogs = (await getBlogsData()) || [];
   return (
-    <section className="bg-gray-50">
+    <section className="dark:bg-gray-800 bg-gray-50">
       <div className="max-w-[1440px] w-full mx-auto pb-20 pt-10 px-2 lg:px-10 flex flex-col gap-10">
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 items-center gap-5">
           {blogs.map((blog) => (

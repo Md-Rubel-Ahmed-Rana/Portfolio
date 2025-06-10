@@ -31,13 +31,13 @@ const PostFeedback = () => {
   };
 
   return (
-    <div className="lg:w-1/2 mx-auto lg:my-10 py-10 sm:px-10 xs:h-screen bg-white">
+    <div className="lg:w-1/2 mx-auto py-10 sm:px-10 xs:h-screen dark:bg-gray-800 bg-white">
       <form
         className="shadow-md p-10 rounded-md"
         onSubmit={handleSubmit(handlePostFeedback)}
       >
         <div className="flex mb-4">
-          <h4 className="lg:text-3xl text-lg font-semibold">
+          <h4 className="lg:text-3xl dark:text-gray-300 text-lg font-semibold">
             Thanks for your valuable time
           </h4>
         </div>
@@ -52,7 +52,7 @@ const PostFeedback = () => {
               name="name"
               placeholder="Enter your name"
               className="w-full mb-4 lg:mb-0 bg-white border border-blue-300 rounded focus:outline-none focus:ring-1
-             focus:ring-blue-500 p-2"
+             focus:ring-blue-500 p-2 dark:bg-gray-800 dark:text-gray-100"
             />
             {errors.name && (
               <p className="text-red-600">{errors.name.message}</p>
@@ -69,7 +69,7 @@ const PostFeedback = () => {
               name="designation"
               placeholder="Enter your designation"
               className="w-full   bg-white border border-blue-300 rounded focus:outline-none focus:ring-1
-             focus:ring-blue-500 p-2"
+             focus:ring-blue-500 p-2 dark:bg-gray-800 dark:text-gray-100"
             />
             {errors.designation && (
               <p className="text-red-600">{errors.designation.message}</p>
@@ -86,7 +86,7 @@ const PostFeedback = () => {
               name="email"
               placeholder="Enter your email"
               className="w-full mb-4 lg:mb-0 bg-white border border-blue-300 rounded focus:outline-none focus:ring-1
-             focus:ring-blue-500 p-2"
+             focus:ring-blue-500 p-2 dark:bg-gray-800 dark:text-gray-100"
             />
             {errors.email && (
               <p className="text-red-600">{errors.email.message}</p>
@@ -100,7 +100,7 @@ const PostFeedback = () => {
               name="image"
               placeholder="Enter your profile image url"
               className="w-full bg-white border border-blue-300 rounded focus:outline-none focus:ring-1
-             focus:ring-blue-500 p-2"
+             focus:ring-blue-500 p-2 dark:bg-gray-800 dark:text-gray-100"
             />
           </div>
         </div>
@@ -122,7 +122,7 @@ const PostFeedback = () => {
             rows={6}
             placeholder="Write your respective feedback"
             className="w-full  bg-white border border-blue-300 rounded focus:outline-none focus:ring-1
-             focus:ring-blue-500 p-2"
+             focus:ring-blue-500 p-2 dark:bg-gray-800 dark:text-gray-100"
           ></textarea>
           {errors.feedback && (
             <p className="text-red-600">{errors.feedback.message}</p>

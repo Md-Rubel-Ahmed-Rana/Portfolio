@@ -18,7 +18,7 @@ const BlogCard = ({ blog }: Props) => {
         .join("-")}&s=${extractSectionTitleAndMakeUrl(blog.body)}`}
       key={blog?.id}
     >
-      <div className="rounded-md bg-gray-100 shadow-md border p-3 flex flex-col gap-2 group">
+      <div className="rounded-md dark:bg-gray-700 bg-gray-100 shadow-md border dark:border-transparent p-3 flex flex-col gap-2 group">
         <div className="overflow-hidden rounded-md w-full h-48">
           <img
             className="rounded-md w-full h-full object-fill  transition duration-700 group-hover:scale-110"
@@ -28,7 +28,7 @@ const BlogCard = ({ blog }: Props) => {
             alt={blog?.title}
           />
         </div>
-        <h5 className="text-xl font-semibold leading-7 text-gray-800 group-hover:text-blue-600">
+        <h5 className="text-xl font-semibold leading-7 dark:text-gray-300 text-gray-800 group-hover:text-blue-600">
           {blog?.title}
         </h5>
         <div className="flex items-center justify-between text-blue-500">
