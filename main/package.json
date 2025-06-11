@@ -33,7 +33,8 @@
     "react-toastify": "^10.0.5",
     "sharp": "^0.33.3",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^6.1.9"
+    "styled-components": "^6.1.9",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@types/aos": "^3.0.7",
