@@ -1,7 +1,11 @@
-export const getLocalStorageValue = (key: string): string | null => {
+export const getLocalStorageValue = (key: string): any => {
   if (typeof window !== "undefined") {
     const value = localStorage.getItem(key);
-    return value ? JSON.parse(value) : null;
+    try {
+      return value ? JSON.parse(value) : null;
+    } catch {
+      return value;
+    }
   }
   return null;
 };

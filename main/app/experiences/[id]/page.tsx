@@ -15,26 +15,30 @@ const ExperienceDetails = async ({ params }: { params: { id: string } }) => {
   const data = await getSingleExperience(params.id);
 
   return (
-    <div className="min-h-screen lg:p-8 p-2 bg-gray-100  flex justify-center items-center">
-      <div className="w-full max-w-4xl bg-white shadow-lg rounded-lg p-6">
-        <h3 className="lg:text-4xl text-2xl font-bold text-gray-800 text-center mb-4">
+    <div className="min-h-screen lg:p-8 p-2 dark:bg-gray-800 bg-gray-100  flex justify-center items-center">
+      <div className="w-full max-w-4xl dark:bg-gray-800 bg-white shadow-lg rounded-lg p-6">
+        <h3 className="lg:text-4xl text-2xl font-bold dark:text-gray-300 text-gray-800 text-center mb-4">
           {data.name}
         </h3>
         <div className="text-center mb-6">
-          <p className="text-xl text-gray-600">{data.designation}</p>
-          <p className="text-sm text-gray-500">{data.workType}</p>
-          <p className="text-sm text-gray-500">
+          <p className="text-xl dark:text-gray-300 text-gray-600">
+            {data.designation}
+          </p>
+          <p className="text-sm dark:text-gray-300 text-gray-500">
+            {data.workType}
+          </p>
+          <p className="text-sm dark:text-gray-300 text-gray-500">
             {data.startDate.slice(0, 10)} -{" "}
             {data.endDate ? data.endDate.slice(0, 10) : "Present"}
           </p>
         </div>
         <div className="flex flex-col md:flex-row md:justify-between mb-6">
           <div className="mb-4 md:mb-0">
-            <p className="text-gray-600">
+            <p className="dark:text-gray-300 text-gray-600">
               <span className="font-bold">Location: </span>
               {data.workLocation}
             </p>
-            <p className="text-gray-600">
+            <p className="dark:text-gray-300 text-gray-600">
               <span className="font-bold">Website: </span>
               {data.website ? (
                 <a
@@ -49,7 +53,7 @@ const ExperienceDetails = async ({ params }: { params: { id: string } }) => {
                 </small>
               )}
             </p>
-            <p className="text-gray-600">
+            <p className="dark:text-gray-300 text-gray-600">
               <span className="font-bold">LinkedIn: </span>
               {data.linkedIn ? (
                 <a
@@ -67,10 +71,10 @@ const ExperienceDetails = async ({ params }: { params: { id: string } }) => {
           </div>
         </div>
         <div className="mb-6">
-          <h4 className="text-2xl font-semibold text-gray-700 mb-2">
+          <h4 className="text-2xl font-semibold dark:text-gray-300 text-gray-700 mb-2">
             Responsibilities
           </h4>
-          <ul className="list-disc text-gray-600">
+          <ul className="list-disc dark:text-gray-300 text-gray-600">
             {data?.responsibilities?.map((item, index) => (
               <li key={index} className="mb-2">
                 {item}
@@ -79,10 +83,10 @@ const ExperienceDetails = async ({ params }: { params: { id: string } }) => {
           </ul>
         </div>
         <div>
-          <h4 className="text-2xl font-semibold text-gray-700 mb-2">
+          <h4 className="text-2xl font-semibold dark:text-gray-300 text-gray-700 mb-2">
             Learned New Technologies
           </h4>
-          <ul className="list-disc text-gray-600">
+          <ul className="list-disc dark:text-gray-300 text-gray-600">
             {data?.learnedNewTech?.map((tech, index) => (
               <li key={index} className="mb-2">
                 {tech}

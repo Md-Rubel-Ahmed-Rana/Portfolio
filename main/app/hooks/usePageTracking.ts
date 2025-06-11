@@ -1,14 +1,15 @@
 import { useEffect } from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
-import { getLocalStorageValue } from "../db/localStorage";
+import { getLocalStorageValue, setLocalStorage } from "../db/localStorage";
 import { baseApi } from "../apis";
+const key = "visitorId";
 
 const getVisitorId = () => {
-  let visitorId = getLocalStorageValue("visitorId");
+  let visitorId = getLocalStorageValue(key);
   if (!visitorId) {
     visitorId = uuidv4();
-    localStorage.setItem("visitorId", visitorId);
+    setLocalStorage(key, visitorId);
   }
   return visitorId;
 };
