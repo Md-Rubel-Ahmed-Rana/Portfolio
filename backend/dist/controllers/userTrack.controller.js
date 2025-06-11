@@ -17,14 +17,12 @@ const http_status_1 = __importDefault(require("http-status"));
 const axios_1 = __importDefault(require("axios"));
 const userTract_service_1 = require("../services/userTract.service");
 const rootController_1 = __importDefault(require("../shared/rootController"));
-const request_ip_1 = __importDefault(require("request-ip"));
 const envConfig_1 = require("../config/envConfig");
 class Controller extends rootController_1.default {
     constructor() {
         super(...arguments);
         this.newUserTrack = this.catchAsync((req, res) => __awaiter(this, void 0, void 0, function* () {
             var _a;
-            console.log(req.ip, req.socket.remoteAddress, request_ip_1.default.getClientIp(req));
             const ip = ((_a = req.headers["x-forwarded-for"]) === null || _a === void 0 ? void 0 : _a.split(",")[0]) ||
                 req.socket.remoteAddress;
             const userAgent = req.headers["user-agent"];
@@ -43,6 +41,51 @@ class Controller extends rootController_1.default {
                 message: "User info saved",
                 statusCode: http_status_1.default.CREATED,
                 data: null,
+            });
+        }));
+        this.getAllUserTracks = this.catchAsync((req, res) => __awaiter(this, void 0, void 0, function* () {
+            const data = yield userTract_service_1.UserTrackService.getAllUserTracks();
+            this.apiResponse(res, {
+                statusCode: http_status_1.default.OK,
+                success: true,
+                message: "All user tracks retrieved",
+                data,
+            });
+        }));
+        this.getByVisitorId = this.catchAsync((req, res) => __awaiter(this, void 0, void 0, function* () {
+            const data = yield userTract_service_1.UserTrackService.getByVisitorId(req.params.visitorId);
+            this.apiResponse(res, {
+                statusCode: http_status_1.default.OK,
+                success: true,
+                message: "All user tracks by visitor id retrieved",
+                data,
+            });
+        }));
+        this.getById = this.catchAsync((req, res) => __awaiter(this, void 0, void 0, function* () {
+            const data = yield userTract_service_1.UserTrackService.getById(req.params.id);
+            this.apiResponse(res, {
+                statusCode: http_status_1.default.OK,
+                success: true,
+                message: "Track retrieved successfully",
+                data,
+            });
+        }));
+        this.update = this.catchAsync((req, res) => __awaiter(this, void 0, void 0, function* () {
+            const data = yield userTract_service_1.UserTrackService.update(req.params.id, req.body);
+            this.apiResponse(res, {
+                statusCode: http_status_1.default.OK,
+                success: true,
+                message: "Track updated successfully",
+                data,
+            });
+        }));
+        this.remove = this.catchAsync((req, res) => __awaiter(this, void 0, void 0, function* () {
+            const data = yield userTract_service_1.UserTrackService.remove(req.params.id);
+            this.apiResponse(res, {
+                statusCode: http_status_1.default.OK,
+                success: true,
+                message: "Track deleted successfully",
+                data,
             });
         }));
     }

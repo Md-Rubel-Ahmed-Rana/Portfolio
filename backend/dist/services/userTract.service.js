@@ -17,5 +17,30 @@ class Service {
             yield userTrack_model_1.UserTrack.create(data);
         });
     }
+    getAllUserTracks() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield userTrack_model_1.UserTrack.find({});
+        });
+    }
+    getByVisitorId(visitorId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield userTrack_model_1.UserTrack.find({ visitorId });
+        });
+    }
+    getById(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield userTrack_model_1.UserTrack.findById(id);
+        });
+    }
+    update(id, updatedData) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield userTrack_model_1.UserTrack.findByIdAndUpdate(id, Object.assign({}, updatedData), { new: true });
+        });
+    }
+    remove(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield userTrack_model_1.UserTrack.findByIdAndDelete(id);
+        });
+    }
 }
 exports.UserTrackService = new Service();
