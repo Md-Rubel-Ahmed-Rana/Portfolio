@@ -19,6 +19,7 @@ const apiSlice = createApi({
     "course",
     "home",
     "skill",
+    "visitor",
   ],
   endpoints: () => ({}),
 });
