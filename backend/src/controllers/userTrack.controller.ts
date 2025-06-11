@@ -21,11 +21,8 @@ class Controller extends RootController {
     await UserTrackService.newUserTrack({
       ...req.body,
       ip,
-      location: {
-        city: data.city,
-        region: data.region,
-        country: data.country_name,
-        postal: data.postal,
+      location: `${data?.city}, ${data?.region_name}, ${data?.country_name}`,
+      locationCoordinates: {
         latitude: data.latitude,
         longitude: data.longitude,
       },

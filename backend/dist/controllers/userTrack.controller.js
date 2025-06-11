@@ -28,11 +28,7 @@ class Controller extends rootController_1.default {
             const userAgent = req.headers["user-agent"];
             const { data } = yield axios_1.default.get(`https://api.ipapi.com/${ip}?access_key=${envConfig_1.envConfig.ip.accessKey}&format=1`);
             console.log(data);
-            yield userTract_service_1.UserTrackService.newUserTrack(Object.assign(Object.assign({}, req.body), { ip, location: {
-                    city: data.city,
-                    region: data.region,
-                    country: data.country_name,
-                    postal: data.postal,
+            yield userTract_service_1.UserTrackService.newUserTrack(Object.assign(Object.assign({}, req.body), { ip, location: `${data === null || data === void 0 ? void 0 : data.city}, ${data === null || data === void 0 ? void 0 : data.region_name}, ${data === null || data === void 0 ? void 0 : data.country_name}`, locationCoordinates: {
                     latitude: data.latitude,
                     longitude: data.longitude,
                 }, userAgent }));

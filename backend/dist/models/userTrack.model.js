@@ -9,13 +9,9 @@ const schemaOptions_1 = __importDefault(require("../utils/schemaOptions"));
 const trackingSchema = new mongoose_1.Schema({
     visitorId: { type: String },
     path: { type: String },
-    timestamp: { type: Date, default: new Date() },
     ip: { type: String },
-    location: {
-        city: { type: String },
-        region: { type: String },
-        country: { type: String },
-        postal: { type: String },
+    location: { type: String },
+    locationCoordinates: {
         latitude: { type: Number },
         longitude: { type: Number },
     },
