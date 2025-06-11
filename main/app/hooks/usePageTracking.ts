@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect } from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
@@ -21,7 +23,6 @@ const usePageTracking = (path: string) => {
       const payload = {
         visitorId,
         path,
-        timestamp: new Date().toISOString(),
       };
       await axios.post(`${baseApi}/user-track`, payload);
     };

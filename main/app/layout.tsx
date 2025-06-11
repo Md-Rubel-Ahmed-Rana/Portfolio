@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import AOSWrapper from "./components/AOSWrapper";
 import { ThemeProvider } from "next-themes";
 import PageTracker from "./providers/PageTracker";
+import { Suspense } from "react";
 
 const roboto = Roboto({
   weight: "400",
@@ -29,7 +30,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${roboto.className}`}>
         <ThemeProvider attribute={"class"}>
-          <PageTracker />
+          <Suspense fallback={null}>
+            <PageTracker />
+          </Suspense>
           <AOSWrapper />
           <Navbar />
           <section>{children}</section>
