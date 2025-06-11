@@ -115,8 +115,11 @@ const VisitorTable = ({ visitors }: Props) => {
       title: "Visited Path",
       dataIndex: "path",
       key: "path",
-      render: (text) => <Tag color="geekblue">{text}</Tag>,
-      ...getColumnSearchProps("path"),
+      render: (text: string) => (
+        <Tag title={text} color="geekblue">
+          {text?.split("?")[0]}
+        </Tag>
+      ),
     },
     {
       title: "Location",
