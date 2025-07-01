@@ -14,29 +14,27 @@ const education_model_1 = require("../models/education.model");
 class Service {
     addEducation(data) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield education_model_1.Education.create(data);
+            return yield education_model_1.Education.create(data);
         });
     }
     getAllEducations() {
         return __awaiter(this, void 0, void 0, function* () {
-            const data = yield education_model_1.Education.find({});
-            return data;
+            return yield education_model_1.Education.find().sort({ start_date: -1 });
         });
     }
-    getSingleEducation(id) {
+    getEducationById(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            const data = yield education_model_1.Education.findById(id);
-            return data;
+            return yield education_model_1.Education.findById(id);
         });
     }
-    editEducation(id, data) {
+    updateEducation(id, data) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield education_model_1.Education.findByIdAndUpdate(id, { $set: Object.assign({}, data) });
+            return yield education_model_1.Education.findByIdAndUpdate(id, data, { new: true });
         });
     }
     deleteEducation(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield education_model_1.Education.findByIdAndDelete(id);
+            return yield education_model_1.Education.findByIdAndDelete(id);
         });
     }
 }

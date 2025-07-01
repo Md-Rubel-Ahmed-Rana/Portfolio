@@ -20,43 +20,70 @@ class Controller extends rootController_1.default {
     constructor() {
         super(...arguments);
         this.addEducation = this.catchAsync((req, res) => __awaiter(this, void 0, void 0, function* () {
-            yield education_service_1.EducationService.addEducation(req.body);
+            const result = yield education_service_1.EducationService.addEducation(req.body);
             this.apiResponse(res, {
                 success: true,
-                message: "Education added",
+                message: "Education added successfully",
                 statusCode: http_status_1.default.CREATED,
-                data: null,
+                data: result,
             });
         }));
-        this.getAllEducations = this.catchAsync((_req, res) => __awaiter(this, void 0, void 0, function* () {
-            const data = yield education_service_1.EducationService.getAllEducations();
+        this.getAllEducations = this.catchAsync((req, res) => __awaiter(this, void 0, void 0, function* () {
+            const result = yield education_service_1.EducationService.getAllEducations();
             this.apiResponse(res, {
                 success: true,
-                message: "Educations fetched successfully",
+                message: "Educations retrieved successfully",
                 statusCode: http_status_1.default.OK,
-                data,
+                data: result,
             });
         }));
-        this.getSingleEducation = this.catchAsync((req, res) => __awaiter(this, void 0, void 0, function* () {
-            const data = yield education_service_1.EducationService.getSingleEducation(req.params.id);
+        this.getEducationById = this.catchAsync((req, res) => __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            const result = yield education_service_1.EducationService.getEducationById(id);
+            if (!result) {
+                return this.apiResponse(res, {
+                    success: false,
+                    message: "Education not found",
+                    statusCode: http_status_1.default.NOT_FOUND,
+                    data: null,
+                });
+            }
             this.apiResponse(res, {
                 success: true,
-                message: "Education fetched successfully",
+                message: "Education retrieved successfully",
                 statusCode: http_status_1.default.OK,
-                data,
+                data: result,
             });
         }));
-        this.editEducation = this.catchAsync((req, res) => __awaiter(this, void 0, void 0, function* () {
-            yield education_service_1.EducationService.editEducation(req.params.id, req.body);
+        this.updateEducation = this.catchAsync((req, res) => __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            const result = yield education_service_1.EducationService.updateEducation(id, req.body);
+            if (!result) {
+                return this.apiResponse(res, {
+                    success: false,
+                    message: "Education not found",
+                    statusCode: http_status_1.default.NOT_FOUND,
+                    data: null,
+                });
+            }
             this.apiResponse(res, {
                 success: true,
                 message: "Education updated successfully",
                 statusCode: http_status_1.default.OK,
-                data: null,
+                data: result,
             });
         }));
         this.deleteEducation = this.catchAsync((req, res) => __awaiter(this, void 0, void 0, function* () {
-            yield education_service_1.EducationService.deleteEducation(req.params.id);
+            const { id } = req.params;
+            const result = yield education_service_1.EducationService.deleteEducation(id);
+            if (!result) {
+                return this.apiResponse(res, {
+                    success: false,
+                    message: "Education not found",
+                    statusCode: http_status_1.default.NOT_FOUND,
+                    data: null,
+                });
+            }
             this.apiResponse(res, {
                 success: true,
                 message: "Education deleted successfully",

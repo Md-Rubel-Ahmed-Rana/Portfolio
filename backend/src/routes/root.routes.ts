@@ -12,6 +12,7 @@ import { MailRoutes } from "./mail.routes";
 import { AuthRoutes } from "./auth.routes";
 import { SkillRoutes } from "./skill.routes";
 import { UserTrackRoutes } from "./userTrack.routes";
+import { EducationRoutes } from "./education.routes";
 
 const router = Router();
 
@@ -53,5 +54,8 @@ router.use("/skill", SkillRoutes);
 
 // skill endpoints
 router.use("/user-track", UserTrackRoutes);
+
+// education endpoints
+router.use("/education", EducationRoutes);
 
 export const RootRoute = router;
