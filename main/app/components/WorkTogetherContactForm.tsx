@@ -53,7 +53,10 @@ const WorkTogetherContactForm = () => {
     }
   };
   return (
-    <form onSubmit={handleSubmit(handleSendContact)}>
+    <form
+      onSubmit={handleSubmit(handleSendContact)}
+      className="max-w-2xl w-full mx-auto"
+    >
       <div className="flex mb-4">
         <div className="w-1/2 mr-2">
           <input

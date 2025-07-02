@@ -1,0 +1,2 @@
+export const aboutMeData =
+  "I'm Md Rubel Ahmed Rana, a dedicated full-stack developer with a strong foundation in both modern web technologies and traditional Islamic education. Alongside my expertise in JavaScript, TypeScript, and tools like React, Next.js, and NestJS, I’ve completed the memorization of the entire Holy Quran and pursued advanced Islamic studies including Tafsir, Fiqh, and Hadith. I value discipline, continuous learning, and meaningful work—whether in code or classical scholarship. Currently, I’m building impactful digital solutions";
