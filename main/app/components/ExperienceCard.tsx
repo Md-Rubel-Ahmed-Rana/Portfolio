@@ -17,8 +17,10 @@ const ExperienceCard = ({ experience }: Props) => {
     <Card
       title={
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-          <h2 className="text-xl font-semibold">{experience.name}</h2>
-          <div className="flex items-center gap-3 text-gray-500 text-sm">
+          <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
+            {experience.name}
+          </h2>
+          <div className="flex items-center gap-3 text-gray-600 dark:text-gray-200 text-sm">
             {experience.website && (
               <Tooltip title="Company Website">
                 <a href={experience.website} target="_blank" rel="noreferrer">
@@ -36,10 +38,11 @@ const ExperienceCard = ({ experience }: Props) => {
           </div>
         </div>
       }
-      className="rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300"
+      className="rounded-2xl border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-gray-800"
+      styles={{ header: { borderBottom: "0.5 solid #374151" } }}
     >
       <div className="space-y-2">
-        <p className="text-base font-medium text-gray-700">
+        <p className="text-base font-medium text-gray-700 dark:text-gray-200">
           {experience.designation}
         </p>
 

@@ -12,7 +12,8 @@ const CourseCard = ({ course }: Props) => {
   return (
     <Card
       hoverable
-      className="w-full rounded-2xl shadow-lg overflow-hidden dark:bg-gray-900"
+      bordered={false}
+      className="w-full rounded-2xl shadow-md overflow-hidden dark:bg-gray-800"
       cover={
         <div className="relative h-48 w-full">
           <Image

@@ -37,9 +37,6 @@ const CourseDetails = async ({ params }: { params: { id: string } }) => {
             <span className="font-semibold">Passing Year:</span>{" "}
             {data.passingYear}
           </p>
-          <p className="dark:text-gray-300">
-            <span className="font-semibold">Result:</span> {data.result}
-          </p>
           <div>
             <span className="font-semibold dark:text-gray-300">
               Course Details:

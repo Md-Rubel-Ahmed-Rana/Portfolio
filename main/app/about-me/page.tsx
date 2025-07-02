@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const AboutMePage = async () => {
   return (
-    <div className="max-w-[1440px] w-full mx-auto pb-20 lg:pt-10 pt-2 px-2 lg:px-10 flex flex-col gap-10">
+    <div className="max-w-[1440px] w-full mx-auto pb-20 lg:pt-10 pt-2 px-2 lg:px-10 flex flex-col gap-10 bg-white dark:bg-gray-800">
       <AboutMe />
       <EducationalBackground />
     </div>

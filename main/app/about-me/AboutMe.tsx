@@ -9,7 +9,10 @@ const AboutMe = async () => {
   const { name, bannerImage, position, aboutMe = "" } = data || {};
 
   return (
-    <Card className="shadow-md rounded-xl">
+    <Card
+      bordered={false}
+      className="shadow-md rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800"
+    >
       <div className="flex flex-col md:flex-row gap-6">
         <div className="w-full md:w-1/3">
           <img
@@ -20,11 +23,13 @@ const AboutMe = async () => {
         </div>
 
         <div className="w-full md:w-2/3">
-          <h1 className="text-2xl md:text-3xl mb-2 font-bold">{name}</h1>
+          <h1 className="text-2xl md:text-3xl mb-2 font-bold text-gray-800 dark:text-gray-200">
+            {name}
+          </h1>
           <h2 className="text-blue-600 mb-4 text-lg font-semibold">
             {position}
           </h2>
-          <p className="!text-gray-700 text-lg font-serif whitespace-pre-line">
+          <p className="text-gray-700 dark:text-gray-300 text-lg font-serif  whitespace-pre-line">
             {aboutMe || aboutMeData}
           </p>
         </div>
