@@ -5,6 +5,6 @@ Welcome to my portfolio project! This repository is organized into three main pr
 
 ## Branches
 
-| [`Main Portfolio`](https://github.com/Md-Rubel-Ahmed-Rana/Portfolio/tree/portfolio-main-prod) | **Main Public Website**
-| [`Dashboard`](https://github.com/Md-Rubel-Ahmed-Rana/Portfolio/tree/dashboard-prod)           | **Admin Dashboard (CMS)**
-| [`Backend`](https://github.com/Md-Rubel-Ahmed-Rana/Portfolio/tree/backend-prod)               | **Backend API**                
+**Main Public Website**: [`Main Portfolio`](https://github.com/Md-Rubel-Ahmed-Rana/Portfolio/tree/portfolio-main-prod) 
+**Admin Dashboard (CMS)**: [`Dashboard`](https://github.com/Md-Rubel-Ahmed-Rana/Portfolio/tree/dashboard-prod)  
+**Backend API**: [`Backend`](https://github.com/Md-Rubel-Ahmed-Rana/Portfolio/tree/backend-prod)         
