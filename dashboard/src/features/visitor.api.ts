@@ -8,7 +8,14 @@ const visitorApi = apiSlice.injectEndpoints({
       }),
       providesTags: ["visitor"],
     }),
+    deleteVisitor: builder.mutation({
+      query: ({ id }: { id: string }) => ({
+        url: `/user-track/delete/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["visitor"],
+    }),
   }),
 });
 
-export const { useGetVisitorUsersQuery } = visitorApi;
+export const { useGetVisitorUsersQuery, useDeleteVisitorMutation } = visitorApi;

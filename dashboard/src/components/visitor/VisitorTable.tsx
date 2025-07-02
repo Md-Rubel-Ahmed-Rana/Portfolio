@@ -6,6 +6,7 @@ import type { ColumnType, ColumnsType } from "antd/es/table";
 import type { FilterDropdownProps } from "antd/es/table/interface";
 import { Button, Input, Space, Table, Tag } from "antd/lib";
 import { useRef, useState } from "react";
+import DeleteVisitItem from "./DeleteVisitItem";
 
 type Props = {
   visitors: IVisitor[];
@@ -133,6 +134,12 @@ const VisitorTable = ({ visitors }: Props) => {
       dataIndex: "createdAt",
       key: "createdAt",
       render: (date: string) => new Date(date).toLocaleString(),
+    },
+    {
+      title: "Actions",
+      dataIndex: "id",
+      key: "id",
+      render: (id: string) => <DeleteVisitItem id={id} />,
     },
   ];
 
