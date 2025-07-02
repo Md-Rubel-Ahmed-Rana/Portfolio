@@ -22,7 +22,7 @@ export async function generateMetadata() {
 export default async function Projects() {
   const projects = (await getProjectData()) || [];
   return (
-    <section className="dark:bg-gray-800 bg-gray-50">
+    <section className="dark:bg-gray-800 bg-white">
       <div className="max-w-[1440px] w-full mx-auto pb-20 pt-10 px-5 flex flex-col gap-10">
         <div>
           <h3 className="font-semibold dark:text-gray-200 text-4xl text-center text-transparent bg-gradient-to-l to-[#9272d3] from-[#2a1454] bg-clip-text">

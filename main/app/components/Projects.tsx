@@ -30,8 +30,6 @@ export default async function Projects() {
               project;
             return (
               <div
-                data-aos="fade-up"
-                data-aos-duration="1000"
                 className="border shadow-lg w-full h-80 rounded-lg relative group overflow-hidden "
                 key={id}
               >

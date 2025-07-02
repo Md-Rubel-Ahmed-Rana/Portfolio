@@ -6,7 +6,7 @@ import MyFeedbackModal from "./MyFeedbackModal";
 const Feedback = async () => {
   const feedbacks = await getFeedbackData();
   return (
-    <section className="dark:bg-gray-800 bg-gray-100">
+    <section className="dark:bg-gray-800 bg-white">
       <div className="max-w-[1440px] w-full mx-auto py-20 lg:px-10 px-5">
         <div className="flex lg:flex-row flex-col justify-center items-center lg:gap-20 gap-10">
           <div className="lg:w-2/5 flex flex-col gap-4">

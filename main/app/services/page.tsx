@@ -18,7 +18,7 @@ export async function generateMetadata() {
 const Services = async () => {
   const services = (await getServiceData()) || [];
   return (
-    <section className="dark:bg-gray-800 bg-gray-50">
+    <section className="dark:bg-gray-800 bg-white">
       <div className="max-w-[1440px] w-full mx-auto pb-20 pt-10 px-5 flex flex-col gap-10 ">
         <div>
           <h3 className="font-semibold text-4xl dark:text-gray-200 text-center text-transparent bg-gradient-to-l to-[#8750f7] from-[#2a1454] bg-clip-text">
@@ -32,8 +32,6 @@ const Services = async () => {
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1  gap-3">
           {services?.map((service) => (
             <div
-              data-aos="zoom-in-up"
-              data-aos-duration="3000"
               className="border dark:border-transparent dark:bg-gray-700 bg-gray-100 p-5 shadow-md rounded-md  relative"
               key={service.id}
             >

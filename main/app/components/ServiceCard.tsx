@@ -17,8 +17,6 @@ const ServiceCard = ({ service }: Props) => {
 
   return (
     <Card
-      data-aos="zoom-in-up"
-      data-aos-duration="3000"
       key={service?.id}
       hoverable
       cover={

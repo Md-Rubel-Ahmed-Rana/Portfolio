@@ -7,7 +7,7 @@ const WorkTogether = async () => {
   const data = await getHomeData();
   const { email, phoneNumber, address, addressMapLocation } = data || {};
   return (
-    <div className=" dark:bg-gray-800 bg-gray-100">
+    <div className=" dark:bg-gray-800 bg-white">
       <div className="max-w-[1440px] w-full mx-auto py-20 lg:px-10 px-5">
         <div className="flex justify-between lg:flex-row flex-col gap-20 items-center">
           <div className="w-full dark:bg-gray-800 bg-white lg:p-10 p-5 rounded-2xl">

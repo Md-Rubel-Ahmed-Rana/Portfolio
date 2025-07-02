@@ -5,7 +5,7 @@ import ServiceCard from "./ServiceCard";
 export default async function Services() {
   const services = ((await getServiceData()) || []) as IService[];
   return (
-    <section className="dark:bg-gray-800 bg-gray-100 dark:text-gray-300">
+    <section className="dark:bg-gray-800 bg-white dark:text-gray-300">
       <div className="max-w-[1440px] w-full mx-auto py-20 px-5 flex flex-col gap-10 ">
         <div>
           <h3 className="font-semibold lg:text-4xl dark:text-gray-300 text-2xl text-center text-transparent bg-gradient-to-l to-[#8750f7] from-[#2a1454] bg-clip-text">

@@ -6,6 +6,14 @@ const nextConfig = {
         protocol: "https",
         hostname: "i.ibb.co",
       },
+      {
+        protocol: "https",
+        hostname: "supabase.co",
+      },
+      {
+        protocol: "https",
+        hostname: "ozdfjxhqdgcddulnrscf.supabase.co",
+      },
     ],
   },
 };
