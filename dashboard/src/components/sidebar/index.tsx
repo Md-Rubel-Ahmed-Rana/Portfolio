@@ -1,4 +1,3 @@
-import { useGetLoggedInUserQuery } from "@/features/auth.api";
 import {
   AppstoreOutlined,
   BookOutlined,
@@ -11,6 +10,7 @@ import {
   MessageOutlined,
   ProjectOutlined,
   ReadOutlined,
+  SolutionOutlined,
   UserAddOutlined,
 } from "@ant-design/icons";
 import { Layout, Menu } from "antd/lib";
@@ -71,6 +71,11 @@ const items = [
     label: <Link href="/blogs">Blogs</Link>,
   },
   {
+    key: "educations",
+    icon: <SolutionOutlined />,
+    label: <Link href="/educations">Educations</Link>,
+  },
+  {
     key: "comments",
     icon: <CommentOutlined />,
     label: <Link href="/comments">Comments</Link>,
@@ -82,28 +87,30 @@ const items = [
   },
 ];
 
-const AdminSidebar = () => {
-  const { data: userData } = useGetLoggedInUserQuery({});
-  const user = userData?.data;
+type Props = {
+  collapsed: boolean;
+};
 
+const AdminSidebar = ({ collapsed }: Props) => {
   return (
     <Sider
-      breakpoint="lg"
-      collapsedWidth="0"
-      className="min-h-screen shadow-md"
-      style={{ backgroundColor: "#ffffff" }}
+      style={{
+        overflow: "auto",
+        height: "100vh",
+        position: "sticky",
+        insetInlineStart: 0,
+        top: 0,
+        bottom: 0,
+        scrollbarWidth: "thin",
+        scrollbarGutter: "stable",
+        backgroundColor: "white",
+      }}
+      trigger={null}
+      collapsible
+      collapsed={collapsed}
+      className="bg-white"
     >
-      <div className="h-16 flex flex-col items-center justify-center text-xl text-black font-bold border-b">
-        <h2 className="text-lg font-semibold">{user?.name}</h2>
-        <h6 className="text-sm text-gray-500">[{user?.role}]</h6>
-      </div>
-      <Menu
-        theme="light"
-        mode="inline"
-        defaultSelectedKeys={["home"]}
-        items={items}
-        className="text-base"
-      />
+      <Menu theme="light" mode="inline" items={items} />
     </Sider>
   );
 };

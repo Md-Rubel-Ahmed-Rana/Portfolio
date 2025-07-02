@@ -1,7 +1,11 @@
-import Sidebar from "@/components/sidebar";
+import AdminSidebar from "@/components/sidebar";
 import { useGetLoggedInUserQuery } from "@/features/auth.api";
-import { Typography } from "antd/lib";
-import React, { Suspense } from "react";
+import { Layout, Typography } from "antd/lib";
+
+import React, { Suspense, useState } from "react";
+import DashboardHeader from "./DashboardHeader";
+
+const { Content } = Layout;
 
 type Props = {
   children: React.ReactNode;
@@ -11,6 +15,7 @@ type Props = {
 const RootLayout = ({ children, maxWidth = "1400px" }: Props) => {
   const { data: userData } = useGetLoggedInUserQuery({});
   const user = userData?.data;
+  const [collapsed, setCollapsed] = useState(false);
   return (
     <Suspense
       fallback={
@@ -19,15 +24,19 @@ const RootLayout = ({ children, maxWidth = "1400px" }: Props) => {
         </div>
       }
     >
-      <div className="flex min-h-screen bg-gray-50">
-        {user?.email && <Sidebar />}
-
-        <div className="flex flex-col flex-1">
-          <main className={`w-full max-w-[${maxWidth}] mx-auto flex-1`}>
-            {children}
-          </main>
-        </div>
-      </div>
+      <Layout hasSider>
+        {user?.name && <AdminSidebar collapsed={collapsed} />}
+        <Layout>
+          <DashboardHeader collapsed={collapsed} setCollapsed={setCollapsed} />
+          <Content style={{ margin: 0, padding: 0, overflow: "initial" }}>
+            <div className="flex flex-col flex-1">
+              <main className={`w-full max-w-[${maxWidth}] mx-auto flex-1`}>
+                {children}
+              </main>
+            </div>
+          </Content>
+        </Layout>
+      </Layout>
     </Suspense>
   );
 };
