@@ -20,6 +20,7 @@ const apiSlice = createApi({
     "home",
     "skill",
     "visitor",
+    "education",
   ],
   endpoints: () => ({}),
 });

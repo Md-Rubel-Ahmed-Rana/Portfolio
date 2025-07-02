@@ -15,7 +15,8 @@ type Props = {
     | "skill"
     | "feedback"
     | "blog"
-    | "comment";
+    | "comment"
+    | "education";
   useReduxMutation: any;
   isButton?: boolean;
   buttonSize?: "large" | "middle" | "small";

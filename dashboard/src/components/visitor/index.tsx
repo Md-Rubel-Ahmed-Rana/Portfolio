@@ -9,7 +9,7 @@ const Visitors = () => {
   const visitors = (data?.data || []) as IVisitor[];
 
   return (
-    <div className="p-4">
+    <div>
       <Card title="Website Visitors" bordered className="shadow-md">
         {isLoading ? (
           <div className="flex justify-center items-center min-h-[200px]">
