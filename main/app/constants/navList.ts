@@ -4,19 +4,19 @@ export const navList = [
     path: "/",
   },
   {
-    label: "Services",
-    path: "/services",
-  },
-  {
     label: "Projects",
     path: "/projects",
+  },
+  {
+    label: "Services",
+    path: "/services",
   },
   {
     label: "Blogs",
     path: "/blogs",
   },
   {
-    label: "Feedback",
-    path: "/post-feedback",
+    label: "About Me",
+    path: "/about-me",
   },
 ];

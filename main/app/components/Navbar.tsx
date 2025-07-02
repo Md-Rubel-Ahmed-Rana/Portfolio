@@ -61,7 +61,7 @@ const Navbar = () => {
             <Link className="" href={"/"}>
               <img
                 title="Logo"
-                className="lg:w-16 lg:h-16 w-14 h-14 rounded-full"
+                className="lg:w-12 lg:h-12 w-10 h-10 rounded-full"
                 src={logo}
                 alt="Logo"
               />
@@ -103,7 +103,7 @@ const Navbar = () => {
                       onClick={handleClose}
                       title={nav.label}
                       key={nav.label}
-                      className={style.navList}
+                      className="text-sm font-sans"
                     >
                       <Link href={nav.path}>{nav.label}</Link>
                     </li>
@@ -119,7 +119,7 @@ const Navbar = () => {
               <li
                 title={nav.label}
                 key={nav.label}
-                className={`${style.navList} dark:text-gray-200`}
+                className={`${style.navList} dark:text-gray-200 text-[15px]`}
               >
                 <Link href={nav.path}>{nav.label}</Link>
               </li>
@@ -127,7 +127,7 @@ const Navbar = () => {
             <ThemeSwitcher />
             <li title="Hire me actionable button">
               <Link href={"/hire-me"}>
-                <button className="bg-gradient-to-l ml-3 from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white px-10 py-3 rounded-full">
+                <button className="bg-gradient-to-l from-purple-800 to-blue-500 hover:to-purple-800 hover:from-blue-500  text-white px-5 py-2 rounded-full">
                   Hire Me!
                 </button>
               </Link>
